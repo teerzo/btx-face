@@ -15,13 +15,13 @@ import './css/main.scss';
 let app = {
     modelList: null,
     textureList: null,
-    
+
     meshList: [],
     objectList: [],
 
 
     resizeEnd: null,
-    
+
 
     menuToggle: false,
 
@@ -42,9 +42,9 @@ const initialize = function () {
 
     feather.replace({ class: '', width: '30', height: '30', color: '#333333' });
 
-    axios.get('./data/models.json').then(function(response) {
+    axios.get('./data/models.json').then(function (response) {
         // console.log(response);
-        if( response.data ) {
+        if (response.data) {
             app.modelList = response.data.modelList;
             app.textureList = response.data.textureList;
 
@@ -63,9 +63,17 @@ const initialize = function () {
 const initEventListeners = function () {
     window.addEventListener('resize', onResize);
     window.addEventListener('resize-end', onResizeEnd);
-    
+
+    let btnReset = document.getElementById('btn-reset');
     let btnMenuOff = document.getElementById('btn-menu-off');
     let btnMenuOn = document.getElementById('btn-menu-on');
+
+    btnReset.onclick = (event) => {
+        event.preventDefault();
+        resizeThree();
+        return false;
+    }
+
     btnMenuOff.onclick = (event) => {
         event.preventDefault();
         onToggleMenu(event);
@@ -78,7 +86,7 @@ const initEventListeners = function () {
     }
 };
 
-const initDom = function() {
+const initDom = function () {
     let menuOff = document.getElementById('btn-menu-off');
     let menuOn = document.getElementById('btn-menu-on');
 
@@ -90,7 +98,7 @@ const initDom = function() {
 
 // DOM EVENTS
 
-const onToggleMenu = function(event) {
+const onToggleMenu = function (event) {
     console.log('onToggleMenu', event);
 
     let menuOff = document.getElementById('btn-menu-off');
@@ -98,7 +106,7 @@ const onToggleMenu = function(event) {
 
     let navItems = document.getElementById('nav-items');
 
-    if( !app.menuToggle ) {
+    if (!app.menuToggle) {
         menuOff.classList.remove('active');
         menuOff.classList.add('inactive');
 
@@ -136,9 +144,9 @@ const onResizeEnd = function (event) {
     resizeThree(event);
 }
 
-const resizeThree = function(event) {
+const resizeThree = function (event) {
     let width = window.innerWidth - 20;
-     let height = ( window.innerWidth <= 768 ? window.innerHeight - 60 : window.innerHeight - 60 );
+    let height = (window.innerWidth <= 768 ? window.innerHeight - 60 : window.innerHeight - 60);
 
     // app.scene = new THREE.Scene();
     app.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
@@ -160,7 +168,7 @@ const resizeThree = function(event) {
 
 const initThree = function () {
     let width = window.innerWidth - 20;
-    let height = ( window.innerWidth <= 768 ? window.innerHeight - 60 : window.innerHeight - 60 );
+    let height = (window.innerWidth <= 768 ? window.innerHeight - 60 : window.innerHeight - 60);
 
     app.scene = new THREE.Scene();
     app.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
@@ -168,7 +176,7 @@ const initThree = function () {
 
     app.renderer = new THREE.WebGLRenderer();
     app.renderer.antialias = true;
-    app.renderer.setSize(width,height);
+    app.renderer.setSize(width, height);
 
     app.controls = new OrbitControls(app.camera, app.renderer.domElement)
     app.controls.enableDamping = true
@@ -179,71 +187,71 @@ const initThree = function () {
     app.domRoot.appendChild(app.renderer.domElement);
 };
 
-const initScene = function() {
-    var light = new THREE.AmbientLight( 0x404040 ); // soft white light
-    app.scene.add( light );
+const initScene = function () {
+    var light = new THREE.AmbientLight(0x404040); // soft white light
+    app.scene.add(light);
 
-    var spotLight = new THREE.SpotLight( 0xffffff, 1, 100, 10);
-    spotLight.position.set( 0, 5, 50 );
-    app.scene.add( spotLight );
+    var spotLight = new THREE.SpotLight(0xffffff, 1, 100, 10);
+    spotLight.position.set(0, 5, 50);
+    app.scene.add(spotLight);
 
     // var spotLightHelper = new THREE.SpotLightHelper( spotLight );
     // app.scene.add( spotLightHelper );
 
-    let lightUpdate = function() {
-        var t = ( Date.now() / 2000 );
+    let lightUpdate = function () {
+        var t = (Date.now() / 2000);
         // move light in circle around center
         // change light height with sine curve
 
         var r = 10.0;
 
-        var lx = r * Math.cos( t );
-        var lz = r * Math.sin( t );
+        var lx = r * Math.cos(t);
+        var lz = r * Math.sin(t);
 
-        var ly = 5.0 + 5.0 * Math.sin( t / 3.0 );
+        var ly = 5.0 + 5.0 * Math.sin(t / 3.0);
 
-        this.position.set( lx, ly, lz );
-        this.lookAt( new THREE.Vector3(0,0,0) );
+        this.position.set(lx, ly, lz);
+        this.lookAt(new THREE.Vector3(0, 0, 0));
     };
     // spotLight.update = lightUpdate;
-    
-    
+
+
 }
 
-const initObjects = function() {
+const initObjects = function () {
     let geometry = new THREE.BoxGeometry(1, 1, 1);
-    let material = new THREE.MeshPhongMaterial({ color: 0xFF0000, flatShading: true, wireframe: false, visible: false});
+    let material = new THREE.MeshPhongMaterial({ color: 0xFF0000, flatShading: true, wireframe: false, visible: false });
     let cube = new THREE.Mesh(geometry, material);
     cube.scale.x = 2;
     cube.scale.y = 2;
     cube.scale.z = 2;
-    cube.update = function(dt) {
+    cube.update = function (dt) {
         // this.rotation.x += 0.01;
         // this.rotation.y += 0.01;
-        var t = ( Date.now() / 1000 );
+        var t = (Date.now() / 1000);
         // move light in circle around center
         // change light height with sine curve
 
         var r = 10.0;
 
-        var lx = r * Math.cos( t );
-        var lz = r * Math.sin( t );
+        var lx = r * Math.cos(t);
+        var lz = r * Math.sin(t);
 
         // var ly = 5.0 + 5.0 * Math.sin( t / 3.0 );
         var ly = 0;
 
-        this.position.set( lx, ly, lz );
-        this.lookAt( app.camera.position);
+        this.position.set(lx, ly, lz);
+        this.lookAt(app.camera.position);
     }
     app.scene.add(cube);
 
     var loader = new THREE.FontLoader();
     // console.log('loader start');
-    
-    loader.load( './fonts/helvetiker_regular.typeface.json', function ( font ) {
+
+    loader.load('./fonts/helvetiker_regular.typeface.json', function (font) {
         // console.log('loader finished');
         // console.log('font', font);
-        var geometry = new THREE.TextGeometry( 'Teerzo', {
+        var geometry = new THREE.TextGeometry('Teerzo', {
             font: font,
             size: 80,
             height: 1,
@@ -252,11 +260,11 @@ const initObjects = function() {
             bevelThickness: 10,
             bevelSize: 0,
             bevelSegments: 5
-        } );
+        });
 
         // new THREE.MeshPhongMaterial({ color: 0x00ff00, flatShading: true, wireframe: false});
-        var material = new THREE.MeshPhongMaterial({ color: 0x00ff00, flatShading: true, wireframe: false});
-        var mesh = new THREE.Mesh( geometry, material ) ;
+        var material = new THREE.MeshPhongMaterial({ color: 0x00ff00, flatShading: true, wireframe: false });
+        var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = -9;
         mesh.position.y = 0;
         mesh.position.z = 0;
@@ -268,25 +276,25 @@ const initObjects = function() {
 
         // mesh.add(cube);
 
-        mesh.update = function( ) {
+        mesh.update = function () {
             // console.log('updating text geo');
-            var t = ( Date.now() / 1000 );
+            var t = (Date.now() / 1000);
             // move light in circle around center
             // change light height with sine curve
 
             var r = 10.0;
 
-            var lx = r * Math.cos( t );
-            var lz = r * Math.sin( t );
+            var lx = r * Math.cos(t);
+            var lz = r * Math.sin(t);
 
-            var ly = 5.0 + 5.0 * Math.sin( t / 3.0 );
+            var ly = 5.0 + 5.0 * Math.sin(t / 3.0);
 
-            this.position.set( lx, ly, lz );
-            this.lookAt( app.camera.position);
+            this.position.set(lx, ly, lz);
+            this.lookAt(app.camera.position);
         }
 
         cube.add(mesh);
-    } );
+    });
 
     // if( font ) {
     //     let geometry = new THREE.TextGeometry( 'Hello three.js!', {
@@ -303,12 +311,12 @@ const initObjects = function() {
     // }
 }
 
-const initFace = function() {
+const initFace = function () {
     console.log('initFace');
 
-    if( app.OBJLoader ) {
+    if (app.OBJLoader) {
 
-        let meshCallback = function(index, mesh) {
+        let meshCallback = function (index, mesh) {
             // console.log('meshCallback', index, mesh);
 
             // console.log(app.modelList[index]);
@@ -320,28 +328,28 @@ const initFace = function() {
             app.meshList.push(data);
 
             // console.log('length', app.meshList.length, app.modelList.length);
-            if( app.meshList.length === app.modelList.length ) {
+            if (app.meshList.length === app.modelList.length) {
                 initFaceObjects();
             }
         }
 
         let meshes = [];
-        for( let i in app.modelList ) {
+        for (let i in app.modelList) {
             // console.log(app.modelList[i]);
-            app.OBJLoader.load('./obj/'+ app.modelList[i].fileName + '.' +app.modelList[i].fileType, function(item) {
+            app.OBJLoader.load('./obj/' + app.modelList[i].fileName + '.' + app.modelList[i].fileType, function (item) {
                 // console.log(item);
-                meshCallback(i, item) 
+                meshCallback(i, item)
             });
         }
     }
 }
 
-const initFaceObjects = function() {
+const initFaceObjects = function () {
     console.log('initFaceObjects');
 
     // console.log(app.meshList);
-    if( app.meshList && app.meshList.length > 0 ) {
-        for( let i in app.meshList ) {  
+    if (app.meshList && app.meshList.length > 0) {
+        for (let i in app.meshList) {
 
             console.log(app.meshList[i]);
             let objProps = {
@@ -358,14 +366,14 @@ const initFaceObjects = function() {
 
 }
 
-const initLoop = function() {
+const initLoop = function () {
 
 };
 
-const createObject = function(props) {
+const createObject = function (props) {
     console.log('createObject', props);
-    if (props === undefined){ props = {}; }
-    if( props.name && props.name !== '' && props.mesh ) {
+    if (props === undefined) { props = {}; }
+    if (props.name && props.name !== '' && props.mesh) {
         let data = {};
 
         // let meshObj = props.mesh.clone();
@@ -373,12 +381,12 @@ const createObject = function(props) {
 
         let obj = props.mesh.clone();
         let mesh = obj.children[0];
-        let material = new THREE.MeshPhongMaterial({color:0xFF0000});
+        let material = new THREE.MeshPhongMaterial({ color: 0xFF0000 });
 
         obj.name = props.name;
-        
+
         mesh.material = material;
-        
+
         data.object = obj;
         data.object.children.push(mesh);
 
@@ -391,34 +399,35 @@ const createObject = function(props) {
     else {
         return null;
     }
-}   
+}
 
-const updateScene = function() {
+const updateScene = function () {
     console.log('updateScene');
 
     // console.log(app.objectList);
+    if (app.scene) {
+        if (app.objectList && app.objectList.length > 0) {
+            for (let i in app.objectList) {
+                console.log(app.objectList[i]);
+                // debugger;
 
-    if( app.objectList && app.objectList.length > 0 ) {
-        for( let i in app.objectList ) {
-            console.log(app.objectList[i]);
-            // debugger;
-
-            app.scene.add( app.objectList[i].object );
+                app.scene.add(app.objectList[i].object);
+            }
         }
     }
 };
 
 
-const loop = function() {
+const loop = function () {
     let dt = 0.1;
     // console.log('loop');
     requestAnimationFrame(loop);
-    if( app.scene ) {
+    if (app.scene) {
         // console.log(app.scene.children);
-        if( app.scene.children && app.scene.children.length > 0 ) {
-            for( var i = 0; i < app.scene.children.length; i++ ) {
+        if (app.scene.children && app.scene.children.length > 0) {
+            for (var i = 0; i < app.scene.children.length; i++) {
                 const child = app.scene.children[i];
-                if( child.update ) {
+                if (child.update) {
                     child.update(dt);
                 }
             }
