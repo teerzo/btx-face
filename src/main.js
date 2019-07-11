@@ -1,26 +1,33 @@
-console.log('test');
-
 // npm
-import * as THREE from 'three';
-const feather = require('feather-icons')
+// import * as THREE from 'three';
+const THREE = require('three');
+const OBJLoader = require('three-obj-loader');
+const OrbitControls = require('three-orbitcontrols')
+
+const feather = require('feather-icons');
+const axios = require('axios');
+
+OBJLoader(THREE);
 
 // css
 import './css/main.scss';
 
-// font 
-// import font from './fonts/helvetiker_regular.typeface.js';
-
 let app = {
-
+    modelList: null,
+    textureList: null,
     
+    meshList: [],
+    objectList: [],
+
 
     resizeEnd: null,
     
 
     menuToggle: false,
 
-    // scene: new THREE.Scene(),
-    // camera: new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+
+    // Loaders
+    OBJLoader: new THREE.OBJLoader(),
 };
 
 
@@ -31,10 +38,19 @@ let app = {
 
 
 const initialize = function () {
+    // console.log(typeof THREE.OBJLoader);
 
-    // feather.icons.menu.toSvg({ class: 'foo bar', width: '30', height: '30', color: 'red' });
-    // feather.icons.x.toSvg();
-    feather.replace({ class: 'foo bar', width: '30', height: '30', color: '#333333' });
+    feather.replace({ class: '', width: '30', height: '30', color: '#333333' });
+
+    axios.get('./data/models.json').then(function(response) {
+        // console.log(response);
+        if( response.data ) {
+            app.modelList = response.data.modelList;
+            app.textureList = response.data.textureList;
+
+            initFace();
+        }
+    })
 
     initEventListeners();
     initDom();
@@ -122,7 +138,7 @@ const onResizeEnd = function (event) {
 
 const resizeThree = function(event) {
     let width = window.innerWidth - 20;
-     let height = ( window.innerWidth <= 768 ? window.innerHeight - 70 : window.innerHeight - 70 );
+     let height = ( window.innerWidth <= 768 ? window.innerHeight - 60 : window.innerHeight - 60 );
 
     // app.scene = new THREE.Scene();
     app.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
@@ -131,6 +147,12 @@ const resizeThree = function(event) {
     // app.renderer.antialias = true;
     app.renderer.setSize(width, height);
 
+    app.controls = new OrbitControls(app.camera, app.renderer.domElement)
+    app.controls.enableDamping = true
+    app.controls.dampingFactor = 0.25
+    app.controls.enableZoom = true
+
+
     app.domRoot = document.getElementById('container');
     app.domRoot.innerHTML = '';
     app.domRoot.appendChild(app.renderer.domElement);
@@ -138,7 +160,7 @@ const resizeThree = function(event) {
 
 const initThree = function () {
     let width = window.innerWidth - 20;
-    let height = ( window.innerWidth <= 768 ? window.innerHeight - 70 : window.innerHeight - 70 );
+    let height = ( window.innerWidth <= 768 ? window.innerHeight - 60 : window.innerHeight - 60 );
 
     app.scene = new THREE.Scene();
     app.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
@@ -147,6 +169,11 @@ const initThree = function () {
     app.renderer = new THREE.WebGLRenderer();
     app.renderer.antialias = true;
     app.renderer.setSize(width,height);
+
+    app.controls = new OrbitControls(app.camera, app.renderer.domElement)
+    app.controls.enableDamping = true
+    app.controls.dampingFactor = 0.25
+    app.controls.enableZoom = true
 
     app.domRoot = document.getElementById('container');
     app.domRoot.appendChild(app.renderer.domElement);
@@ -211,11 +238,11 @@ const initObjects = function() {
     app.scene.add(cube);
 
     var loader = new THREE.FontLoader();
-    console.log('loader start');
+    // console.log('loader start');
     
     loader.load( './fonts/helvetiker_regular.typeface.json', function ( font ) {
-        console.log('loader finished');
-        console.log('font', font);
+        // console.log('loader finished');
+        // console.log('font', font);
         var geometry = new THREE.TextGeometry( 'Teerzo', {
             font: font,
             size: 80,
@@ -276,10 +303,111 @@ const initObjects = function() {
     // }
 }
 
+const initFace = function() {
+    console.log('initFace');
+
+    if( app.OBJLoader ) {
+
+        let meshCallback = function(index, mesh) {
+            // console.log('meshCallback', index, mesh);
+
+            // console.log(app.modelList[index]);
+            let data = {
+                name: app.modelList[index].displayName,
+                mesh: mesh,
+            }
+
+            app.meshList.push(data);
+
+            // console.log('length', app.meshList.length, app.modelList.length);
+            if( app.meshList.length === app.modelList.length ) {
+                initFaceObjects();
+            }
+        }
+
+        let meshes = [];
+        for( let i in app.modelList ) {
+            // console.log(app.modelList[i]);
+            app.OBJLoader.load('./obj/'+ app.modelList[i].fileName + '.' +app.modelList[i].fileType, function(item) {
+                // console.log(item);
+                meshCallback(i, item) 
+            });
+        }
+    }
+}
+
+const initFaceObjects = function() {
+    console.log('initFaceObjects');
+
+    // console.log(app.meshList);
+    if( app.meshList && app.meshList.length > 0 ) {
+        for( let i in app.meshList ) {  
+
+            console.log(app.meshList[i]);
+            let objProps = {
+                name: app.meshList[i].name,
+                mesh: app.meshList[i].mesh,
+            }
+
+            let obj = createObject(objProps);
+            app.objectList.push(obj);
+
+        }
+        updateScene();
+    }
+
+}
 
 const initLoop = function() {
 
 };
+
+const createObject = function(props) {
+    console.log('createObject', props);
+    if (props === undefined){ props = {}; }
+    if( props.name && props.name !== '' && props.mesh ) {
+        let data = {};
+
+        // let meshObj = props.mesh.clone();
+        // let obj = new THREE.Object3D();
+
+        let obj = props.mesh.clone();
+        let mesh = obj.children[0];
+        let material = new THREE.MeshPhongMaterial({color:0xFF0000});
+
+        obj.name = props.name;
+        
+        mesh.material = material;
+        
+        data.object = obj;
+        data.object.children.push(mesh);
+
+        data.mesh = mesh;
+        data.material = material;
+
+
+        return data;
+    }
+    else {
+        return null;
+    }
+}   
+
+const updateScene = function() {
+    console.log('updateScene');
+
+    // console.log(app.objectList);
+
+    if( app.objectList && app.objectList.length > 0 ) {
+        for( let i in app.objectList ) {
+            console.log(app.objectList[i]);
+            // debugger;
+
+            app.scene.add( app.objectList[i].object );
+        }
+    }
+};
+
 
 const loop = function() {
     let dt = 0.1;

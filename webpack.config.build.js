@@ -26,7 +26,9 @@ module.exports = {
     new CopyWebpackPlugin([
       {from:'src/fonts',to:'fonts'},
       // {from:'src/images/muscles',to:'images/muscles'},
-      // {from:'src/data',to:'data'}
+      {from:'src/data',to:'data'},
+      {from:'src/obj',to:'obj'},
+      {from:'src/tex',to:'tex'},
     ]), 
     new ZipPlugin({
       filename: projectName + '.zip',
