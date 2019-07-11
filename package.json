@@ -41,6 +41,7 @@
     "zip-webpack-plugin": "^3.0.0"
   },
   "dependencies": {
+    "feather-icons": "^4.22.1",
     "three": "^0.106.2"
   }
 }

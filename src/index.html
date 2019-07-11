@@ -8,16 +8,28 @@
 <body>
     <div id="root">
         <div id="nav" class="nav">
-            <select class="select">
-                <option> Please select... </option>
-            </select>
-            <select class="select">
-                <option> Please select... </option>
-            </select>
-            <div class="btn-reset"> Reset </div>
-            <div class="check-move"> <input id="chkMoveMuscles" type="checkbox" /> <label for="chkMoveMuscles" class="label"> Move muscles </label> </div> 
+            <div id="btn-menu" class="btn-menu">
+                <div id="btn-menu-off" class="menu-icon">
+                    <i data-feather="menu"></i>
+                </div>
+                <div id="btn-menu-on" class="menu-icon">
+                    <i data-feather="x"></i>
+                </div>
+            </div>
 
-
+            <div id="nav-items" class="nav-items">
+                <select class="select">
+                    <option> Please select... </option>
+                </select>
+                <select class="select">
+                    <option> Please select... </option>
+                </select>
+                <div class="btn-reset"> Reset </div>
+                <div class="check-move">
+                    <input id="chkMoveMuscles" type="checkbox" />
+                    <label for="chkMoveMuscles" class="label"> Move muscles </label>
+                </div>
+            </div>
         </div>
         <div id="container" class="container">
 

@@ -26,90 +26,133 @@ html, body {
         top: 0px;
         right: 0px;
         left: 0px;
-        height: 40px;
+        // height: 30px;
 
         background-color: #FFFFFF;
+        // opacity: 0.9;
 
         padding: 10px;
 
-        .select {
-            display: inline-block;
-            width: 200px;
-            height: 40px;
+        .btn-menu {
+            display: none;
+        }
 
-            border-width: 1px;
-            border-radius: 0px;
-
-            margin-right: 5px;
-        }   
-
-        .check-move {
-            display: inline-block;
-            // width: 
-            height: 28px;
-
-            vertical-align: top;
-
-            float: right;
-            padding: 10px 10px 0px 10px;
-
-            border-color: #a9a9a9;
-            border-width: 1px;
-            border-style: solid;
-            border-radius: 0px;
-
-            margin-left: 10px;
-
-            input {
-                
+        .nav-items {
+            .select {
+                display: inline-block;
+                width: 200px;
+                height: 40px;
+    
                 border-width: 1px;
                 border-radius: 0px;
-            }
-            .label {
-                user-select: none;
+    
+                margin-right: 5px;
+            }   
+    
+            .check-move {
+                display: inline-block;
+                // width: 
+                height: 28px;
+    
                 vertical-align: top;
+    
+                float: right;
+                padding: 10px 10px 0px 10px;
+    
+                border-color: #a9a9a9;
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 0px;
+    
+                margin-left: 10px;
+    
+                input {
+                    
+                    border-width: 1px;
+                    border-radius: 0px;
+                }
+                .label {
+                    user-select: none;
+                    vertical-align: top;
+                }
+            }
+    
+            .btn-reset {
+                display: inline-block;
+                width: 100px;
+                height: 28px;
+    
+                vertical-align: top;
+    
+                float: right;
+    
+                padding: 10px 10px 0px 10px;
+                text-align: center;
+    
+                border-color: #a9a9a9;
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 0px;
+                
+                margin-left: 10px;
             }
         }
 
-        .btn-reset {
-            display: inline-block;
-            width: 100px;
-            height: 28px;
-
-            vertical-align: top;
-
-            float: right;
-
-            padding: 10px 10px 0px 10px;
-            text-align: center;
-
-            border-color: #a9a9a9;
-            border-width: 1px;
-            border-style: solid;
-            border-radius: 0px;
-            
-            margin-left: 10px;
-        }
+        
 
         @media only screen and (max-width: 768px) {
             // border: 1px solid red;
 
-            height: 140px;
+            // height: 140px;
 
-            .select {
+
+
+            .btn-menu {
                 display: block;
-                width: 100%;
+                // margin-bottom: 10px;
+                .menu-icon {
+                    width: 30px;
+                    margin-left: auto;
+                    // margin-bottom: 10px;
+                    text-align: right;
 
-                margin-bottom: 10px;
+
+
+                    font-size: 50px;
+                }
+                .menu-icon.active {
+                    // border: 1px solid red;
+                    // margin-bottom: 10px;
+                }
+                .menu-icon.inactive {
+                    // border: 1px solid green;
+                    
+                    display: none;
+                }
             }
-            .check-move {
-                float: inherit;
-                margin-left: 0px;
+
+            .nav-items {
+                display: none;
+                .select {
+                    display: block;
+                    width: 100%;
+    
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+                .check-move {
+                    float: inherit;
+                    margin-left: 0px;
+                }
+                .btn-reset {
+                    // float: inherit;
+                    margin-left: 0px;
+                }
             }
-            .btn-reset {
-                // float: inherit;
-                margin-left: 0px;
+            .nav-items.active {
+                display: block;
             }
+           
         }
     }
     .container {
@@ -129,7 +172,7 @@ html, body {
             height: 100%;
         }
         @media only screen and (max-width: 768px) {
-            top: 140px;
+            // top: 40px;
         }
     }
 }

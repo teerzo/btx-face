@@ -2,6 +2,7 @@ console.log('test');
 
 // npm
 import * as THREE from 'three';
+const feather = require('feather-icons')
 
 // css
 import './css/main.scss';
@@ -11,7 +12,12 @@ import './css/main.scss';
 
 let app = {
 
+    
+
     resizeEnd: null,
+    
+
+    menuToggle: false,
 
     // scene: new THREE.Scene(),
     // camera: new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
@@ -23,8 +29,16 @@ let app = {
 
 
 
+
 const initialize = function () {
+
+    // feather.icons.menu.toSvg({ class: 'foo bar', width: '30', height: '30', color: 'red' });
+    // feather.icons.x.toSvg();
+    feather.replace({ class: 'foo bar', width: '30', height: '30', color: '#333333' });
+
     initEventListeners();
+    initDom();
+
     initThree();
     initScene();
     initObjects();
@@ -33,7 +47,60 @@ const initialize = function () {
 const initEventListeners = function () {
     window.addEventListener('resize', onResize);
     window.addEventListener('resize-end', onResizeEnd);
+    
+    let btnMenuOff = document.getElementById('btn-menu-off');
+    let btnMenuOn = document.getElementById('btn-menu-on');
+    btnMenuOff.onclick = (event) => {
+        event.preventDefault();
+        onToggleMenu(event);
+        return false;
+    }
+    btnMenuOn.onclick = (event) => {
+        event.preventDefault();
+        onToggleMenu(event);
+        return false;
+    }
 };
+
+const initDom = function() {
+    let menuOff = document.getElementById('btn-menu-off');
+    let menuOn = document.getElementById('btn-menu-on');
+
+    menuOff.classList.add('active');
+    menuOff.classList.remove('inactive');
+    menuOn.classList.remove('active');
+    menuOn.classList.add('inactive');
+}
+
+// DOM EVENTS
+
+const onToggleMenu = function(event) {
+    console.log('onToggleMenu', event);
+
+    let menuOff = document.getElementById('btn-menu-off');
+    let menuOn = document.getElementById('btn-menu-on');
+
+    let navItems = document.getElementById('nav-items');
+
+    if( !app.menuToggle ) {
+        menuOff.classList.remove('active');
+        menuOff.classList.add('inactive');
+
+        menuOn.classList.add('active');
+        menuOn.classList.remove('inactive');
+
+        navItems.classList.add('active');
+    }
+    else {
+        menuOff.classList.add('active');
+        menuOff.classList.remove('inactive');
+        menuOn.classList.remove('active');
+        menuOn.classList.add('inactive');
+
+        navItems.classList.remove('active');
+    }
+    app.menuToggle = !app.menuToggle;
+}
 
 const onResize = function (event) {
     // console.log('onResize', event);
@@ -55,7 +122,7 @@ const onResizeEnd = function (event) {
 
 const resizeThree = function(event) {
     let width = window.innerWidth - 20;
-    let height = ( window.innerWidth <= 768 ? window.innerHeight - 160 : window.innerHeight - 60 );
+     let height = ( window.innerWidth <= 768 ? window.innerHeight - 70 : window.innerHeight - 70 );
 
     // app.scene = new THREE.Scene();
     app.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
@@ -71,7 +138,7 @@ const resizeThree = function(event) {
 
 const initThree = function () {
     let width = window.innerWidth - 20;
-    let height = ( window.innerWidth <= 768 ? window.innerHeight - 160 : window.innerHeight - 60 );
+    let height = ( window.innerWidth <= 768 ? window.innerHeight - 70 : window.innerHeight - 70 );
 
     app.scene = new THREE.Scene();
     app.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
@@ -236,21 +303,3 @@ initialize();
 initLoop();
 loop();
 
-
-// window.addEventListener('resize-end', function (event) {
-//             that.resizeEnd(event);
-//         });
-//         var resizeEnd;
-//         window.addEventListener('resize', function () {
-//             console.log('resizing');
-//             clearTimeout(resizeEnd);
-//             resizeEnd = setTimeout(function () {
-//                 // option 1
-//                 var evt = new Event('resize-end');
-//                 window.dispatchEvent(evt);
-//                 // option 2: old-fashioned
-//                 /*var evt = document.createEvent('Event');
-//                 evt.initEvent('resize-end', true, true);
-//                 window.dispatchEvent(evt);*/
-//             }, 100);
-//         });
