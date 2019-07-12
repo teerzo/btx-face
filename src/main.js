@@ -154,11 +154,12 @@ const resizeThree = function (event) {
     let height = (window.innerWidth <= 768 ? window.innerHeight - 60 : window.innerHeight - 60);
 
     // app.scene = new THREE.Scene();
-    app.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+    app.camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 200);
+    app.camera.updateProjectionMatrix();
     app.camera.position.z = 50;
     // app.renderer = new THREE.WebGLRenderer();
     app.renderer.antialias = true;
-    app.renderer.setSize(width, height);
+    // app.renderer.setSize(width*2, height*2);
 
     app.controls = new OrbitControls(app.camera, app.renderer.domElement)
     // app.controls.enableDamping = true
@@ -181,6 +182,7 @@ const initThree = function () {
 
     app.renderer = new THREE.WebGLRenderer();
     app.renderer.antialias = true;
+    app.renderer.setPixelRatio( window.devicePixelRatio );
     app.renderer.setSize(width, height);
 
     app.controls = new OrbitControls(app.camera, app.renderer.domElement)
@@ -458,6 +460,12 @@ const loop = function () {
             }
         }
     }
+
+    let clearColour = 0xFFFFFF;
+    app.renderer.clear();                
+    app.renderer.setClearColor( clearColour );
+    app.renderer.render(app.scene, app.camera);
+
     app.renderer.render(app.scene, app.camera);
 };
 
