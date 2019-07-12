@@ -13,6 +13,9 @@ OBJLoader(THREE);
 import './css/main.scss';
 
 let app = {
+
+    clock: new THREE.Clock(),
+
     modelList: null,
     textureList: null,
 
@@ -25,6 +28,8 @@ let app = {
 
     menuToggle: false,
 
+
+    cameraLastPos: new THREE.Vector3(0, 0, 0),
 
     // Loaders
     OBJLoader: new THREE.OBJLoader(),
@@ -152,12 +157,12 @@ const resizeThree = function (event) {
     app.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
     app.camera.position.z = 50;
     // app.renderer = new THREE.WebGLRenderer();
-    // app.renderer.antialias = true;
+    app.renderer.antialias = true;
     app.renderer.setSize(width, height);
 
     app.controls = new OrbitControls(app.camera, app.renderer.domElement)
-    app.controls.enableDamping = true
-    app.controls.dampingFactor = 0.25
+    // app.controls.enableDamping = true
+    // app.controls.dampingFactor = 0.25
     app.controls.enableZoom = true
 
 
@@ -179,8 +184,8 @@ const initThree = function () {
     app.renderer.setSize(width, height);
 
     app.controls = new OrbitControls(app.camera, app.renderer.domElement)
-    app.controls.enableDamping = true
-    app.controls.dampingFactor = 0.25
+    // app.controls.enableDamping = true
+    // app.controls.dampingFactor = 0.25
     app.controls.enableZoom = true
 
     app.domRoot = document.getElementById('container');
@@ -358,6 +363,7 @@ const initFaceObjects = function () {
             }
 
             let obj = createObject(objProps);
+            obj.object.scale.multiplyScalar(8.0); 
             app.objectList.push(obj);
 
         }
@@ -417,9 +423,28 @@ const updateScene = function () {
     }
 };
 
+const update = function() {
+    app.cameraLastPos.copy(app.camera.position);
+    app.controls.update(app.clock.getDelta());
+
+    if (app.camera.position.distanceTo(new THREE.Vector3(0, 0, 0)) > 100) {
+        app.camera.position.copy(app.cameraLastPos);
+        if (app.camera.position.distanceTo(new THREE.Vector3(0, 0, 0)) > 100) {
+            var norm = app.camera.position;
+            norm.normalize();
+            norm.multiplyScalar(99);
+            app.camera.position.copy(norm);
+        }
+    }
+
+}
+
 
 const loop = function () {
     let dt = 0.1;
+
+    update(dt);
+
     // console.log('loop');
     requestAnimationFrame(loop);
     if (app.scene) {
