@@ -158,8 +158,8 @@ const resizeThree = function (event) {
     app.camera.updateProjectionMatrix();
     app.camera.position.z = 50;
     // app.renderer = new THREE.WebGLRenderer();
-    app.renderer.antialias = true;
-    // app.renderer.setSize(width*2, height*2);
+    // app.renderer.antialias = true;
+    app.renderer.setSize(width, height);
 
     app.controls = new OrbitControls(app.camera, app.renderer.domElement)
     // app.controls.enableDamping = true
