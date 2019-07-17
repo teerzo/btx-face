@@ -2,6 +2,8 @@
 ## BTX Face
 Face 3D visualizer to show botox injection data built using [ThreeJS](https://github.com/mrdoob/three.js/) and [Webpack](https://github.com/webpack) 
 
+[Live version](https://teerzo-btx-face.netlify.com/)
+
 ### Requirements 
 - Node (https://nodejs.org/en/)
 - NPM  (https://www.npmjs.com/)
