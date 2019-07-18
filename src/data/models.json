@@ -8,7 +8,6 @@
       { "fileName": "muscles", "fileType": "png" }
   ],
   "modelList": [
-    { "displayName":"sphere" ,                           "fileName": "sphere" ,                                   "fileType":"obj",   "texture":"",                     "autoLoad":"false",     "customData": [{"pinPosition":["0","0","0"]}                                             ,{"pinTarget":["0","0","0"]}, {"hide":"true"}] },
     { "displayName":"Skull",                             "fileName": "Skull",                                     "fileType":"obj",   "texture":"SkullTexture",         "autoLoad":"true",     "customData": [{"pinPosition":["0","10","5.5"]}                                         ,{"pinTarget":["0","0","0"]}, {"hide":"true"}] },
     { "displayName":"Mandible",                          "fileName": "Mandible",                                  "fileType":"obj",   "texture":"SkullTexture",         "autoLoad":"true",     "customData": [{"pinPosition":["0","2","5.5"]}                                          ,{"pinTarget":["0","0","0"]}, {"hide":"true"}] },
     { "displayName":"C1",                                "fileName": "Spine_Bone_01",                             "fileType":"obj",   "texture":"SkullTexture",         "autoLoad":"true",     "customData": [{"pinPosition":["0","6.7","-3.8"]}                                        ,{"pinTarget":["0","10","-10"]}, {"hide":"true"}] },

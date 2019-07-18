@@ -1,0 +1,26 @@
+[
+    {
+        "name": "grid",
+        "path": "grid.png"
+    },
+    {
+        "name": "skullTex",
+        "path": "skullTex.png"
+    },
+    {
+        "name": "brainTex",
+        "path": "brainTex.png"
+    },
+    {
+        "name": "eyeballTex",
+        "path": "eyeballTex.png"
+    },
+    {
+        "name": "muscleBodyTex",
+        "path": "muscleBodyTex.png"
+    },
+    {
+        "name": "muscleTex",
+        "path": "muscleTex.png"
+    }
+]

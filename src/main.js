@@ -17,6 +17,36 @@ let app = {
 
     clock: new THREE.Clock(),
 
+    conditions: {
+        path: './data/conditions.json',
+        downloading: null,
+        loading: null,
+        list: [],
+        rawList: [],
+    },
+    muscles: {
+        path: './data/muscles.json',
+        downloading: null,
+        loading: null,
+        list: [],
+        rawList: [],
+    },
+    models: {
+        path: '',
+        downloading: null,
+        loading: null,
+        list: [],
+        rawList: [],
+    },
+    textures: {
+        path: '',
+        downloading: null,
+        loading: null,
+        list: [],
+        rawList: [],
+    },
+
+
     modelList: null,
     textureList: null,
 
@@ -34,37 +64,98 @@ let app = {
 
     // Loaders
     OBJLoader: new THREE.OBJLoader(),
-};
 
 
 
+    initialize: function () {
+        // replace icons
+        feather.replace({ class: '', width: '30', height: '30', color: '#333333' });
+
+    
+        app.getMuscles();
+        // getConditions();
+
+        // getModels();
+        // getTextures();
 
 
+        axios.get('./data/models.json').then(function (response) {
+            // console.log(response);
+            if (response.data) {
+                app.modelList = response.data.modelList;
+                app.textureList = response.data.textureList;
 
+                initFace();
+            }
+        })
 
+        initEventListeners();
+        initDom();
 
-const initialize = function () {
-    // console.log(typeof THREE.OBJLoader);
+        initThree();
+        initScene();
+        initObjects();
 
-    feather.replace({ class: '', width: '30', height: '30', color: '#333333' });
-
-    axios.get('./data/models.json').then(function (response) {
-        // console.log(response);
-        if (response.data) {
-            app.modelList = response.data.modelList;
-            app.textureList = response.data.textureList;
-
-            initFace();
+        app.loop();
+    },
+    loop: function () {
+        let dt = 0.1;
+    
+        update(dt);
+    
+        // console.log('loop');
+        requestAnimationFrame(app.loop);
+        if (app.scene) {
+            // console.log(app.scene.children);
+            if (app.scene.children && app.scene.children.length > 0) {
+                for (var i = 0; i < app.scene.children.length; i++) {
+                    const child = app.scene.children[i];
+                    if (child.update) {
+                        child.update(dt);
+                    }
+                }
+            }
         }
-    })
+    
+        let clearColour = 0xAAAAAA;
+        app.renderer.clear();
+        app.renderer.setClearColor(clearColour);
+        app.renderer.render(app.scene, app.camera);
+    
+        app.renderer.render(app.scene, app.camera);
+    },
+    getMuscles: function() {
+        app.muscles.downloading = true;
 
-    initEventListeners();
-    initDom();
+        axios.get(app.muscles.path).then(function (response) {
+            // console.log(response);
+            if (response.data) {
+                console.log(response.data);
+                app.muscles.downloading = false;
+                app.muscles.loading = true;
+                app.rawList = response.data;
+                app.initDOMMuscles(response.data);
+                // debugger;
+            }
+        });
 
-    initThree();
-    initScene();
-    initObjects();
+    },
+
+    initDOMMuscles: function(list) {
+        for( let i in list) {
+            console.log(list[i]);
+        }
+    },
+    updateDOMMuscles: function(list) {
+
+    },
 };
+
+
+
+
+
+
 
 const initEventListeners = function () {
     window.addEventListener('resize', onResize);
@@ -157,12 +248,14 @@ const resizeThree = function (event) {
     // app.scene = new THREE.Scene();
     app.camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 200);
     app.camera.updateProjectionMatrix();
-    app.camera.position.z = 50;
+    app.camera.position.y = 10;
+    app.camera.position.z = 30;
     // app.renderer = new THREE.WebGLRenderer();
     // app.renderer.antialias = true;
     app.renderer.setSize(width, height);
 
     app.controls = new OrbitControls(app.camera, app.renderer.domElement)
+    app.controls.target = new THREE.Vector3(0, 11, 0);
     // app.controls.enableDamping = true
     // app.controls.dampingFactor = 0.25
     app.controls.enableZoom = true
@@ -173,20 +266,39 @@ const resizeThree = function (event) {
     app.domRoot.appendChild(app.renderer.domElement);
 };
 
+
+// Data requests
+
+const getMuscles = function () {
+
+}
+const getConditions = function() {
+
+}
+const getModels = function() {
+
+}
+const getTextures = function() {
+
+}
+
+
 const initThree = function () {
     let width = window.innerWidth - 20;
     let height = (window.innerWidth <= 768 ? window.innerHeight - 60 : window.innerHeight - 60);
 
     app.scene = new THREE.Scene();
     app.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    app.camera.position.z = 50;
+    app.camera.position.y = 10;
+    app.camera.position.z = 30;
 
     app.renderer = new THREE.WebGLRenderer();
     app.renderer.antialias = true;
-    app.renderer.setPixelRatio( window.devicePixelRatio );
+    app.renderer.setPixelRatio(window.devicePixelRatio);
     app.renderer.setSize(width, height);
 
     app.controls = new OrbitControls(app.camera, app.renderer.domElement)
+    app.controls.target = new THREE.Vector3(0, 11, 0);
     // app.controls.enableDamping = true
     // app.controls.dampingFactor = 0.25
     app.controls.enableZoom = true
@@ -251,7 +363,7 @@ const initObjects = function () {
         this.position.set(lx, ly, lz);
         this.lookAt(app.camera.position);
     }
-    app.scene.add(cube);
+    // app.scene.add(cube);
 
     var loader = new THREE.FontLoader();
     // console.log('loader start');
@@ -359,14 +471,14 @@ const initFaceObjects = function () {
     if (app.meshList && app.meshList.length > 0) {
         for (let i in app.meshList) {
 
-            console.log(app.meshList[i]);
+            // console.log(app.meshList[i]);
             let objProps = {
                 name: app.meshList[i].name,
                 mesh: app.meshList[i].mesh,
             }
 
             let obj = createObject(objProps);
-            obj.object.scale.multiplyScalar(8.0); 
+            obj.object.scale.multiplyScalar(8.0);
             app.objectList.push(obj);
 
         }
@@ -375,12 +487,10 @@ const initFaceObjects = function () {
 
 }
 
-const initLoop = function () {
 
-};
 
 const createObject = function (props) {
-    console.log('createObject', props);
+    // console.log('createObject', props);
     if (props === undefined) { props = {}; }
     if (props.name && props.name !== '' && props.mesh) {
         let data = {};
@@ -411,13 +521,13 @@ const createObject = function (props) {
 }
 
 const updateScene = function () {
-    console.log('updateScene');
+    // console.log('updateScene');
 
     // console.log(app.objectList);
     if (app.scene) {
         if (app.objectList && app.objectList.length > 0) {
             for (let i in app.objectList) {
-                console.log(app.objectList[i]);
+                // console.log(app.objectList[i]);
                 // debugger;
 
                 app.scene.add(app.objectList[i].object);
@@ -426,7 +536,7 @@ const updateScene = function () {
     }
 };
 
-const update = function() {
+const update = function () {
     app.cameraLastPos.copy(app.camera.position);
     app.controls.update(app.clock.getDelta());
 
@@ -443,34 +553,7 @@ const update = function() {
 }
 
 
-const loop = function () {
-    let dt = 0.1;
 
-    update(dt);
 
-    // console.log('loop');
-    requestAnimationFrame(loop);
-    if (app.scene) {
-        // console.log(app.scene.children);
-        if (app.scene.children && app.scene.children.length > 0) {
-            for (var i = 0; i < app.scene.children.length; i++) {
-                const child = app.scene.children[i];
-                if (child.update) {
-                    child.update(dt);
-                }
-            }
-        }
-    }
-
-    let clearColour = 0xAAAAAA;
-    app.renderer.clear();                
-    app.renderer.setClearColor( clearColour );
-    app.renderer.render(app.scene, app.camera);
-
-    app.renderer.render(app.scene, app.camera);
-};
-
-initialize();
-initLoop();
-loop();
+app.initialize();
 

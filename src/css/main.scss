@@ -21,7 +21,7 @@ html, body {
 
     .nav {
         position: absolute;
-        z-index: 2;
+        z-index: 100;
 
         top: 0px;
         right: 0px;
@@ -38,16 +38,23 @@ html, body {
         }
 
         .nav-items {
-            .select {
+            .select-group {
                 display: inline-block;
-                width: 200px;
-                height: 40px;
-    
-                border-width: 1px;
-                border-radius: 0px;
-    
-                margin-right: 5px;
-            }   
+                .label {
+                    display: block;
+                }
+                .select {
+                    display: block;
+                    width: 200px;
+                    height: 40px;
+        
+                    border-width: 1px;
+                    border-radius: 0px;
+        
+                    margin-right: 5px;
+                }   
+            }
+            
     
             .check-move {
                 display: inline-block;
@@ -63,8 +70,10 @@ html, body {
                 border-width: 1px;
                 border-style: solid;
                 border-radius: 0px;
-    
+
+                margin-top: 18px;
                 margin-left: 10px;
+                
     
                 input {
                     
@@ -88,12 +97,14 @@ html, body {
     
                 padding: 10px 10px 0px 10px;
                 text-align: center;
-    
+                
+
                 border-color: #a9a9a9;
                 border-width: 1px;
                 border-style: solid;
                 border-radius: 0px;
-                
+
+                margin-top: 18px;
                 margin-left: 10px;
             }
         }
@@ -133,12 +144,15 @@ html, body {
 
             .nav-items {
                 display: none;
-                .select {
+                .select-group {
                     display: block;
-                    width: 100%;
-    
-                    margin-top: 10px;
-                    margin-bottom: 10px;
+                    .select {
+                        display: block;
+                        width: 100%;
+        
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                    }
                 }
                 .check-move {
                     float: inherit;
@@ -153,6 +167,130 @@ html, body {
                 display: block;
             }
            
+        }
+    }
+    .overlay {
+        pointer-events:none;
+        position: absolute;
+        z-index: 2;
+        overflow: hidden;
+
+        top: 40px;
+        right: 0px;
+        left: 0px;
+        bottom: 0px;
+
+        padding: 10px;
+
+        .overlay-scale {
+            position: absolute;
+            z-index: 4;
+            top: calc(100% - 80px);
+            left: calc(100px);
+
+            
+            
+
+            .scale-parent {
+                display: flex;
+                width: 300px;
+                .scale-min {
+                    border-width: 1px 0 1px 1px;
+                    border-style: solid;
+                    border-color: #333333;
+    
+                    text-align: center;
+                    width: 50px;
+                    background-color: #FFFFFF;
+                    padding: 5px;
+                }
+                .scale-max {
+                    border-width: 1px 1px 1px 0;
+                    border-style: solid;
+                    border-color: #333333;
+    
+                    text-align: center;
+                    width: 50px;
+                    background-color: #FFFFFF;
+                    padding: 5px;
+                }
+                .scale-colour {
+                    border: 1px solid #333333;
+                    width: 200px;
+                    height: 30px;
+                    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#327dff+10,5eff28+35,fff428+65,ff0000+90 */
+                    background: #327dff; /* Old browsers */
+                    background: -moz-linear-gradient(left,  #327dff 10%, #5eff28 35%, #fff428 65%, #ff0000 90%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(left,  #327dff 10%,#5eff28 35%,#fff428 65%,#ff0000 90%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to right,  #327dff 10%,#5eff28 35%,#fff428 65%,#ff0000 90%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#327dff', endColorstr='#ff0000',GradientType=1 ); /* IE6-9 */
+    
+                }
+            }
+        }
+
+        .overlay-condition {
+            position: absolute;
+            z-index: 3;
+            top: calc(100% - 200px);
+            left: calc(100% - 300px);
+
+            width: 200px;
+            // min-width: 100px;
+            // width: 300px;
+            // height: 200px;
+
+            padding: 10px;
+
+            background-color: #FFFFFF;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            .condition-name {
+                font-weight: 700;
+                margin: 0 0 5px 0;
+            }
+            .flex-row {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+
+                .flex-text {
+                    // width: 70%;
+                    // border: 1px solid red;
+                }
+                .flex-value {
+                    // width: 30%;
+                    // border: 1px solid red;
+                }
+            }
+            .flex-row:last-child {
+                margin-bottom: 0px;
+            }
+        }
+
+        @media only screen and (min-width: 769px) {
+            .overlay-condition {
+                border: 1px solid red !important;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            .overlay-scale {
+                left: 0px;
+                right: 0px;
+               
+                .scale-parent {
+                    margin: 0 auto;
+                    text-align: center;
+                }
+            }   
+
+            .overlay-condition {
+
+                top: calc(100% - 300px);
+                // left: calc(100px);
+            }
         }
     }
     .container {
