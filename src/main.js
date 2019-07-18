@@ -2,7 +2,8 @@
 // import * as THREE from 'three';
 const THREE = require('three');
 const OBJLoader = require('three-obj-loader');
-const OrbitControls = require('three-orbitcontrols')
+// const OrbitControls = require('three-orbitcontrols')
+const OrbitControls = require('./js/orbitcontrols')
 
 const feather = require('feather-icons');
 const axios = require('axios');
@@ -461,7 +462,7 @@ const loop = function () {
         }
     }
 
-    let clearColour = 0xFFFFFF;
+    let clearColour = 0xAAAAAA;
     app.renderer.clear();                
     app.renderer.setClearColor( clearColour );
     app.renderer.render(app.scene, app.camera);
