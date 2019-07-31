@@ -32,7 +32,7 @@ let app = {
         rawList: [],
     },
     models: {
-        path: '',
+        path: './data/models.json',
         downloading: null,
         loading: null,
         list: [],
@@ -73,21 +73,23 @@ let app = {
 
     
         app.getMuscles();
-        // getConditions();
+        app.getConditions();
+
+        app.getModels();
 
         // getModels();
         // getTextures();
 
 
-        axios.get('./data/models.json').then(function (response) {
-            // console.log(response);
-            if (response.data) {
-                app.modelList = response.data.modelList;
-                app.textureList = response.data.textureList;
+        // axios.get('./data/models.json').then(function (response) {
+        //     // console.log(response);
+        //     if (response.data) {
+        //         app.modelList = response.data.modelList;
+        //         app.textureList = response.data.textureList;
 
-                initFace();
-            }
-        })
+        //         initFace();
+        //     }
+        // })
 
         initEventListeners();
         initDom();
@@ -107,14 +109,14 @@ let app = {
         requestAnimationFrame(app.loop);
         if (app.scene) {
             // console.log(app.scene.children);
-            if (app.scene.children && app.scene.children.length > 0) {
-                for (var i = 0; i < app.scene.children.length; i++) {
-                    const child = app.scene.children[i];
-                    if (child.update) {
-                        child.update(dt);
-                    }
-                }
-            }
+            // if (app.scene.children && app.scene.children.length > 0) {
+            //     for (var i = 0; i < app.scene.children.length; i++) {
+            //         const child = app.scene.children[i];
+            //         if (child.update) {
+            //             child.update(dt);
+            //         }
+            //     }
+            // }
         }
     
         let clearColour = 0xAAAAAA;
@@ -133,21 +135,140 @@ let app = {
                 console.log(response.data);
                 app.muscles.downloading = false;
                 app.muscles.loading = true;
-                app.rawList = response.data;
-                app.initDOMMuscles(response.data);
-                // debugger;
+                app.fullMuscles = response.data;
+
+                app.updateDom();
             }
         });
 
     },
+    getConditions: function() {
+        app.conditions.downloading = true;
 
-    initDOMMuscles: function(list) {
+        axios.get(app.conditions.path).then(function (response) {
+            // console.log(response);
+            if (response.data) {
+                console.log(response.data);
+                app.conditions.downloading = false;
+                app.conditions.loading = true;
+                app.conditions.fullList = response.data;
+
+                app.updateDom();
+            }
+        });
+
+    },
+    getModels: function() {
+        app.models.downloading = true;
+
+        axios.get(app.models.path).then(function (response) {
+            // console.log(response);
+            if (response.data) {
+                console.log(response.data);
+                app.models.downloading = false;
+                app.models.loading = true;
+                app.models.fullList = response.data.modelList;
+                app.textures.fullList = response.data.textureList;
+                // app.updateDom();
+                app.initModels();
+            }
+        });
+    },
+
+    updateDom: function() {
+        console.log('updateDom');
+
+
+
+        let muscles = [];
+        let conditions = [];
+
+        // check conditions
+        for( let i in app.conditions.fullList ) {
+            // app
+            conditions.push(app.conditions.fullList[i]);
+        }
+
+        for( let i in app.fullMuscles ) {
+            // app
+            muscles.push(app.fullMuscles[i]);
+        }
+
+
+
+        app.updateSelectMuscles(muscles);
+        app.updateSelectConditions(conditions);
+
+
+    },
+
+    // initDOMMuscles: function(list) {
+    //     let domSelect = document.getElementById('navSelectMuscles');
+    //     for( let i in list) {
+    //         console.log(list[i]);
+    //         let option = document.createElement('option');
+    //         option.text = list[i].groupName;
+    //         option.value = list[i].id;
+
+    //         domSelect.add(option);
+    //     }
+    // },
+    updateSelectMuscles: function(list) {
+        let domSelect = document.getElementById('navSelectMuscles');
         for( let i in list) {
             console.log(list[i]);
+            let option = document.createElement('option');
+            option.text = list[i].groupName;
+            option.value = list[i].id;
+
+            domSelect.add(option);
         }
     },
-    updateDOMMuscles: function(list) {
+    updateSelectConditions: function(list) {
+        let domSelect = document.getElementById('navSelectConditions');
+        for( let i in list) {
+            console.log(list[i]);
+            let option = document.createElement('option');
+            option.text = list[i].name;
+            option.value = list[i].id;
 
+            domSelect.add(option);
+        }
+    },
+
+    selectCondition: function(id) {
+        for( let i in app.conditions.fullList ) {
+            if( app.conditions.fullList[i].id === id ) {
+                // app.sele
+            }
+        }
+    },
+
+    // const initFace = function () {
+    initModels: function() {
+        console.log('initModels');
+        if (app.OBJLoader) {
+            let meshCallback = function (index, mesh) {
+                let data = {
+                    name: app.models.fullList[index].displayName,
+                    mesh: mesh,
+                }    
+                app.meshList.push(data);
+                // console.log('length', app.meshList.length, app.modelList.length);
+                if (app.meshList.length === app.models.fullList.length) {
+                    initFaceObjects();
+                }
+            }
+            let meshes = [];
+            console.log(app.models.fullList);
+            for ( let i in app.models.fullList ) {
+                // console.log(app.modelList[i]);
+                app.OBJLoader.load('./obj/' + app.models.fullList[i].fileName + '.' + app.models.fullList[i].fileType, function (item) {
+                    // console.log(item);
+                    meshCallback(i, item)
+                });
+            }
+        }
     },
 };
 
@@ -165,6 +286,10 @@ const initEventListeners = function () {
     let btnMenuOff = document.getElementById('btn-menu-off');
     let btnMenuOn = document.getElementById('btn-menu-on');
 
+    let selectConditions = document.getElementById('navSelectConditions');
+    let selectMuscles = document.getElementById('navSelectMuscles');
+    
+
     btnReset.onclick = (event) => {
         event.preventDefault();
         resizeThree();
@@ -180,6 +305,14 @@ const initEventListeners = function () {
         event.preventDefault();
         onToggleMenu(event);
         return false;
+    }
+
+    selectConditions.onchange = (event) => {
+        console.log('selectConditions', event.target.value);
+
+        app.selectCondition(event.target.value);
+
+        
     }
 };
 
@@ -269,12 +402,7 @@ const resizeThree = function (event) {
 
 // Data requests
 
-const getMuscles = function () {
 
-}
-const getConditions = function() {
-
-}
 const getModels = function() {
 
 }

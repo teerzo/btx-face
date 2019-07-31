@@ -1,42 +1,532 @@
 [
-    {
-        "id": 0,
-        "name": "Left Corrugator Supercilii"
-    },
-    {
-        "name": "Left Depressor Anguli Oris"
-    },
-    {
-        "name": "Left Depressor Labii Inferioris"
-    },
-    {
-        "name": "Left Frontalis"
-    },
-    {
-        "name": "Left Levator Labii Superioris"
-    },
-    {
-        "name": "Left Levator Labii Superioris Alaeque Nasi"
-    },
-    {
-        "name": "Left Longissimus Capitis"
-    },
-    {
-        "name": "Left Longus Colli"
-    },
-    {
-        "name": "Left Masseter"
-    },
-    {
-        "name": "Left Nasalis"
-    },  
-    {
-        "name": "Left Obliqus Capitis Inferior"
-    },
-    {
-        "name": "Left Orbicularis Oculi (Orbital Portion)",
-    },
-    {
-        
-    }
+  {
+    "id": 1,
+    "name": "Trapezius",
+    "groupName": "Trapezius"
+  },
+  {
+    "id": 2,
+    "name": "Frontalis",
+    "groupName": "Frontalis"
+  },
+  {
+    "id": 3,
+    "name": "Temporal Left",
+    "groupName": "Temporal"
+  },
+  {
+    "id": 4,
+    "name": "Temporal Right",
+    "groupName": "Temporal"
+  },
+  {
+    "id": 5,
+    "name": "Orbicularis Oris",
+    "groupName": "Orbicularis Oris"
+  },
+  {
+    "id": 6,
+    "name": "Orbicularis Oculi Left",
+    "groupName": "Orbicularis Oculi"
+  },
+  {
+    "id": 7,
+    "name": "Orbicularis Oculi Right",
+    "groupName": "Orbicularis Oculi"
+  },
+  {
+    "id": 8,
+    "name": "Masseter Superficial Left",
+    "groupName": "Masseter Superficial"
+  },
+  {
+    "id": 9,
+    "name": "Masseter Superficial Right",
+    "groupName": "Masseter Superficial"
+  },
+  {
+    "id": 10,
+    "name": "Nasal Cartilage",
+    "groupName": "Nasal Cartilage"
+  },
+  {
+    "id": 11,
+    "name": "Sternocleidomastoid Left",
+    "groupName": "Sternocleidomastoid"
+  },
+  {
+    "id": 12,
+    "name": "Sternocleidomastoid Right",
+    "groupName": "Sternocleidomastoid"
+  },
+  {
+    "id": 13,
+    "name": "Splenius Cervicis Left",
+    "groupName": "Splenius Cervicis"
+  },
+  {
+    "id": 14,
+    "name": "Splenius Cervicis Right",
+    "groupName": "Splenius Cervicis"
+  },
+  {
+    "id": 15,
+    "name": "Procerus 01",
+    "groupName": "Procerus"
+  },
+  {
+    "id": 16,
+    "name": "Procerus 02",
+    "groupName": "Procerus"
+  },
+  {
+    "id": 17,
+    "name": "Depressor Supercilii Left",
+    "groupName": "Depressor Supercilii"
+  },
+  {
+    "id": 18,
+    "name": "Depressor Supercilii Right",
+    "groupName": "Depressor Supercilii"
+  },
+  {
+    "id": 19,
+    "name": "Corrugator Supercilii Left",
+    "groupName": "Corrugator Supercilii"
+  },
+  {
+    "id": 20,
+    "name": "Corrugator Supercilii Right",
+    "groupName": "Corrugator Supercilii"
+  },
+  {
+    "id": 21,
+    "name": "Depressor Speti Nasi",
+    "groupName": "Depressor Speti Nasi"
+  },
+  {
+    "id": 22,
+    "name": "Levator Labii Superioris Left 01",
+    "groupName": "Levator Labii Superioris"
+  },
+  {
+    "id": 23,
+    "name": "Levator Labii Superioris Left 02",
+    "groupName": "Levator Labii Superioris"
+  },
+  {
+    "id": 24,
+    "name": "Levator Labii Superioris Right 01",
+    "groupName": "Levator Labii Superioris"
+  },
+  {
+    "id": 25,
+    "name": "Levator Labii Superioris Right 02",
+    "groupName": "Levator Labii Superioris"
+  },
+  {
+    "id": 26,
+    "name": "Levator Anguli Oris Left",
+    "groupName": "Levator Anguli Oris"
+  },
+  {
+    "id": 27,
+    "name": "Levator Anguli Oris Right",
+    "groupName": "Levator Anguli Oris"
+  },
+  {
+    "id": 28,
+    "name": "Nasalis Left",
+    "groupName": "Nasalis"
+  },
+  {
+    "id": 29,
+    "name": "Nasalis Right",
+    "groupName": "Nasalis"
+  },
+  {
+    "id": 30,
+    "name": "Zygomaticus Major Left",
+    "groupName": "Zygomaticus Major"
+  },
+  {
+    "id": 31,
+    "name": "Zygomaticus Major Right",
+    "groupName": "Zygomaticus Major"
+  },
+  {
+    "id": 32,
+    "name": "Zygomaticus Minor Left",
+    "groupName": "Zygomaticus Minor"
+  },
+  {
+    "id": 33,
+    "name": "Zygomaticus Minor Right",
+    "groupName": "Zygomaticus Minor"
+  },
+  {
+    "id": 34,
+    "name": "Mentalis Left",
+    "groupName": "Mentalis"
+  },
+  {
+    "id": 35,
+    "name": "Mentalis Right",
+    "groupName": "Mentalis"
+  },
+  {
+    "id": 36,
+    "name": "Depressor Labii Inferioris Left",
+    "groupName": "Depressor Labii Inferioris"
+  },
+  {
+    "id": 37,
+    "name": "Depressor Labii Inferioris Right",
+    "groupName": "Depressor Labii Inferioris"
+  },
+  {
+    "id": 38,
+    "name": "Depressor Anguli Oris Left",
+    "groupName": "Depressor Anguli Oris"
+  },
+  {
+    "id": 39,
+    "name": "Depressor Anguli Oris Right",
+    "groupName": "Depressor Anguli Oris"
+  },
+  {
+    "id": 40,
+    "name": "Masseter Deep Left",
+    "groupName": "Masseter Deep"
+  },
+  {
+    "id": 41,
+    "name": "Masseter Deep Right",
+    "groupName": "Masseter Deep"
+  },
+  {
+    "id": 42,
+    "name": "Buccinator Left",
+    "groupName": "Buccinator"
+  },
+  {
+    "id": 43,
+    "name": "Buccinator Right",
+    "groupName": "Buccinator"
+  },
+  {
+    "id": 44,
+    "name": "Risorius Left",
+    "groupName": "Risorius"
+  },
+  {
+    "id": 45,
+    "name": "Risorius Right",
+    "groupName": "Risorius"
+  },
+  {
+    "id": 46,
+    "name": "Superior Auricular Left",
+    "groupName": "Superior Auricular"
+  },
+  {
+    "id": 47,
+    "name": "Superior Auricular Right",
+    "groupName": "Superior Auricular"
+  },
+  {
+    "id": 48,
+    "name": "Posterior Auricular Left",
+    "groupName": "Posterior Auricular"
+  },
+  {
+    "id": 49,
+    "name": "Posterior Auricular Right",
+    "groupName": "Posterior Auricular"
+  },
+  {
+    "id": 50,
+    "name": "Sternohyoid Left",
+    "groupName": "Sternohyoid"
+  },
+  {
+    "id": 51,
+    "name": "Sternohyoid Right",
+    "groupName": "Sternohyoid"
+  },
+  {
+    "id": 52,
+    "name": "Sternothyroideus Left",
+    "groupName": "Sternothyroideus"
+  },
+  {
+    "id": 53,
+    "name": "Sternothyroideus Right",
+    "groupName": "Sternothyroideus"
+  },
+  {
+    "id": 54,
+    "name": "Stylohyoid Left",
+    "groupName": "Stylohyoid"
+  },
+  {
+    "id": 55,
+    "name": "Stylohyoid Right",
+    "groupName": "Stylohyoid"
+  },
+  {
+    "id": 56,
+    "name": "Thyrohyoid Left",
+    "groupName": "Thyrohyoid"
+  },
+  {
+    "id": 57,
+    "name": "Thyrohyoid Right",
+    "groupName": "Thyrohyoid"
+  },
+  {
+    "id": 58,
+    "name": "Mylohyoid",
+    "groupName": "Mylohyoid"
+  },
+  {
+    "id": 59,
+    "name": "Digastric Left",
+    "groupName": "Digastric"
+  },
+  {
+    "id": 60,
+    "name": "Digastric Right",
+    "groupName": "Digastric"
+  },
+  {
+    "id": 61,
+    "name": "Hyoglossus Left",
+    "groupName": "Hyoglossus"
+  },
+  {
+    "id": 62,
+    "name": "Hyoglossus Right",
+    "groupName": "Hyoglossus"
+  },
+  {
+    "id": 63,
+    "name": "Levator Scapulae Left 01",
+    "groupName": "Levator Scapulae"
+  },
+  {
+    "id": 64,
+    "name": "Levator Scapulae Left 02",
+    "groupName": "Levator Scapulae"
+  },
+  {
+    "id": 65,
+    "name": "Levator Scapulae Left 03",
+    "groupName": "Levator Scapulae"
+  },
+  {
+    "id": 66,
+    "name": "Levator Scapulae Left 04",
+    "groupName": "Levator Scapulae"
+  },
+  {
+    "id": 67,
+    "name": "Levator Scapulae Right 01",
+    "groupName": "Levator Scapulae"
+  },
+  {
+    "id": 68,
+    "name": "Levator Scapulae Right 02",
+    "groupName": "Levator Scapulae"
+  },
+  {
+    "id": 69,
+    "name": "Levator Scapulae Right 03",
+    "groupName": "Levator Scapulae"
+  },
+  {
+    "id": 70,
+    "name": "Levator Scapulae Right 04",
+    "groupName": "Levator Scapulae"
+  },
+  {
+    "id": 71,
+    "name": "Scalene Left 01",
+    "groupName": "Scalene"
+  },
+  {
+    "id": 72,
+    "name": "Scalene Left 02",
+    "groupName": "Scalene"
+  },
+  {
+    "id": 73,
+    "name": "Scalene Left 03",
+    "groupName": "Scalene"
+  },
+  {
+    "id": 74,
+    "name": "Scalene Right 01",
+    "groupName": "Scalene"
+  },
+  {
+    "id": 75,
+    "name": "Scalene Right 02",
+    "groupName": "Scalene"
+  },
+  {
+    "id": 76,
+    "name": "Scalene Right 03",
+    "groupName": "Scalene"
+  },
+  {
+    "id": 77,
+    "name": "Scalenus Anterior Left 01",
+    "groupName": "Scalenus Anterior"
+  },
+  {
+    "id": 78,
+    "name": "Scalenus Anterior Left 02",
+    "groupName": "Scalenus Anterior"
+  },
+  {
+    "id": 79,
+    "name": "Scalenus Anterior Left 03",
+    "groupName": "Scalenus Anterior"
+  },
+  {
+    "id": 80,
+    "name": "Scalenus Anterior Right 01",
+    "groupName": "Scalenus Anterior"
+  },
+  {
+    "id": 81,
+    "name": "Scalenus Anterior Right 02",
+    "groupName": "Scalenus Anterior"
+  },
+  {
+    "id": 82,
+    "name": "Scalenus Anterior Right 03",
+    "groupName": "Scalenus Anterior"
+  },
+  {
+    "id": 83,
+    "name": "Scalenus Posterior Left 01",
+    "groupName": "Scalenus Posterior"
+  },
+  {
+    "id": 84,
+    "name": "Scalenus Posterior Left 02",
+    "groupName": "Scalenus Posterior"
+  },
+  {
+    "id": 85,
+    "name": "Scalenus Posterior Left 03",
+    "groupName": "Scalenus Posterior"
+  },
+  {
+    "id": 86,
+    "name": "Scalenus Posterior Right 01",
+    "groupName": "Scalenus Posterior"
+  },
+  {
+    "id": 87,
+    "name": "Scalenus Posterior Right 02",
+    "groupName": "Scalenus Posterior"
+  },
+  {
+    "id": 88,
+    "name": "Scalenus Posterior Right 03",
+    "groupName": "Scalenus Posterior"
+  },
+  {
+    "id": 89,
+    "name": "Semispinalis Capitis Left 01",
+    "groupName": "Semispinalis Capitis"
+  },
+  {
+    "id": 90,
+    "name": "Semispinalis Capitis Left 02",
+    "groupName": "Semispinalis Capitis"
+  },
+  {
+    "id": 91,
+    "name": "Semispinalis Capitis Left 03",
+    "groupName": "Semispinalis Capitis"
+  },
+  {
+    "id": 92,
+    "name": "Semispinalis Capitis Left 04",
+    "groupName": "Semispinalis Capitis"
+  },
+  {
+    "id": 93,
+    "name": "Semispinalis Capitis Left 05",
+    "groupName": "Semispinalis Capitis"
+  },
+  {
+    "id": 94,
+    "name": "Semispinalis Capitis Right 01",
+    "groupName": "Semispinalis Capitis"
+  },
+  {
+    "id": 95,
+    "name": "Semispinalis Capitis Right 02",
+    "groupName": "Semispinalis Capitis"
+  },
+  {
+    "id": 96,
+    "name": "Semispinalis Capitis Right 03",
+    "groupName": "Semispinalis Capitis"
+  },
+  {
+    "id": 97,
+    "name": "Semispinalis Capitis Right 04",
+    "groupName": "Semispinalis Capitis"
+  },
+  {
+    "id": 98,
+    "name": "Semispinalis Capitis Right 05",
+    "groupName": "Semispinalis Capitis"
+  },
+  {
+    "id": 99,
+    "name": "Semispinalis Cervicis Left 01",
+    "groupName": "Semispinalis Cervicis"
+  },
+  {
+    "id": 100,
+    "name": "Semispinalis Cervicis Left 02",
+    "groupName": "Semispinalis Cervicis"
+  },
+  {
+    "id": 101,
+    "name": "Semispinalis Cervicis Left 03",
+    "groupName": "Semispinalis Cervicis"
+  },
+  {
+    "id": 102,
+    "name": "Semispinalis Cervicis Left 04",
+    "groupName": "Semispinalis Cervicis"
+  },
+  {
+    "id": 103,
+    "name": "Semispinalis Cervicis Right 01",
+    "groupName": "Semispinalis Cervicis"
+  },
+  {
+    "id": 104,
+    "name": "Semispinalis Cervicis Right 02",
+    "groupName": "Semispinalis Cervicis"
+  },
+  {
+    "id": 105,
+    "name": "Semispinalis Cervicis Right 03",
+    "groupName": "Semispinalis Cervicis"
+  },
+  {
+    "id": 106,
+    "name": "Semispinalis Cervicis Right 04",
+    "groupName": "Semispinalis Cervicis"
+  }
 ]

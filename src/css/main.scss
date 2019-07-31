@@ -54,6 +54,52 @@ html, body {
                     margin-right: 5px;
                 }   
             }
+            .toggle-group {
+                display: inline-block;
+                .label {
+                    display: block;
+                }
+                input {
+                    
+                    border-width: 1px;
+                    border-radius: 0px;
+                }
+            }
+
+            .chkMuscleLeft {
+                border: 1px solid #a9a9a9;
+                display: inline-block; 
+                width: 50px;
+
+                background-color: #FFFFFF;
+                border-radius: 5px 0px 0px 5px;
+
+                text-align: center;
+                padding: 10px;
+                -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+            }
+            .chkMuscleLeft.active {
+                background-color: #ff0000;
+            }
+            .chkMuscleRight {
+                border: 1px solid #a9a9a9;
+                display: inline-block; 
+                width: 50px;
+
+                background-color: #FFFFFF;
+
+                border-radius: 0px 5px 5px 0px;
+                text-align: center;
+                padding: 10px;
+                -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+            }
+            .chkMuscleRight.active {
+                background-color: #ff0000;
+            }
             
     
             .check-move {

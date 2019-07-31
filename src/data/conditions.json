@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name": "Blepharospasm",
+        "meta": {
+            "numberOfPatients": 22,
+            "numberOfSessions": 111,
+            "averageAge": 62,
+            "percentageMale": 8,
+            "percentageFemale": 14
+        },
+        "muscles": [
+        
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Cervical Dystonia",
+        "meta": {
+            "numberOfPatients": 152,
+            "numberOfSessions": 646,
+            "averageAge": 63,
+            "percentageMale": 61,
+            "percentageFemale": 91
+        },
+        "muscles": [
+        
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Hemifacial Spasm",
+        "meta": {
+            "numberOfPatients": 101,
+            "numberOfSessions": 496,
+            "averageAge": 64,
+            "percentageMale": 28,
+            "percentageFemale": 73
+        },
+        "muscles": [
+        
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Cervical Dystonia,Other",
+        "meta": {
+            "numberOfPatients": 15,
+            "numberOfSessions": 58,
+            "averageAge": 61,
+            "percentageMale": 6,
+            "percentageFemale": 9
+        },
+        "muscles": [
+        
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Other",
+        "meta": {
+            "numberOfPatients": 39,
+            "numberOfSessions": 93,
+            "averageAge": 50,
+            "percentageMale": 19,
+            "percentageFemale": 20
+        },
+        "muscles": [
+        
+        ]
+    }
+]
