@@ -39,11 +39,11 @@ let app = {
         rawList: [],
     },
     textures: {
-        path: '',
+        path: './data/textures.json',
         downloading: null,
         loading: null,
         list: [],
-        rawList: [],
+        fullList: [],
     },
 
 
@@ -64,18 +64,49 @@ let app = {
 
     // Loaders
     OBJLoader: new THREE.OBJLoader(),
-
+    textureLoader: new THREE.TextureLoader(),
 
 
     initialize: function () {
         // replace icons
         feather.replace({ class: '', width: '30', height: '30', color: '#333333' });
 
-    
-        app.getMuscles();
-        app.getConditions();
 
-        app.getModels();
+        // app.getMuscles().then(() => {
+        //     console.log('promise then');
+        // }).then( () => {
+        //     console.log('promise then then');
+        // });
+
+        app.getMuscles().then(() => {
+            app.getConditions().then(() => {
+                app.getTextures().then(() => {
+                    app.getModels().then(() => {
+                        app.loadTextures().then(() => {
+                            app.loadModels().then(() => {
+                                app.initModels().then(() => {
+                                    console.log('initModels done'); 
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+
+
+        // .then(app.loadTextures())
+        // .then(app.loadModels())
+        // .then( function() {
+        //     console.log('loadModels done');
+        // });
+
+        // .then(app.initModels())
+
+        // // app.getMuscles();
+        // app.getConditions();
+
+        // app.getModels();
 
         // getModels();
         // getTextures();
@@ -102,9 +133,9 @@ let app = {
     },
     loop: function () {
         let dt = 0.1;
-    
+
         update(dt);
-    
+
         // console.log('loop');
         requestAnimationFrame(app.loop);
         if (app.scene) {
@@ -118,88 +149,179 @@ let app = {
             //     }
             // }
         }
-    
+
         let clearColour = 0xAAAAAA;
         app.renderer.clear();
         app.renderer.setClearColor(clearColour);
         app.renderer.render(app.scene, app.camera);
-    
+
         app.renderer.render(app.scene, app.camera);
     },
-    getMuscles: function() {
-        app.muscles.downloading = true;
 
-        axios.get(app.muscles.path).then(function (response) {
-            // console.log(response);
-            if (response.data) {
-                console.log(response.data);
-                app.muscles.downloading = false;
-                app.muscles.loading = true;
-                app.fullMuscles = response.data;
 
-                app.updateDom();
+
+    getMuscles: function () {
+        return new Promise(function (resolve, reject) {
+            app.muscles.downloading = true;
+
+            axios.get(app.muscles.path).then(function (response) {
+                // console.log(response);
+                if (response.data) {
+                    console.log(response.data);
+                    app.muscles.downloading = false;
+                    app.muscles.loading = true;
+                    app.fullMuscles = response.data;
+
+                    app.updateDom();
+                    console.log('getMuscles resolve');
+                    resolve();
+                }
+            });
+        })
+    },
+    getConditions: function () {
+        console.log('getConditions');
+        return new Promise(function (resolve, reject) {
+            app.conditions.downloading = true;
+
+            axios.get(app.conditions.path).then(function (response) {
+                // console.log(response);
+                if (response.data) {
+                    console.log(response.data);
+                    app.conditions.downloading = false;
+                    app.conditions.loading = true;
+                    app.conditions.fullList = response.data;
+
+                    app.updateDom();
+                    console.log('getConditions resolve');
+                    resolve();
+                }
+            });
+        })
+    },
+    getTextures: function () {
+        return new Promise(function (resolve, reject) {
+            app.textures.downloading = true;
+
+            axios.get(app.textures.path).then(function (response) {
+                // console.log(response);
+                if (response.data) {
+                    console.log(response.data);
+                    app.textures.downloading = false;
+                    app.textures.loading = true;
+                    app.textures.fullList = response.data;
+
+
+                    console.log('getTextures resolve');
+                    resolve();
+                }
+            });
+        })
+    },
+    getModels: function () {
+        console.log('getModels');
+        return new Promise(function (resolve, reject) {
+            app.models.downloading = true;
+
+            axios.get(app.models.path).then(function (response) {
+                // console.log(response);
+                if (response.data) {
+                    console.log(response.data);
+                    app.models.downloading = false;
+                    app.models.loading = true;
+                    app.models.fullList = response.data;
+                    // app.textures.fullList = response.data.textureList;
+                    // app.updateDom();
+
+                    console.log('getModels resolve');
+                    resolve();
+                }
+            });
+        });
+    },
+
+    loadTextures: function () {
+        console.log('loadTextures');
+        return new Promise(function (resolve, reject) {
+            if (app.textureLoader) {
+                let promises = [];
+                for (let i in app.textures.fullList) {
+                    let promise = new Promise(function (resolve, reject) {
+                        app.textureLoader.load('./tex/' + app.textures.fullList[i].path, function (texture) {
+                            console.log('texture loaded', texture);
+                            app.textures.list.push({ name: app.textures.fullList[i].name, texture: texture });
+                            resolve();
+                        });
+                    });
+                    promises.push(promise);
+                }
+                Promise.all(promises).then(function () {
+                    console.log('loadTextures resolve');
+                    resolve();
+                })
             }
         });
-
     },
-    getConditions: function() {
-        app.conditions.downloading = true;
+    loadModels: function () {
+        console.log('loadModels');
+        return new Promise(function (resolve, reject) {
+            if (app.OBJLoader) {
 
-        axios.get(app.conditions.path).then(function (response) {
-            // console.log(response);
-            if (response.data) {
-                console.log(response.data);
-                app.conditions.downloading = false;
-                app.conditions.loading = true;
-                app.conditions.fullList = response.data;
+                let promises = [];
+                for (let i in app.models.fullList) {
+                    if( app.models.fullList[i].fileName !== '' ) {
+                        let promise = new Promise(function (resolve, reject) {
+                            app.OBJLoader.load('./obj/' + app.models.fullList[i].fileName + '.' + app.models.fullList[i].fileType, function (model) {
+                                app.models.list.push({ name: app.models.fullList[i].name, mesh: model, texture:app.models.fullList[i].texture });
+                                console.log('model', model);
+                                
+                                resolve();
+                            });
+                        });
+                        promises.push(promise);
+                    }
+                }
+                Promise.all(promises).then(function () {
+                    console.log('loadModels resolve');
+                    resolve();
+                })
 
-                app.updateDom();
+
+
+                // let meshCallback = function (index, mesh) {
+                //     let data = {
+                //         name: app.models.fullList[index].displayName,
+                //         mesh: mesh,
+                //     }    
+                //     app.meshList.push(data);
+                //     // console.log('length', app.meshList.length, app.modelList.length);
+                //     if (app.meshList.length === app.models.fullList.length) {
+                //         // initFaceObjects();
+                //     }
+                // }
+                // let meshes = [];
+                // console.log(app.models.fullList);
+                // for ( let i in app.models.fullList ) {
+                //     // console.log(app.modelList[i]);
+                //     app.OBJLoader.load('./obj/' + app.models.fullList[i].fileName + '.' + app.models.fullList[i].fileType, function (item) {
+                //         // console.log(item);
+                //         meshCallback(i, item)
+                //     });
+                // }
             }
         });
-
     },
-    getModels: function() {
-        app.models.downloading = true;
 
-        axios.get(app.models.path).then(function (response) {
-            // console.log(response);
-            if (response.data) {
-                console.log(response.data);
-                app.models.downloading = false;
-                app.models.loading = true;
-                app.models.fullList = response.data.modelList;
-                app.textures.fullList = response.data.textureList;
-                // app.updateDom();
-                app.initModels();
+
+
+    getTexture: function (name) {
+        var result;
+        for (var i = 0; i < app.textures.list.length; i++) {
+            if (app.textures.list[i].name === name) {
+                result = app.textures.list[i].texture;
             }
-        });
-    },
-
-    updateDom: function() {
-        console.log('updateDom');
-
-
-
-        let muscles = [];
-        let conditions = [];
-
-        // check conditions
-        for( let i in app.conditions.fullList ) {
-            // app
-            conditions.push(app.conditions.fullList[i]);
         }
-
-        for( let i in app.fullMuscles ) {
-            // app
-            muscles.push(app.fullMuscles[i]);
-        }
-
-
-
-        app.updateSelectMuscles(muscles);
-        app.updateSelectConditions(conditions);
-
-
+        return result;
     },
 
     // initDOMMuscles: function(list) {
@@ -213,10 +335,10 @@ let app = {
     //         domSelect.add(option);
     //     }
     // },
-    updateSelectMuscles: function(list) {
+    updateSelectMuscles: function (list) {
         let domSelect = document.getElementById('navSelectMuscles');
-        for( let i in list) {
-            console.log(list[i]);
+        for (let i in list) {
+            // console.log(list[i]);
             let option = document.createElement('option');
             option.text = list[i].groupName;
             option.value = list[i].id;
@@ -224,10 +346,10 @@ let app = {
             domSelect.add(option);
         }
     },
-    updateSelectConditions: function(list) {
+    updateSelectConditions: function (list) {
         let domSelect = document.getElementById('navSelectConditions');
-        for( let i in list) {
-            console.log(list[i]);
+        for (let i in list) {
+            // console.log(list[i]);
             let option = document.createElement('option');
             option.text = list[i].name;
             option.value = list[i].id;
@@ -236,40 +358,87 @@ let app = {
         }
     },
 
-    selectCondition: function(id) {
-        for( let i in app.conditions.fullList ) {
-            if( app.conditions.fullList[i].id === id ) {
+    selectCondition: function (id) {
+        // console.log('selectCondition', id);
+        for (let i in app.conditions.fullList) {
+            if (app.conditions.fullList[i].id === id) {
                 // app.sele
+                app.updateMetaDom(app.conditions.fullList[i]);
             }
         }
     },
 
     // const initFace = function () {
-    initModels: function() {
+    initModels: function () {
         console.log('initModels');
-        if (app.OBJLoader) {
-            let meshCallback = function (index, mesh) {
-                let data = {
-                    name: app.models.fullList[index].displayName,
-                    mesh: mesh,
-                }    
-                app.meshList.push(data);
-                // console.log('length', app.meshList.length, app.modelList.length);
-                if (app.meshList.length === app.models.fullList.length) {
-                    initFaceObjects();
+        return new Promise(function (resolve, reject) {
+            if (app.models.list && app.models.list.length > 0) {
+                for (let i in app.models.list) {
+
+                    // console.log(app.meshList[i]);
+                    let objProps = {
+                        name: app.models.list[i].name,
+                        mesh: app.models.list[i].mesh,
+                        texture: app.models.list[i].texture,
+                    }
+
+                    let obj = createObject(objProps);
+                    obj.object.scale.multiplyScalar(8.0);
+                    app.objectList.push(obj);
+
                 }
+                updateScene();
+                resolve();
             }
-            let meshes = [];
-            console.log(app.models.fullList);
-            for ( let i in app.models.fullList ) {
-                // console.log(app.modelList[i]);
-                app.OBJLoader.load('./obj/' + app.models.fullList[i].fileName + '.' + app.models.fullList[i].fileType, function (item) {
-                    // console.log(item);
-                    meshCallback(i, item)
-                });
-            }
-        }
+        });
+
     },
+
+
+    updateMetaDom: function (condition) {
+        console.log('updateMetaDom', condition);
+
+        let metaConditionName = document.getElementById('metaConditionName');
+        let metaNumPatients = document.getElementById('metaNumPatients');
+        let metaNumSessions = document.getElementById('metaNumSessions');
+        let metaAverageAge = document.getElementById('metaAverageAge');
+        let metaPercentageMale = document.getElementById('metaPercentageMale');
+        let metaPercentageFemale = document.getElementById('metaPercentageFemale');
+
+        metaConditionName.innerHTML = condition.name;
+        metaNumPatients.innerHTML = condition.meta.numberOfPatients;
+        metaNumSessions.innerHTML = condition.meta.numberOfSessions;
+        metaAverageAge.innerHTML = condition.meta.averageAge;
+        metaPercentageMale.innerHTML = condition.meta.percentageMale;
+        metaPercentageFemale.innerHTML = condition.meta.percentageFemale;
+    },
+    updateDom: function () {
+        console.log('updateDom');
+
+
+
+        let muscles = [];
+        let conditions = [];
+
+        // check conditions
+        for (let i in app.conditions.fullList) {
+            // app
+            conditions.push(app.conditions.fullList[i]);
+        }
+
+        for (let i in app.fullMuscles) {
+            // app
+            muscles.push(app.fullMuscles[i]);
+        }
+
+
+
+        app.updateSelectMuscles(muscles);
+        app.updateSelectConditions(conditions);
+
+
+    },
+
 };
 
 
@@ -288,7 +457,7 @@ const initEventListeners = function () {
 
     let selectConditions = document.getElementById('navSelectConditions');
     let selectMuscles = document.getElementById('navSelectMuscles');
-    
+
 
     btnReset.onclick = (event) => {
         event.preventDefault();
@@ -308,11 +477,8 @@ const initEventListeners = function () {
     }
 
     selectConditions.onchange = (event) => {
-        console.log('selectConditions', event.target.value);
-
-        app.selectCondition(event.target.value);
-
-        
+        // console.log('selectCondition', event.target.value);
+        app.selectCondition(Number(event.target.value));
     }
 };
 
@@ -401,16 +567,6 @@ const resizeThree = function (event) {
 
 
 // Data requests
-
-
-const getModels = function() {
-
-}
-const getTextures = function() {
-
-}
-
-
 const initThree = function () {
     let width = window.innerWidth - 20;
     let height = (window.innerWidth <= 768 ? window.innerHeight - 60 : window.innerHeight - 60);
@@ -623,12 +779,16 @@ const createObject = function (props) {
     if (props.name && props.name !== '' && props.mesh) {
         let data = {};
 
+        // debugger;
         // let meshObj = props.mesh.clone();
         // let obj = new THREE.Object3D();
 
+        let texture = app.getTexture(props.texture);
+
         let obj = props.mesh.clone();
         let mesh = obj.children[0];
-        let material = new THREE.MeshPhongMaterial({ color: 0xFF0000 });
+        // let material = new THREE.MeshPhongMaterial({ color: 0xFF0000, map: texture });
+        let material = new THREE.MeshPhongMaterial({ map: texture });
 
         obj.name = props.name;
 

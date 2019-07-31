@@ -1,25 +1,31 @@
 [
     {
+        "id": 1,
         "name": "grid",
         "path": "grid.png"
     },
     {
+        "id": 2,
         "name": "skullTex",
         "path": "skullTex.png"
     },
     {
+        "id": 3,
         "name": "brainTex",
         "path": "brainTex.png"
     },
     {
+        "id": 4,
         "name": "eyeballTex",
         "path": "eyeballTex.png"
     },
     {
+        "id": 5,
         "name": "muscleBodyTex",
         "path": "muscleBodyTex.png"
     },
     {
+        "id": 6,
         "name": "muscleTex",
         "path": "muscleTex.png"
     }
