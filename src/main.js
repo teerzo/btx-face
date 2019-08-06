@@ -38,6 +38,13 @@ let app = {
         list: [],
         rawList: [],
     },
+    modelsMisc: {
+        path: './data/modelsMisc.json',
+        downloading: null,
+        loading: null,
+        list: [],
+        rawList: [],
+    },
     textures: {
         path: './data/textures.json',
         downloading: null,
@@ -82,10 +89,12 @@ let app = {
             app.getConditions().then(() => {
                 app.getTextures().then(() => {
                     app.getModels().then(() => {
-                        app.loadTextures().then(() => {
-                            app.loadModels().then(() => {
-                                app.initModels().then(() => {
-                                    console.log('initModels done'); 
+                        app.getModelsMisc().then(() => {           
+                            app.loadTextures().then(() => {
+                                app.loadModels().then(() => {
+                                    app.initModels().then(() => {
+                                        console.log('initModels done'); 
+                                    });
                                 });
                             });
                         });
@@ -94,40 +103,14 @@ let app = {
             });
         });
 
-
-        // .then(app.loadTextures())
-        // .then(app.loadModels())
-        // .then( function() {
-        //     console.log('loadModels done');
-        // });
-
-        // .then(app.initModels())
-
-        // // app.getMuscles();
-        // app.getConditions();
-
-        // app.getModels();
-
-        // getModels();
-        // getTextures();
-
-
-        // axios.get('./data/models.json').then(function (response) {
-        //     // console.log(response);
-        //     if (response.data) {
-        //         app.modelList = response.data.modelList;
-        //         app.textureList = response.data.textureList;
-
-        //         initFace();
-        //     }
-        // })
-
         initEventListeners();
         initDom();
 
         initThree();
         initScene();
         initObjects();
+
+        app.hideLoading();
 
         app.loop();
     },
@@ -158,8 +141,16 @@ let app = {
         app.renderer.render(app.scene, app.camera);
     },
 
+    hideLoading: function() {
+        let domLoading = document.getElementById('loading');
 
-
+        window.setTimeout( () => {
+            domLoading.classList.add('anim');
+            window.setTimeout( () => {
+                domLoading.classList.add('hide');
+            }, 500 );
+        }, 2000 );
+    },
     getMuscles: function () {
         return new Promise(function (resolve, reject) {
             app.muscles.downloading = true;
@@ -179,6 +170,7 @@ let app = {
             });
         })
     },
+    
     getConditions: function () {
         console.log('getConditions');
         return new Promise(function (resolve, reject) {
@@ -239,6 +231,25 @@ let app = {
             });
         });
     },
+    getModelsMisc: function () {
+        return new Promise(function (resolve, reject) {
+            app.modelsMisc.downloading = true;
+
+            axios.get(app.modelsMisc.path).then(function (response) {
+                // console.log(response);
+                if (response.data) {
+                    console.log(response.data);
+                    app.modelsMisc.downloading = false;
+                    app.modelsMisc.loading = true;
+                    app.modelsMisc.fullList = response.data;
+
+                    console.log('getModelsMisc resolve');
+                    resolve();
+                }
+            });
+        })
+    },
+
 
     loadTextures: function () {
         console.log('loadTextures');
@@ -269,10 +280,25 @@ let app = {
 
                 let promises = [];
                 for (let i in app.models.fullList) {
-                    if( app.models.fullList[i].fileName !== '' ) {
+                    const md = app.models.fullList[i];
+                    if( md.fileName !== '' ) {
                         let promise = new Promise(function (resolve, reject) {
-                            app.OBJLoader.load('./obj/' + app.models.fullList[i].fileName + '.' + app.models.fullList[i].fileType, function (model) {
-                                app.models.list.push({ name: app.models.fullList[i].name, mesh: model, texture:app.models.fullList[i].texture });
+                            app.OBJLoader.load('./obj/' + md.fileName + '.' + md.fileType, function (model) {
+                                app.models.list.push({ name: md.name, mesh: model, texture:md.texture });
+                                console.log('model', model);
+                                
+                                resolve();
+                            });
+                        });
+                        promises.push(promise);
+                    }
+                }
+                for (let i in app.modelsMisc.fullList) {
+                    const md = app.modelsMisc.fullList[i];
+                    if( app.modelsMisc.fullList[i].fileName !== '' ) {
+                        let promise = new Promise(function (resolve, reject) {
+                            app.OBJLoader.load('./obj/' + md.fileName + '.' + md.fileType, function (model) {
+                                app.modelsMisc.list.push({ name: md.name, mesh: model, texture:md.texture });
                                 console.log('model', model);
                                 
                                 resolve();
@@ -374,7 +400,6 @@ let app = {
         return new Promise(function (resolve, reject) {
             if (app.models.list && app.models.list.length > 0) {
                 for (let i in app.models.list) {
-
                     // console.log(app.meshList[i]);
                     let objProps = {
                         name: app.models.list[i].name,
@@ -385,11 +410,24 @@ let app = {
                     let obj = createObject(objProps);
                     obj.object.scale.multiplyScalar(8.0);
                     app.objectList.push(obj);
-
                 }
-                updateScene();
-                resolve();
             }
+            if (app.modelsMisc.list && app.modelsMisc.list.length > 0) {
+                for (let i in app.modelsMisc.list) {
+                    // console.log(app.meshList[i]);
+                    let objProps = {
+                        name: app.modelsMisc.list[i].name,
+                        mesh: app.modelsMisc.list[i].mesh,
+                        texture: app.modelsMisc.list[i].texture,
+                    }
+
+                    let obj = createObject(objProps);
+                    obj.object.scale.multiplyScalar(8.0);
+                    app.objectList.push(obj);
+                }
+            }
+            updateScene();
+            resolve();
         });
 
     },

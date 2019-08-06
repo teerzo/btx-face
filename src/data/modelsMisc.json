@@ -1,0 +1,317 @@
+[
+    {
+      "id": 1,
+      "name": "Skull",
+      "fileName": "Skull",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 2,
+      "name": "Mandible",
+      "fileName": "Mandible",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 3,
+      "name": "C1",
+      "fileName": "Spine_Bone_01",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 4,
+      "name": "C2",
+      "fileName": "Spine_Bone_02",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 5,
+      "name": "C3",
+      "fileName": "Spine_Bone_03",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 6,
+      "name": "C4",
+      "fileName": "Spine_Bone_04",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 7,
+      "name": "C5",
+      "fileName": "Spine_Bone_05",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 8,
+      "name": "C6",
+      "fileName": "Spine_Bone_06",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 9,
+      "name": "C7",
+      "fileName": "Spine_Bone_07",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 10,
+      "name": "Th1",
+      "fileName": "Spine_Bone_08",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 11,
+      "name": "Th2",
+      "fileName": "Spine_Bone_09",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 12,
+      "name": "Th3",
+      "fileName": "Spine_Bone_10",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 13,
+      "name": "Lower Canine Left",
+      "fileName": "Lower_Canine_Left",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 14,
+      "name": "Lower Canine Right",
+      "fileName": "Lower_Canine_Right",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 15,
+      "name": "Lower Incisor Left 01",
+      "fileName": "Lower_Incisor_Left_01",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 16,
+      "name": "Lower Incisor Left 02",
+      "fileName": "Lower_Incisor_Left_02",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 17,
+      "name": "Lower Incisor Right 01",
+      "fileName": "Lower_Incisor_Right_01",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 18,
+      "name": "Lower Incisor Right 02",
+      "fileName": "Lower_Incisor_Right_02",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 19,
+      "name": "Lower Molar Left 01",
+      "fileName": "Lower_Molar_Left_01",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 20,
+      "name": "Lower Molar Left 02",
+      "fileName": "Lower_Molar_Left_02",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 21,
+      "name": "Lower Molar Right 01",
+      "fileName": "Lower_Molar_Right_01",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 22,
+      "name": "Lower Molar Right 02",
+      "fileName": "Lower_Molar_Right_02",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 23,
+      "name": "Lower Premolar Left 01",
+      "fileName": "Lower_Premolar_Left_01",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 24,
+      "name": "Lower Premolar Left 02",
+      "fileName": "Lower_Premolar_Left_02",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 25,
+      "name": "Lower Premolar Right 01",
+      "fileName": "Lower_Premolar_Right_01",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 26,
+      "name": "Lower Premolar Right 02",
+      "fileName": "Lower_Premolar_Right_02",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 27,
+      "name": "Upper Canine Left",
+      "fileName": "Upper_Canine_Left",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 28,
+      "name": "Upper Canine Right",
+      "fileName": "Upper_Canine_Right",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 29,
+      "name": "Upper Incisor Left 01",
+      "fileName": "Upper_Incisor_Left_01",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 30,
+      "name": "Upper Incisor Left 02",
+      "fileName": "Upper_Incisor_Left_02",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 31,
+      "name": "Upper Incisor Right 01",
+      "fileName": "Upper_Incisor_Right_01",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 32,
+      "name": "Upper Incisor Right 02",
+      "fileName": "Upper_Incisor_Right_02",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 33,
+      "name": "Upper Molar Left 01",
+      "fileName": "Upper_Molar_Left_01",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 34,
+      "name": "Upper Molar Left 02",
+      "fileName": "Upper_Molar_Left_02",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 35,
+      "name": "Upper Molar Right 01",
+      "fileName": "Upper_Molar_Right_01",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 36,
+      "name": "Upper Molar Right 02",
+      "fileName": "Upper_Molar_Right_02",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 37,
+      "name": "Upper Premolar Left 01",
+      "fileName": "Upper_Premolar_Left_01",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 38,
+      "name": "Upper Premolar Left 02",
+      "fileName": "Upper_Premolar_Left_02",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 39,
+      "name": "Upper Premolar Right 01",
+      "fileName": "Upper_Premolar_Right_01",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 40,
+      "name": "Upper Premolar Right 02",
+      "fileName": "Upper_Premolar_Right_02",
+      "fileType": "obj",
+      "texture": "skullTex"
+    },
+    {
+      "id": 41,
+      "name": "Spinal Cord Lower",
+      "fileName": "Spinal_Cord_Lower",
+      "fileType": "obj",
+      "texture": "brainTex"
+    },
+    {
+      "id": 42,
+      "name": "Nerves Left",
+      "fileName": "Nerves_Left",
+      "fileType": "obj",
+      "texture": "brainTex"
+    },
+    {
+      "id": 43,
+      "name": "Nerves Right",
+      "fileName": "Nerves_Right",
+      "fileType": "obj",
+      "texture": "brainTex"
+    },
+    {
+      "id": 44,
+      "name": "Eye Ball Inner Left",
+      "fileName": "Eye_Ball_Inner_Left",
+      "fileType": "obj",
+      "texture": "eyeballTex"
+    },
+    {
+      "id": 45,
+      "name": "Eye Ball Inner Right",
+      "fileName": "Eye_Ball_Inner_Right",
+      "fileType": "obj",
+      "texture": "eyeballTex"
+    }
+  ]

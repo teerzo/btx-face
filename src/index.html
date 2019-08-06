@@ -3,10 +3,53 @@
 <head>
     <title> BTX 3D Face </title>
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        #loading {
+            display: block;
+            opacity: 1.0;
+            background-color: #FFFFFF;
+
+            position: fixed;
+            z-index: 10000;
+
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            left: 0px;
+        }
+        #loading.anim {
+            animation: hide 0.5s;
+        }
+        #loading.hide {
+            display: none;
+            opacity: 0.0;
+            background-color: #EEEEEE;
+        }
+        @keyframes hide {
+            0% {
+                display: block;
+                opacity: 1.0;
+                background-color: #EEEEEE;
+            }
+            100% {
+                display: none;
+                opacity: 0.0;
+                background-color: #EEEEEE;
+            }
+        }
+    </style>
     <!--<link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css%>">-->
 </head>
 
 <body>
+    <div id="loading">
+        <div class="load" style="display: none;"> 
+            <p> Loading </p>
+            <div class="spinner"> 
+
+            </div>
+        </div>
+    </div>
     <div id="root">
         <div id="nav" class="nav">
             <div id="btn-menu" class="btn-menu">
@@ -27,23 +70,23 @@
                 </div>
                 <div class="select-group">
                     <label> Muscles </label>
-                    <select id="navSelectMuscles"class="select">
+                    <select id="navSelectMuscles" class="select">
                         <option> Please select... </option>
                     </select>
                 </div>
-                <div class="toggle-group"> 
+                <div class="toggle-group">
                     <div class="chkMuscleLeft" title="Hide left muscle"> L </div>
                     <div class="chkMuscleRight" title="Hide right muscle"> R </div>
 
 
-                <!-- 
+                    <!-- 
                     <label for="chkToggleLeft"> Toggle Left Muscle </label>
                     <input id="chkToggleLeft" type="checkbox" />
                     <label for="chkToggleRight"> Toggle Right Muscle </label>
                     <input id="chkToggleRight" type="checkbox" /> -->
                 </div>
-                <div class="toggle-group"> 
-                    
+                <div class="toggle-group">
+
                 </div>
 
 
@@ -93,6 +136,7 @@
 
         </div>
     </div>
+
     <!--<script src="<%=htmlWebpackPlugin.files.chunks.main.entry%>"></script>-->
 </body>
 
