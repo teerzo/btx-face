@@ -337,7 +337,13 @@ let app = {
                     if (md.fileName !== '' && md.fileName !== null) {
                         let promise = new Promise(function (resolve, reject) {
                             app.OBJLoader.load('./obj/' + md.fileName + '.' + md.fileType, function (model) {
-                                app.models.list.push({ id: md.id, type: 'muscle', name: md.name, mesh: model, texture: md.texture });
+                                app.models.list.push({ 
+                                    id: md.id, 
+                                    type: 'muscle', 
+                                    name: md.name, 
+                                    side: md.side,
+                                    mesh: model, 
+                                    texture: md.texture });
                                 console.log('model', model);
 
                                 resolve();
@@ -389,11 +395,10 @@ let app = {
 
         let option = document.createElement('option');
         option.text = 'Please select..'
-        option.value = '';
+        option.value = null;
 
         domSelect.add(option);
 
-        // debugger;
         for (let i = 0; i < list.length; i++) {
 
             // console.log(list[i]);
@@ -466,7 +471,6 @@ let app = {
         }
         app.muscleIds = ids;
 
-        // debugger;
         for (let i in app.objectList) {
             let item = app.objectList[i];
 
@@ -519,7 +523,13 @@ let app = {
         app.muscleId = null;
 
         let domSelectCondition = document.getElementById('navSelectMuscles');
-        domSelectCondition.selectedIndex = 0;
+        // domSelectCondition.selectedIndex = 0;
+
+        if (domSelectCondition.options.length > 0) {
+            for(let i = domSelectCondition.options.length - 1 ; i >= 0 ; i--) {
+                domSelectCondition.remove(i);
+            }
+        }
 
         let domOverlayMuscle = document.getElementById('overlayMuscle');
         domOverlayMuscle.classList.add('hide');
@@ -531,11 +541,11 @@ let app = {
             if (app.models.list && app.models.list.length > 0) {
                 for (let i in app.models.list) {
                     if (app.models.list[i].name !== '' && app.models.list[i].name !== null) {
-                        // console.log(app.meshList[i]);
                         let objProps = {
                             id: app.models.list[i].id,
                             type: app.models.list[i].type,
                             name: app.models.list[i].name,
+                            side: app.models.list[i].side,
                             mesh: app.models.list[i].mesh,
                             texture: app.models.list[i].texture,
                         }
@@ -554,6 +564,7 @@ let app = {
                         type: app.modelsMisc.list[i].type,
                         name: app.modelsMisc.list[i].name,
                         mesh: app.modelsMisc.list[i].mesh,
+                        
                         texture: app.modelsMisc.list[i].texture,
                     }
 
@@ -690,7 +701,7 @@ let app = {
                                 name: condMuscle.name,
                                 muscles: [],
                             };
-                            console.log('new', data);
+                            // console.log('new', data);
                             data.muscles.push(condMuscle);
                             combinedMuscles.push(data);
                         }
@@ -747,7 +758,7 @@ let app = {
         }
     },
     updateObjects: function () {
-        console.log('updateObjects');
+        console.log('updateObjects', app.conditionId, app.objectList);
         for (let i in app.objectList) {
             let item = app.objectList[i];
 
@@ -756,7 +767,7 @@ let app = {
             item.material.opacity = 1;
             item.material.emissive.setHex(0x000000);
 
-            if( app.conditionId === null ) {
+            if( app.conditionId !== null && app.muscleGroupId === null ) {
                 if (item.type === 'muscle') {
                     item.material.color.setHex(0x00FF00);
                 }
@@ -899,9 +910,11 @@ const initEventListeners = function () {
         app.resetSelectMuscle();
         app.resetObjects();
 
-        let value = event.target.value !== '' ? Number(event.target.value) : null;
+        let value = null;
+        if( event.target.value !== '' && event.target.value !== 'null' && event.target.value !== null ) {
+            value = Number(event.target.value);
+        }
         if (value !== null) {
-
             app.conditionId = value;
             app.selectCondition(value);
 
@@ -919,6 +932,7 @@ const initEventListeners = function () {
             let domGroupMove = document.getElementById('groupMove');
             domGroupMove.classList.remove('hide');
 
+            app.updateObjects();
         }
         else {
             console.log('clear overlay');
@@ -929,12 +943,18 @@ const initEventListeners = function () {
     selectMuscles.onchange = (event) => {
         console.log('selectMuscles', event.target.value);
 
-        let value = event.target.value !== '' ? Number(event.target.value) : null;
+        let value = null;
+        if( event.target.value !== '' && event.target.value !== 'null' && event.target.value !== null ) {
+            value = Number(event.target.value);
+        }
         if (value !== null) {
             app.selectMuscleGroup(value);
         }
         else {
+            console.log('RESET');
             app.resetSelectMuscle();
+            app.selectCondition(app.conditionId);
+            app.updateObjects();
         }
     }
 };
@@ -1194,21 +1214,16 @@ const createObject = function (props) {
         data.id = props.id;
         data.name = props.name;
         data.type = props.type;
-        data.side = '';
+
+        if( props.side ) {
+            data.side = props.side;
+        }
+        
 
         // visiblity / material options
         data.visible = true;
 
-        if (props.name.toLowerCase().indexOf('left') !== -1) {
-            data.side = 'left';
-        }
-        else if (props.name.toLowerCase().indexOf('right') !== -1) {
-            data.side = 'right';
-        }
-
-        // debugger;
-        // let meshObj = props.mesh.clone();
-        // let obj = new THREE.Object3D();
+      
 
         let texture = app.getTexture(props.texture);
 
@@ -1243,9 +1258,7 @@ const updateScene = function () {
     if (app.scene) {
         if (app.objectList && app.objectList.length > 0) {
             for (let i in app.objectList) {
-                // console.log(app.objectList[i]);
-                // debugger;
-
+               
                 app.scene.add(app.objectList[i].object);
             }
         }
