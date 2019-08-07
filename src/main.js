@@ -756,6 +756,17 @@ let app = {
             item.material.opacity = 1;
             item.material.emissive.setHex(0x000000);
 
+            if( app.conditionId === null ) {
+                if (item.type === 'muscle') {
+                    item.material.color.setHex(0x00FF00);
+                }
+            }
+            else {
+                if (item.type === 'muscle') {
+                    item.material.color.setHex(0xFFFFFF);
+                }
+            }
+
             if (app.muscleGroupId !== null) {
                 if (item.type === 'muscle') {
                     if (item.selected) {
