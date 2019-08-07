@@ -17,20 +17,24 @@
             bottom: 0px;
             left: 0px;
         }
+
         #loading.anim {
             animation: hide 0.5s;
         }
+
         #loading.hide {
             display: none;
             opacity: 0.0;
             background-color: #EEEEEE;
         }
+
         @keyframes hide {
             0% {
                 display: block;
                 opacity: 1.0;
                 background-color: #EEEEEE;
             }
+
             100% {
                 display: none;
                 opacity: 0.0;
@@ -43,9 +47,9 @@
 
 <body>
     <div id="loading">
-        <div class="load" style="display: none;"> 
+        <div class="load" style="display: none;">
             <p> Loading </p>
-            <div class="spinner"> 
+            <div class="spinner">
 
             </div>
         </div>
@@ -62,19 +66,19 @@
             </div>
 
             <div id="nav-items" class="nav-items">
-                <div class="select-group">
+                <div id="groupCondition"class="select-group">
                     <label> Conditions </label>
                     <select id="navSelectConditions" class="select">
-                        <option> Please select... </option>
+                        <option value=""> Please select... </option>
                     </select>
                 </div>
-                <div class="select-group">
+                <div id="groupMuscle" class="select-group">
                     <label> Muscles </label>
                     <select id="navSelectMuscles" class="select">
-                        <option> Please select... </option>
+                        <option value=""> Please select... </option>
                     </select>
                 </div>
-                <div class="toggle-group">
+                <div id="groupSidesButtons" class="toggle-group">
                     <div id="btnLeftMuscle" class="chkMuscleLeft" title="Hide left muscle"> L </div>
                     <div id="btnRightMuscle" class="chkMuscleRight" title="Hide right muscle"> R </div>
 
@@ -92,7 +96,7 @@
 
 
                 <div id="btn-reset" class="btn-reset"> Reset </div>
-                <div class="check-move">
+                <div id="groupMove" class="check-move">
                     <input id="chkMoveMuscles" type="checkbox" />
                     <label for="chkMoveMuscles" class="label"> Move muscles </label>
                 </div>
@@ -100,7 +104,7 @@
         </div>
         <div id="overlay" class="overlay">
 
-            <div class="overlay-scale">
+            <div id="overlayScale" class="overlay-scale">
                 <div class="scale-parent">
                     <div class="scale-min"> 1% </div>
                     <div class="scale-colour"> </div>
@@ -108,7 +112,28 @@
                 </div>
             </div>
 
-            <div class="overlay-condition">
+            <div id="overlayMuscle" class="overlay-muscle">
+                <p id="metaMuscleName" class="muscle-name"> Muscle name </p>
+                <div class="flex-row">
+                    <div class="flex-text"> 
+                        <b> Injected in <span id="metaInjectedPercentage"> 90% </span>% of sessions </b>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="flex-text"> Botox, 
+                        <span id="metaBotoxValue"> 20 units</span> units, 
+                        <span id="metaBotoxSessions"> 5 sites </span> sites per session 
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="flex-text"> Dysport, 
+                        <span id="metaDysportValue"> 20 units</span> units, 
+                        <span id="metaDysportSessions"> 3 sites </span> sites per session 
+                    </div>
+                </div>
+            </div>
+
+            <div id="overlayCondition" class="overlay-condition">
                 <p id="metaConditionName" class="condition-name"> Belpharospasm </p>
                 <div class="flex-row">
                     <div class="flex-text"> Number of patients </div>

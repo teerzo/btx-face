@@ -100,7 +100,7 @@ let app = {
                                 app.loadModels().then(() => {
                                     app.initModels().then(() => {
                                         app.updateDom();
-                                        
+
                                         console.log('initModels done');
                                     });
                                 });
@@ -152,7 +152,7 @@ let app = {
     resetObjects: function () {
         for (let i in app.objectList) {
             let item = app.objectList[i];
-            console.log(item);
+            // console.log(item);
 
             item.visible = true;
             item.selected = false;
@@ -200,8 +200,8 @@ let app = {
         }, 2000);
     },
 
-    clickStart: function(event) {
-        console.log('clickStart', event);
+    clickStart: function (event) {
+        // console.log('clickStart', event);
     },
 
     getMuscles: function () {
@@ -334,7 +334,7 @@ let app = {
                 let promises = [];
                 for (let i in app.models.fullList) {
                     const md = app.models.fullList[i];
-                    if (md.fileName !== '') {
+                    if (md.fileName !== '' && md.fileName !== null) {
                         let promise = new Promise(function (resolve, reject) {
                             app.OBJLoader.load('./obj/' + md.fileName + '.' + md.fileType, function (model) {
                                 app.models.list.push({ id: md.id, type: 'muscle', name: md.name, mesh: model, texture: md.texture });
@@ -396,10 +396,10 @@ let app = {
         // debugger;
         for (let i = 0; i < list.length; i++) {
 
-            console.log(list[i]);
+            // console.log(list[i]);
 
             let option = document.createElement('option');
-            option.text = list[i].groupName;
+            option.text = list[i].name;
             option.value = list[i].id;
 
             domSelect.add(option);
@@ -422,20 +422,45 @@ let app = {
             if (app.conditions.fullList[i].id === id) {
                 // app.sele
                 app.updateMetaDom(app.conditions.fullList[i]);
+                app.updateDom();
             }
         }
     },
     selectMuscleGroup: function (id) {
         console.log('selectMuscleGroup', id);
 
+        app.resetObjects();
+
+        let domOverlayMuscle = document.getElementById('overlayMuscle');
+        domOverlayMuscle.classList.remove('hide');
+
+
         app.muscleGroupId = id;
 
+        let muscleMeta = {
+            name: ''
+        };
 
         let ids = [];
         for (let i in app.combinedMuscles) {
             if (app.combinedMuscles[i].id === id) {
+
+                console.log('$$$', app.combinedMuscles[i]);
+
+
                 for (let j in app.combinedMuscles[i].muscles) {
                     ids.push(app.combinedMuscles[i].muscles[j].id);
+
+                    // meta
+                    if (muscleMeta.percentageOfSessionsInjected !== '') {
+
+                        muscleMeta.name = app.combinedMuscles[i].name;
+                        muscleMeta.percentageOfSessionsInjected = app.combinedMuscles[i].muscles[j].percentageOfSessionsInjected;
+                        muscleMeta.botoxAverageDosePerMuscle = app.combinedMuscles[i].muscles[j].botoxAverageDosePerMuscle;
+                        muscleMeta.botoxAverageNumberOfSites = app.combinedMuscles[i].muscles[j].botoxAverageNumberOfSites;
+                        muscleMeta.dysportAverageDosePerMuscle = app.combinedMuscles[i].muscles[j].dysportAverageDosePerMuscle;
+                        muscleMeta.dysportAverageNumberOfSites = app.combinedMuscles[i].muscles[j].dysportAverageNumberOfSites;
+                    }
                 }
             }
         }
@@ -451,13 +476,19 @@ let app = {
             for (let j in ids) {
                 if (item.type === 'muscle') {
                     if (item.id === ids[j]) {
+                        console.log('item', item.id, item.name, item);
                         item.selected = true;
+
 
                     }
                 }
             }
         }
+
+
+
         app.updateObjects();
+        app.updateMetaMuscleDom(muscleMeta)
     },
 
     resetSelectCondition: function () {
@@ -466,7 +497,20 @@ let app = {
         let domSelectCondition = document.getElementById('navSelectConditions');
         domSelectCondition.selectedIndex = 0;
 
+        let domGroupMuscle = document.getElementById('groupMuscle');
+        domGroupMuscle.classList.add('hide');
 
+        let domGroupSidesButtons = document.getElementById('groupSidesButtons');
+        domGroupSidesButtons.classList.add('hide');
+
+        let domGroupMove = document.getElementById('groupMove');
+        domGroupMove.classList.add('hide');
+
+        let domOverlayCondition = document.getElementById('overlayCondition');
+        domOverlayCondition.classList.add('hide');
+
+        let domOverlayScale = document.getElementById('overlayScale');
+        domOverlayScale.classList.add('hide');
     },
 
     resetSelectMuscle: function () {
@@ -476,26 +520,30 @@ let app = {
 
         let domSelectCondition = document.getElementById('navSelectMuscles');
         domSelectCondition.selectedIndex = 0;
+
+        let domOverlayMuscle = document.getElementById('overlayMuscle');
+        domOverlayMuscle.classList.add('hide');
     },
 
-    // const initFace = function () {
     initModels: function () {
         console.log('initModels');
         return new Promise(function (resolve, reject) {
             if (app.models.list && app.models.list.length > 0) {
                 for (let i in app.models.list) {
-                    // console.log(app.meshList[i]);
-                    let objProps = {
-                        id: app.models.list[i].id,
-                        type: app.models.list[i].type,
-                        name: app.models.list[i].name,
-                        mesh: app.models.list[i].mesh,
-                        texture: app.models.list[i].texture,
-                    }
+                    if (app.models.list[i].name !== '' && app.models.list[i].name !== null) {
+                        // console.log(app.meshList[i]);
+                        let objProps = {
+                            id: app.models.list[i].id,
+                            type: app.models.list[i].type,
+                            name: app.models.list[i].name,
+                            mesh: app.models.list[i].mesh,
+                            texture: app.models.list[i].texture,
+                        }
 
-                    let obj = createObject(objProps);
-                    // obj.object.scale
-                    app.objectList.push(obj);
+                        let obj = createObject(objProps);
+                        // obj.object.scale
+                        app.objectList.push(obj);
+                    }
                 }
             }
             if (app.modelsMisc.list && app.modelsMisc.list.length > 0) {
@@ -524,6 +572,8 @@ let app = {
     updateMetaDom: function (condition) {
         console.log('updateMetaDom', condition);
 
+
+        // dom conditions
         let metaConditionName = document.getElementById('metaConditionName');
         let metaNumPatients = document.getElementById('metaNumPatients');
         let metaNumSessions = document.getElementById('metaNumSessions');
@@ -537,6 +587,37 @@ let app = {
         metaAverageAge.innerHTML = condition.meta.averageAge;
         metaPercentageMale.innerHTML = condition.meta.percentageMale;
         metaPercentageFemale.innerHTML = condition.meta.percentageFemale;
+
+
+    },
+    updateMetaMuscleDom: function (muscle) {
+        console.log('updateMetaMuscleDom', muscle);
+
+        // dom muscles
+        let metaMuscleName = document.getElementById('metaMuscleName');
+        let metaInjectedPercentage = document.getElementById('metaInjectedPercentage');
+        let metaBotoxValue = document.getElementById('metaBotoxValue');
+        let metaBotoxSessions = document.getElementById('metaBotoxSessions');
+        let metaDysportValue = document.getElementById('metaDysportValue');
+        let metaDysportSessions = document.getElementById('metaDysportSessions');
+
+        metaMuscleName.innerHTML = muscle.name;
+        metaInjectedPercentage.innerHTML = muscle.percentageOfSessionsInjected;
+        metaBotoxValue.innerHTML = muscle.botoxAverageDosePerMuscle;
+        metaBotoxSessions.innerHTML = muscle.botoxAverageNumberOfSites;
+        metaDysportValue.innerHTML = muscle.dysportAverageDosePerMuscle;
+        metaDysportSessions.innerHTML = muscle.dysportAverageNumberOfSites;
+
+
+
+        // muscleMeta.name = app.combinedMuscles[i].name;
+        //             muscleMeta.percentageOfSessionsInjected = app.combinedMuscles[i].muscles[j].percentageOfSessionsInjected;
+        //             muscleMeta.botoxAverageDosePerMuscle = app.combinedMuscles[i].muscles[j].botoxAverageDosePerMuscle;
+        //             muscleMeta.botoxAverageNumberOfSites = app.combinedMuscles[i].muscles[j].botoxAverageNumberOfSites;
+        //             muscleMeta.dysportAverageDosePerMuscle = app.combinedMuscles[i].muscles[j].dysportAverageDosePerMuscle;
+        //             muscleMeta.dysportAverageNumberOfSites = app.combinedMuscles[i].muscles[j].dysportAverageNumberOfSites;
+
+
     },
     updateDom: function () {
         console.log('updateDom');
@@ -546,52 +627,124 @@ let app = {
         let muscles = [];
         let conditions = [];
 
+
         // check conditions
-        for (let i in app.conditions.fullList) {
-            // app
-            conditions.push(app.conditions.fullList[i]);
+        if (app.conditionId === null) {
+            for (let i in app.conditions.fullList) {
+                // app
+                if (app.conditions.fullList[i].muscles && app.conditions.fullList[i].muscles.length > 0) {
+                    conditions.push(app.conditions.fullList[i]);
+                }
+            }
+            app.updateSelectConditions(conditions);
         }
 
+
+        // check muscles
         let combinedMuscles = [];
-        for (let i in app.fullMuscles) {
-            console.log(app.fullMuscles[i]);
+        console.log('condition check', app.conditionId);
+        if (app.conditionId !== null) {
 
-            let match = true;
-            for (let j in combinedMuscles) {
-                if (combinedMuscles[j].groupName === app.fullMuscles[i].groupName) {
-                    match = false;
-                    combinedMuscles[j].muscles.push(app.fullMuscles[i]);
+            for (let c in app.conditions.fullList) {
+                if (app.conditions.fullList[c].id === app.conditionId) {
+                    for (let cm in app.conditions.fullList[c].muscles) {
+                        const condMuscle = app.conditions.fullList[c].muscles[cm];
+
+
+                        let match = true;
+
+                        if (condMuscle.percentageOfSessionsInjected === '') {
+                            match = false;
+                        }
+                        else {
+                            for (let i in app.fullMuscles) {
+                                const muscle = app.fullMuscles[i];
+
+                                // if (muscle.id === null || muscle.id === '') {
+                                //     match = false;
+                                // }
+                                if (condMuscle.id === muscle.id) {
+                                    // if (condMuscle.percentageOfSessionsInjected === '') {
+                                    //     match = false;
+                                    // }
+                                    // else {
+                                    //     // console.log(condMuscle.percentageOfSessionsInjected);
+                                    // }
+
+                                    for (let j in combinedMuscles) {
+                                        let combined = combinedMuscles[j];
+
+                                        // console.log(combined, muscle);
+                                        if (combined.name === muscle.name) {
+                                            match = false;
+                                            combined.muscles.push(condMuscle);
+                                            // console.log('add', combined.name, muscles);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        if (match) {
+                            let data = {
+                                id: null,
+                                name: condMuscle.name,
+                                muscles: [],
+                            };
+                            console.log('new', data);
+                            data.muscles.push(condMuscle);
+                            combinedMuscles.push(data);
+                        }
+                    }
                 }
             }
-            if (match) {
-                let group = {
-                    groupName: app.fullMuscles[i].groupName,
-                    muscles: [],
-                }
-                group.muscles.push(app.fullMuscles[i]);
-                combinedMuscles.push(group);
+            console.log('check muscles', combinedMuscles);
+
+            for (let i in combinedMuscles) {
+                // console.log(app.fullMuscles[i]);
+                // app
+                combinedMuscles[i].id = Number(i);
+                muscles.push(combinedMuscles[i]);
             }
 
-            // app
+            // for (let i in app.fullMuscles) {
+            //     console.log(app.fullMuscles[i]);
+            //     let match = true;
+            //     for (let j in combinedMuscles) {
+            //         if (combinedMuscles[j].groupName === app.fullMuscles[i].groupName) {
+
+            //             for( let cm in conditions ) {
+
+            //             }
+
+            //             match = false;
+            //             combinedMuscles[j].muscles.push(app.fullMuscles[i]);
+            //         }
+            //     }
+            //     if (match) {
+            //         let group = {
+            //             groupName: app.fullMuscles[i].groupName,
+            //             muscles: [],
+            //         }
+            //         group.muscles.push(app.fullMuscles[i]);
+            //         combinedMuscles.push(group);
+            //     }
+
+            //     // app
+            // }
+            // console.log(combinedMuscles);
+
+            // for (let i in combinedMuscles) {
+            //     // console.log(app.fullMuscles[i]);
+            //     // app
+            //     combinedMuscles[i].id = Number(i);
+            //     muscles.push(combinedMuscles[i]);
+            // }
+
+
+
+            app.combinedMuscles = combinedMuscles;
+            app.updateSelectMuscles(muscles);
         }
-
-        console.log(combinedMuscles);
-        // debugger;
-
-        for (let i in combinedMuscles) {
-            // console.log(app.fullMuscles[i]);
-            // app
-            combinedMuscles[i].id = Number(i);
-            muscles.push(combinedMuscles[i]);
-        }
-
-        app.combinedMuscles = combinedMuscles;
-
-
-        app.updateSelectMuscles(muscles);
-        app.updateSelectConditions(conditions);
-
-
     },
     updateObjects: function () {
         console.log('updateObjects');
@@ -733,15 +886,45 @@ const initEventListeners = function () {
         console.log('selectCondition', event.target.value);
 
         app.resetSelectMuscle();
+        app.resetObjects();
+
         let value = event.target.value !== '' ? Number(event.target.value) : null;
-        app.selectCondition(value);
+        if (value !== null) {
+
+            app.conditionId = value;
+            app.selectCondition(value);
+
+            let domOverlayCondition = document.getElementById('overlayCondition');
+            domOverlayCondition.classList.remove('hide');
+            let domOverlayScale = document.getElementById('overlayScale');
+            domOverlayScale.classList.remove('hide');
+
+            let domGroupMuscle = document.getElementById('groupMuscle');
+            domGroupMuscle.classList.remove('hide');
+
+            let domGroupSidesButtons = document.getElementById('groupSidesButtons');
+            domGroupSidesButtons.classList.remove('hide');
+
+            let domGroupMove = document.getElementById('groupMove');
+            domGroupMove.classList.remove('hide');
+
+        }
+        else {
+            console.log('clear overlay');
+            app.resetSelectCondition();
+        }
     }
 
     selectMuscles.onchange = (event) => {
         console.log('selectMuscles', event.target.value);
 
         let value = event.target.value !== '' ? Number(event.target.value) : null;
-        app.selectMuscleGroup(value);
+        if (value !== null) {
+            app.selectMuscleGroup(value);
+        }
+        else {
+            app.resetSelectMuscle();
+        }
     }
 };
 
@@ -843,7 +1026,7 @@ const initThree = function () {
 
     app.scene = new THREE.Scene();
 
-   
+
 
     app.renderer = new THREE.WebGLRenderer();
     app.renderer.antialias = true;
@@ -879,7 +1062,7 @@ const initScene = function () {
         normal.multiplyScalar(50);
         // console.log(normal);
 
-        let tar = new THREE.Vector3(0,0,0);
+        let tar = new THREE.Vector3(0, 0, 0);
 
         app.spotLight.position.copy(tar.add(normal));
         // app.spotLight.position.copy(app.controls.target);
@@ -987,62 +1170,6 @@ const initObjects = function () {
     //     });
     //     app.scene.add(geometry);
     // }
-}
-
-const initFace = function () {
-    console.log('initFace');
-
-    if (app.OBJLoader) {
-
-        let meshCallback = function (index, mesh) {
-            // console.log('meshCallback', index, mesh);
-
-            // console.log(app.modelList[index]);
-            let data = {
-                name: app.modelList[index].displayName,
-                mesh: mesh,
-            }
-
-            app.meshList.push(data);
-
-            // console.log('length', app.meshList.length, app.modelList.length);
-            if (app.meshList.length === app.modelList.length) {
-                initFaceObjects();
-            }
-        }
-
-        let meshes = [];
-        for (let i in app.modelList) {
-            // console.log(app.modelList[i]);
-            app.OBJLoader.load('./obj/' + app.modelList[i].fileName + '.' + app.modelList[i].fileType, function (item) {
-                // console.log(item);
-                meshCallback(i, item)
-            });
-        }
-    }
-}
-
-const initFaceObjects = function () {
-    console.log('initFaceObjects');
-
-    // console.log(app.meshList);
-    if (app.meshList && app.meshList.length > 0) {
-        for (let i in app.meshList) {
-
-            // console.log(app.meshList[i]);
-            let objProps = {
-                name: app.meshList[i].name,
-                mesh: app.meshList[i].mesh,
-            }
-
-            let obj = createObject(objProps);
-            obj.object.scale.multiplyScalar(8.0);
-            app.objectList.push(obj);
-
-        }
-        updateScene();
-    }
-
 }
 
 

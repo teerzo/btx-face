@@ -59,6 +59,9 @@ html, body {
                     margin-right: 5px;
                 }   
             }
+            .select-group.hide {
+                display: none;
+            }
             .toggle-group {
                 display: inline-block;
                 .label {
@@ -69,6 +72,9 @@ html, body {
                     border-width: 1px;
                     border-radius: 0px;
                 }
+            }
+            .toggle-group.hide {
+                display: none;
             }
 
             .chkMuscleLeft {
@@ -137,6 +143,9 @@ box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
                     user-select: none;
                     vertical-align: top;
                 }
+            }
+            .check-move.hide {
+                display: none;
             }
     
             .btn-reset {
@@ -281,6 +290,53 @@ box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
                 }
             }
         }
+        .overlay-scale.hide {
+            display: none;
+        }
+
+        .overlay-muscle {
+            position: absolute;
+            z-index: 3;
+            top: calc(100px);
+            left: calc(100% - 400px);
+
+            width: 300px;
+            // min-width: 100px;
+            // width: 300px;
+            // height: 200px;
+
+            padding: 10px;
+
+            background-color: #FFFFFF;
+
+            border: 1px solid #333333;
+            border-radius: 5px;
+            .muscle-name {
+                font-weight: 700;
+                margin: 0 0 5px 0;
+            }
+            .flex-row {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+
+                .flex-text {
+                    // width: 70%;
+                    // border: 1px solid red;
+                }
+                .flex-value {
+                    // width: 30%;
+                    // border: 1px solid red;
+                }
+            }
+            .flex-row:last-child {
+                margin-bottom: 0px;
+            }
+        }
+        .overlay-muscle.hide {
+            display: none;
+        }
 
         .overlay-condition {
             position: absolute;
@@ -321,6 +377,9 @@ box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
             .flex-row:last-child {
                 margin-bottom: 0px;
             }
+        }
+        .overlay-condition.hide {
+            display: none;
         }
 
         @media only screen and (min-width: 769px) {
