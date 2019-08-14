@@ -6,6 +6,7 @@
     "side": "left",
     "fileName": "Buccinator_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -15,6 +16,7 @@
     "side": "right",
     "fileName": "Buccinator_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -24,6 +26,7 @@
     "side": "left",
     "fileName": "Corrugator_Supercilii_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -33,6 +36,7 @@
     "side": "right",
     "fileName": "Corrugator_Supercilii_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -42,6 +46,7 @@
     "side": "left",
     "fileName": "Depressor_Anguli_Oris_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -123,6 +128,7 @@
     "side": "left",
     "fileName": "Frontalis_Muscle",
     "texture": "muscleBodyTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -1086,6 +1092,7 @@
     "side": "left",
     "fileName": "Trapezius_Muscle",
     "texture": "muscleBodyTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {

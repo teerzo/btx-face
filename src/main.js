@@ -343,7 +343,8 @@ let app = {
                                     name: md.name,
                                     side: md.side,
                                     mesh: model,
-                                    texture: md.texture
+                                    texture: md.texture,
+                                    textureGrey: md.textureGrey,
                                 });
                                 console.log('model', model);
 
@@ -552,6 +553,7 @@ let app = {
                             side: app.models.list[i].side,
                             mesh: app.models.list[i].mesh,
                             texture: app.models.list[i].texture,
+                            textureGrey: app.models.list[i].textureGrey,
                         }
 
                         let obj = createObject(objProps);
@@ -771,20 +773,21 @@ let app = {
             item.material.opacity = 1;
             item.material.color.setHex(0xFFFFFF);
             item.material.emissive.setHex(0x000000);
+            item.material.emissiveIntensity = 1.0;
             item.material.map = item.texture;
 
             
             if (app.conditionId !== null && app.muscleGroupId === null) {
                 if (item.type === 'muscle') {
                     console.log(item);
-                    // if( item.)
-
-
-                    // item
+                           
                     item.material.color.copy(item.scaleColor);
+                    item.material.map = item.textureGrey;
+
+
                     // item.material.map = null;
                     // item.material.emissive.copy(item.scaleColor);
-                    // item.material.emissiveIntensity = 1.1;
+                    // item.material.emissiveIntensity = 1;
                 }
             }
             else {
@@ -843,6 +846,7 @@ let app = {
                             if (percentage === 0) {
                                 // colour white 
                                 muscle.scaleColor = new THREE.Color(0xFFFFFF);
+                                // muscle.scaleColor = new THREE.Color(0x000000);
                             }
                             else if (percentage <= 33) {
                                 muscle.scaleColor = new THREE.Color(colours[0]).lerp(colours[1],  percentage / 33 );
@@ -862,6 +866,7 @@ let app = {
                         }
                         else {
                             muscle.scaleColor = new THREE.Color(0xFFFFFF);
+                            // muscle.scaleColor = new THREE.Color(0x000000);
                         }
                     }
                 }
@@ -1347,6 +1352,8 @@ const createObject = function (props) {
 
 
         let texture = app.getTexture(props.texture);
+        let textureGrey = app.getTexture(props.textureGrey);
+
 
         let obj = props.mesh.clone();
         obj.scale.copy(app.objectScale);
@@ -1364,6 +1371,7 @@ const createObject = function (props) {
         data.mesh = mesh;
         data.material = material;
         data.texture = texture;
+        data.textureGrey = textureGrey;
 
         return data;
     }
