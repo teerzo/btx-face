@@ -280,12 +280,19 @@ box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
                     border: 1px solid #333333;
                     width: 200px;
                     height: 30px;
-                    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#327dff+10,5eff28+35,fff428+65,ff0000+90 */
-                    background: #327dff; /* Old browsers */
-                    background: -moz-linear-gradient(left,  #327dff 10%, #5eff28 35%, #fff428 65%, #ff0000 90%); /* FF3.6-15 */
-                    background: -webkit-linear-gradient(left,  #327dff 10%,#5eff28 35%,#fff428 65%,#ff0000 90%); /* Chrome10-25,Safari5.1-6 */
-                    background: linear-gradient(to right,  #327dff 10%,#5eff28 35%,#fff428 65%,#ff0000 90%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#327dff', endColorstr='#ff0000',GradientType=1 ); /* IE6-9 */
+
+                    // new THREE.Color(0x0037ff), // blue
+                    //             new THREE.Color(0x00ff2a), // green
+                    //             new THREE.Color(0xfff200), // yellow
+                    //             // new THREE.Color(0xff8c00), // orange
+                    //             new THREE.Color(0xFF0000), // red
+
+                    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#0037ff+10,00ff2a+35,fff200+65,ff0000+90 */
+                    background: #0037ff; /* Old browsers */
+                    background: -moz-linear-gradient(left,  #0037ff 0%, #00ff2a 33%, #fff200 66%, #ff0000 100%); /* FF3.6-15 */
+                    background: -webkit-linear-gradient(left,  #0037ff 0%,#00ff2a 33%,#fff200 66%,#ff0000 100%); /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to right,  #0037ff 0%,#00ff2a 33%,#fff200 66%,#ff0000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0037ff', endColorstr='#ff0000',GradientType=1 ); /* IE6-9 */
     
                 }
             }

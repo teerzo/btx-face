@@ -337,13 +337,14 @@ let app = {
                     if (md.fileName !== '' && md.fileName !== null) {
                         let promise = new Promise(function (resolve, reject) {
                             app.OBJLoader.load('./obj/' + md.fileName + '.' + md.fileType, function (model) {
-                                app.models.list.push({ 
-                                    id: md.id, 
-                                    type: 'muscle', 
-                                    name: md.name, 
+                                app.models.list.push({
+                                    id: md.id,
+                                    type: 'muscle',
+                                    name: md.name,
                                     side: md.side,
-                                    mesh: model, 
-                                    texture: md.texture });
+                                    mesh: model,
+                                    texture: md.texture
+                                });
                                 console.log('model', model);
 
                                 resolve();
@@ -394,7 +395,7 @@ let app = {
         }
 
         let option = document.createElement('option');
-        option.text = 'Please select..'
+        option.text = 'All muscles'
         option.value = null;
 
         domSelect.add(option);
@@ -426,6 +427,7 @@ let app = {
         for (let i in app.conditions.fullList) {
             if (app.conditions.fullList[i].id === id) {
                 // app.sele
+                app.updateObjectsScale();
                 app.updateMetaDom(app.conditions.fullList[i]);
                 app.updateDom();
             }
@@ -477,6 +479,8 @@ let app = {
             item.selected = false;
             item.transparent = false;
 
+
+
             for (let j in ids) {
                 if (item.type === 'muscle') {
                     if (item.id === ids[j]) {
@@ -526,7 +530,7 @@ let app = {
         // domSelectCondition.selectedIndex = 0;
 
         if (domSelectCondition.options.length > 0) {
-            for(let i = domSelectCondition.options.length - 1 ; i >= 0 ; i--) {
+            for (let i = domSelectCondition.options.length - 1; i >= 0; i--) {
                 domSelectCondition.remove(i);
             }
         }
@@ -564,7 +568,7 @@ let app = {
                         type: app.modelsMisc.list[i].type,
                         name: app.modelsMisc.list[i].name,
                         mesh: app.modelsMisc.list[i].mesh,
-                        
+
                         texture: app.modelsMisc.list[i].texture,
                     }
 
@@ -765,16 +769,29 @@ let app = {
             // set visiblity 
             item.material.visible = item.visible;
             item.material.opacity = 1;
+            item.material.color.setHex(0xFFFFFF);
             item.material.emissive.setHex(0x000000);
+            item.material.map = item.texture;
 
-            if( app.conditionId !== null && app.muscleGroupId === null ) {
+            
+            if (app.conditionId !== null && app.muscleGroupId === null) {
                 if (item.type === 'muscle') {
-                    item.material.color.setHex(0x00FF00);
+                    console.log(item);
+                    // if( item.)
+
+
+                    // item
+                    item.material.color.copy(item.scaleColor);
+                    // item.material.map = null;
+                    // item.material.emissive.copy(item.scaleColor);
+                    // item.material.emissiveIntensity = 1.1;
                 }
             }
             else {
                 if (item.type === 'muscle') {
                     item.material.color.setHex(0xFFFFFF);
+                    // item.material.emissive.setHex(0x000000);
+                    // item.material.emissiveIntensity = 1.0;
                 }
             }
 
@@ -782,7 +799,7 @@ let app = {
                 if (item.type === 'muscle') {
                     if (item.selected) {
                         item.material.opacity = 1;
-                        item.material.emissive.setHex(0xFF0000);
+                        item.material.color.copy(item.scaleColor);
                     }
                     else {
                         item.material.opacity = 0.2;
@@ -794,6 +811,110 @@ let app = {
                     item.material.opacity = 0.2;
                 }
             }
+        }
+    },
+    updateObjectsScale: function () {
+
+        for (let c in app.conditions.fullList) {
+            let cond = app.conditions.fullList[c];
+
+            for (let cm in cond.muscles) {
+                let condMuscle = cond.muscles[cm];
+
+                for (let m in app.objectList) {
+                    let muscle = app.objectList[m];
+
+                    if (muscle.id === condMuscle.id && muscle.name === condMuscle.name) {
+                        console.log(condMuscle);
+                        console.log(muscle);
+
+                        if (condMuscle.percentageOfSessionsInjected !== '') {
+                            console.log('set a colour', condMuscle.percentageOfSessionsInjected, condMuscle.percentageOfSessionsInjected / 33);
+
+                            let percentage = condMuscle.percentageOfSessionsInjected;
+                            let colours = [
+                                new THREE.Color(0x0037ff), // blue
+                                new THREE.Color(0x00ff2a), // green
+                                new THREE.Color(0xfff200), // yellow
+                                // new THREE.Color(0xff8c00), // orange
+                                new THREE.Color(0xFF0000), // red
+                            ];
+
+                            if (percentage === 0) {
+                                // colour white 
+                                muscle.scaleColor = new THREE.Color(0xFFFFFF);
+                            }
+                            else if (percentage <= 33) {
+                                muscle.scaleColor = new THREE.Color(colours[0]).lerp(colours[1],  percentage / 33 );
+                            }
+                            else if (percentage <= 66) {
+                                muscle.scaleColor = new THREE.Color(colours[1]).lerp(colours[2],  percentage / 66 );
+                            }
+                            else { //if (percentage <= 66) {
+                                muscle.scaleColor = new THREE.Color(colours[2]).lerp(colours[3],  percentage / 100 );
+                            }
+                            // else {
+                            //     muscle.scaleColor = new THREE.Color(colours[3]).lerp(colours[4],  percentage / 25 );
+                            // }
+
+                            // if( )
+
+                        }
+                        else {
+                            muscle.scaleColor = new THREE.Color(0xFFFFFF);
+                        }
+                    }
+                }
+            }
+
+
+
+        }
+        // let ids = [];
+        // for (let i in app.combinedMuscles) {
+        //     if (app.combinedMuscles[i].id === id) {
+
+        //         console.log('$$$', app.combinedMuscles[i]);
+
+
+        //         for (let j in app.combinedMuscles[i].muscles) {
+        //             ids.push(app.combinedMuscles[i].muscles[j].id);
+
+        //             // meta
+        //             if (muscleMeta.percentageOfSessionsInjected !== '') {
+
+        //                 muscleMeta.name = app.combinedMuscles[i].name;
+        //                 muscleMeta.percentageOfSessionsInjected = app.combinedMuscles[i].muscles[j].percentageOfSessionsInjected;
+        //                 muscleMeta.botoxAverageDosePerMuscle = app.combinedMuscles[i].muscles[j].botoxAverageDosePerMuscle;
+        //                 muscleMeta.botoxAverageNumberOfSites = app.combinedMuscles[i].muscles[j].botoxAverageNumberOfSites;
+        //                 muscleMeta.dysportAverageDosePerMuscle = app.combinedMuscles[i].muscles[j].dysportAverageDosePerMuscle;
+        //                 muscleMeta.dysportAverageNumberOfSites = app.combinedMuscles[i].muscles[j].dysportAverageNumberOfSites;
+        //             }
+        //         }
+        //     }
+        // }
+        // app.muscleIds = ids;
+
+        console.log('check', app.objectList);
+
+        for (let i in app.objectList) {
+            let item = app.objectList[i];
+            // item.scaleColor = new THREE.Color(0x0000FF);
+
+
+            // item.selected = false;
+            // item.transparent = false;
+
+            // for (let j in ids) {
+            //     if (item.type === 'muscle') {
+            //         if (item.id === ids[j]) {
+            //             console.log('item', item.id, item.name, item);
+            //             item.selected = true;
+
+
+            //         }
+            //     }
+            // }
         }
     },
 
@@ -911,7 +1032,7 @@ const initEventListeners = function () {
         app.resetObjects();
 
         let value = null;
-        if( event.target.value !== '' && event.target.value !== 'null' && event.target.value !== null ) {
+        if (event.target.value !== '' && event.target.value !== 'null' && event.target.value !== null) {
             value = Number(event.target.value);
         }
         if (value !== null) {
@@ -944,7 +1065,7 @@ const initEventListeners = function () {
         console.log('selectMuscles', event.target.value);
 
         let value = null;
-        if( event.target.value !== '' && event.target.value !== 'null' && event.target.value !== null ) {
+        if (event.target.value !== '' && event.target.value !== 'null' && event.target.value !== null) {
             value = Number(event.target.value);
         }
         if (value !== null) {
@@ -1215,15 +1336,15 @@ const createObject = function (props) {
         data.name = props.name;
         data.type = props.type;
 
-        if( props.side ) {
+        if (props.side) {
             data.side = props.side;
         }
-        
+
 
         // visiblity / material options
         data.visible = true;
 
-      
+
 
         let texture = app.getTexture(props.texture);
 
@@ -1242,7 +1363,7 @@ const createObject = function (props) {
 
         data.mesh = mesh;
         data.material = material;
-
+        data.texture = texture;
 
         return data;
     }
@@ -1258,7 +1379,7 @@ const updateScene = function () {
     if (app.scene) {
         if (app.objectList && app.objectList.length > 0) {
             for (let i in app.objectList) {
-               
+
                 app.scene.add(app.objectList[i].object);
             }
         }
