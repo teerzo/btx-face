@@ -33,5 +33,10 @@
         "id": 7,
         "name": "muscleTexGrey",
         "path": "muscleTexGrey.png"
+    },
+    {
+        "id": 8,
+        "name": "muscleBodyTexGrey",
+        "path": "muscleBodyTexGrey.png"
     }
 ]

@@ -66,6 +66,7 @@
     "side": "left",
     "fileName": "Depressor_Labii_Inferioris_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -75,6 +76,7 @@
     "side": "right",
     "fileName": "Depressor_Labii_Inferioris_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -84,6 +86,7 @@
     "side": "both",
     "fileName": "Depressor_Speti_Nasi_Muscle",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -93,6 +96,7 @@
     "side": "left",
     "fileName": "Depressor_Supercilii_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -102,6 +106,7 @@
     "side": "right",
     "fileName": "Depressor_Supercilii_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -111,6 +116,7 @@
     "side": "left",
     "fileName": "Digastric_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -120,6 +126,7 @@
     "side": "right",
     "fileName": "Digastric_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -129,7 +136,7 @@
     "side": "left",
     "fileName": "Frontalis_Muscle",
     "texture": "muscleBodyTex",
-    "textureGrey": "muscleTexGrey",
+    "textureGrey": "muscleBodyTexGrey",
     "fileType": "obj"
   },
   {
@@ -139,6 +146,7 @@
     "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": "obj"
   },
   {
@@ -148,6 +156,7 @@
     "side": "left",
     "fileName": "Hyoglossus_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -157,6 +166,7 @@
     "side": "right",
     "fileName": "Hyoglossus_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -166,6 +176,7 @@
     "side": "left",
     "fileName": "Levator_Anguli_Oris_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -175,6 +186,7 @@
     "side": "right",
     "fileName": "Levator_Anguli_Oris_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -184,6 +196,7 @@
     "side": "left",
     "fileName": "Levator_Labii_Superioris_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -193,6 +206,7 @@
     "side": "left",
     "fileName": "Levator_Labii_Superioris_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -202,6 +216,7 @@
     "side": "right",
     "fileName": "Levator_Labii_Superioris_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -211,6 +226,7 @@
     "side": "right",
     "fileName": "Levator_Labii_Superioris_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -220,6 +236,7 @@
     "side": "left",
     "fileName": "Levator_Scapulae_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -229,6 +246,7 @@
     "side": "left",
     "fileName": "Levator_Scapulae_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -238,6 +256,7 @@
     "side": "left",
     "fileName": "Levator_Scapulae_Muscle_Left_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -247,6 +266,7 @@
     "side": "left",
     "fileName": "Levator_Scapulae_Muscle_Left_04",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -256,6 +276,7 @@
     "side": "right",
     "fileName": "Levator_Scapulae_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -265,6 +286,7 @@
     "side": "right",
     "fileName": "Levator_Scapulae_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -274,6 +296,7 @@
     "side": "right",
     "fileName": "Levator_Scapulae_Muscle_Right_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -283,6 +306,7 @@
     "side": "right",
     "fileName": "Levator_Scapulae_Muscle_Right_04",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -292,6 +316,7 @@
     "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": "obj"
   },
   {
@@ -301,6 +326,7 @@
     "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": "obj"
   },
   {
@@ -310,6 +336,7 @@
     "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": "obj"
   },
   {
@@ -319,6 +346,7 @@
     "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": "obj"
   },
   {
@@ -328,6 +356,7 @@
     "side": "left",
     "fileName": "Masseter_Deep_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -337,6 +366,7 @@
     "side": "right",
     "fileName": "Masseter_Deep_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -346,6 +376,7 @@
     "side": "left",
     "fileName": "Masseter_Superficial_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -355,6 +386,7 @@
     "side": "right",
     "fileName": "Masseter_Superficial_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -364,6 +396,7 @@
     "side": "both",
     "fileName": "Mentalis_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -373,6 +406,7 @@
     "side": "",
     "fileName": "Mentalis_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -382,6 +416,7 @@
     "side": "both",
     "fileName": "Mylohyoid_Muscle",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -391,6 +426,7 @@
     "side": "both",
     "fileName": "Nasal_Cartilage",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -400,6 +436,7 @@
     "side": "both",
     "fileName": "Nasalis_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -409,6 +446,7 @@
     "side": "",
     "fileName": "Nasalis_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -418,6 +456,7 @@
     "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -427,6 +466,7 @@
     "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -436,6 +476,7 @@
     "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -445,6 +486,7 @@
     "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -454,6 +496,7 @@
     "side": "left",
     "fileName": "Orbicularis_Oculi_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -463,6 +506,7 @@
     "side": "right",
     "fileName": "Orbicularis_Oculi_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -472,6 +516,7 @@
     "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -481,6 +526,7 @@
     "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -490,6 +536,7 @@
     "side": "right",
     "fileName": "Orbicularis_Oris_Muscle",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -499,6 +546,7 @@
     "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -508,6 +556,7 @@
     "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -517,6 +566,7 @@
     "side": "left",
     "fileName": "Posterior_Auricular_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -526,6 +576,7 @@
     "side": "right",
     "fileName": "Posterior_Auricular_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -535,6 +586,7 @@
     "side": "both",
     "fileName": "Procerus_Muscle_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -544,6 +596,7 @@
     "side": "both",
     "fileName": "Procerus_Muscle_02",
     "texture": "muscleTex",
+    "textureGrey": "",
     "fileType": "obj"
   },
   {
@@ -553,6 +606,7 @@
     "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -562,6 +616,7 @@
     "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -571,6 +626,7 @@
     "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -580,6 +636,7 @@
     "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -589,6 +646,7 @@
     "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -598,6 +656,7 @@
     "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
@@ -607,6 +666,7 @@
     "side": "left",
     "fileName": "Risorius_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -616,6 +676,7 @@
     "side": "right",
     "fileName": "Risorius_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -625,6 +686,7 @@
     "side": "left",
     "fileName": "Scalene_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -634,6 +696,7 @@
     "side": "left",
     "fileName": "Scalene_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -643,6 +706,7 @@
     "side": "left",
     "fileName": "Scalene_Muscle_Left_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -652,6 +716,7 @@
     "side": "right",
     "fileName": "Scalene_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -661,6 +726,7 @@
     "side": "right",
     "fileName": "Scalene_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -670,6 +736,7 @@
     "side": "right",
     "fileName": "Scalene_Muscle_Right_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -679,6 +746,7 @@
     "side": "left",
     "fileName": "Scalenus_Anterior_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -688,6 +756,7 @@
     "side": "left",
     "fileName": "Scalenus_Anterior_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -697,6 +766,7 @@
     "side": "left",
     "fileName": "Scalenus_Anterior_Muscle_Left_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -706,6 +776,7 @@
     "side": "right",
     "fileName": "Scalenus_Anterior_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -715,6 +786,7 @@
     "side": "right",
     "fileName": "Scalenus_Anterior_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -724,6 +796,7 @@
     "side": "right",
     "fileName": "Scalenus_Anterior_Muscle_Right_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -733,6 +806,7 @@
     "side": "left",
     "fileName": "Scalenus_Posterior_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -742,6 +816,7 @@
     "side": "left",
     "fileName": "Scalenus_Posterior_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -751,6 +826,7 @@
     "side": "left",
     "fileName": "Scalenus_Posterior_Muscle_Left_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -760,6 +836,7 @@
     "side": "right",
     "fileName": "Scalenus_Posterior_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -769,6 +846,7 @@
     "side": "right",
     "fileName": "Scalenus_Posterior_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -778,6 +856,7 @@
     "side": "right",
     "fileName": "Scalenus_Posterior_Muscle_Right_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -787,6 +866,7 @@
     "side": "left",
     "fileName": "Semispinalis_Capitis_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -796,6 +876,7 @@
     "side": "left",
     "fileName": "Semispinalis_Capitis_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -805,6 +886,7 @@
     "side": "left",
     "fileName": "Semispinalis_Capitis_Muscle_Left_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -814,6 +896,7 @@
     "side": "left",
     "fileName": "Semispinalis_Capitis_Muscle_Left_04",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -823,6 +906,7 @@
     "side": "left",
     "fileName": "Semispinalis_Capitis_Muscle_Left_05",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -832,6 +916,7 @@
     "side": "right",
     "fileName": "Semispinalis_Capitis_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -841,6 +926,7 @@
     "side": "right",
     "fileName": "Semispinalis_Capitis_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -850,6 +936,7 @@
     "side": "right",
     "fileName": "Semispinalis_Capitis_Muscle_Right_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -859,6 +946,7 @@
     "side": "right",
     "fileName": "Semispinalis_Capitis_Muscle_Right_04",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -868,6 +956,7 @@
     "side": "right",
     "fileName": "Semispinalis_Capitis_Muscle_Right_05",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -877,6 +966,7 @@
     "side": "left",
     "fileName": "Semispinalis_Cervicis_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -886,6 +976,7 @@
     "side": "left",
     "fileName": "Semispinalis_Cervicis_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -895,6 +986,7 @@
     "side": "left",
     "fileName": "Semispinalis_Cervicis_Muscle_Left_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -904,6 +996,7 @@
     "side": "left",
     "fileName": "Semispinalis_Cervicis_Muscle_Left_04",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -913,6 +1006,7 @@
     "side": "right",
     "fileName": "Semispinalis_Cervicis_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -922,6 +1016,7 @@
     "side": "right",
     "fileName": "Semispinalis_Cervicis_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -931,6 +1026,7 @@
     "side": "right",
     "fileName": "Semispinalis_Cervicis_Muscle_Right_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -940,6 +1036,7 @@
     "side": "right",
     "fileName": "Semispinalis_Cervicis_Muscle_Right_04",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -949,6 +1046,7 @@
     "side": "left",
     "fileName": "Splenius_Cervicis_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -958,6 +1056,7 @@
     "side": "right",
     "fileName": "Splenius_Cervicis_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -967,6 +1066,7 @@
     "side": "left",
     "fileName": "Sternocleidomastoid_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -976,6 +1076,7 @@
     "side": "right",
     "fileName": "Sternocleidomastoid_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -985,6 +1086,7 @@
     "side": "left",
     "fileName": "Sternohyoid_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -994,6 +1096,7 @@
     "side": "right",
     "fileName": "Sternohyoid_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -1003,6 +1106,7 @@
     "side": "left",
     "fileName": "Sternothyroideus_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -1012,6 +1116,7 @@
     "side": "right",
     "fileName": "Sternothyroideus_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -1021,6 +1126,7 @@
     "side": "left",
     "fileName": "Stylohyoid_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -1030,6 +1136,7 @@
     "side": "right",
     "fileName": "Stylohyoid_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -1039,6 +1146,7 @@
     "side": "left",
     "fileName": "Superior_Auricular_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -1048,6 +1156,7 @@
     "side": "right",
     "fileName": "Superior_Auricular_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -1057,6 +1166,7 @@
     "side": "left",
     "fileName": "Temporal_Muscle_Left",
     "texture": "muscleBodyTex",
+    "textureGrey": "muscleBodyTexGrey",
     "fileType": "obj"
   },
   {
@@ -1066,6 +1176,7 @@
     "side": "right",
     "fileName": "Temporal_Muscle_Right",
     "texture": "muscleBodyTex",
+    "textureGrey": "muscleBodyTexGrey",
     "fileType": "obj"
   },
   {
@@ -1075,6 +1186,7 @@
     "side": "left",
     "fileName": "Thyrohyoid_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -1084,6 +1196,7 @@
     "side": "right",
     "fileName": "Thyrohyoid_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -1093,6 +1206,7 @@
     "side": "left",
     "fileName": "Trapezius_Muscle",
     "texture": "muscleBodyTex",
+    "textureGrey": "muscleBodyTexGrey",
     "fileType": "obj"
   },
   {
@@ -1102,6 +1216,7 @@
     "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": "obj"
   },
   {
@@ -1111,6 +1226,7 @@
     "side": "right",
     "fileName": "Zygomaticus_Major_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -1120,6 +1236,7 @@
     "side": "left",
     "fileName": "Zygomaticus_Major_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -1129,6 +1246,7 @@
     "side": "right",
     "fileName": "Zygomaticus_Minor_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -1138,6 +1256,7 @@
     "side": "left",
     "fileName": "Zygomaticus_Minor_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   }
 ]

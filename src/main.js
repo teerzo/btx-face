@@ -26,6 +26,7 @@ let app = {
     leftVisible: true,
     rightVisible: true,
 
+    toggleTextures: false,
 
     clock: new THREE.Clock(),
     conditions: {
@@ -780,9 +781,15 @@ let app = {
             if (app.conditionId !== null && app.muscleGroupId === null) {
                 if (item.type === 'muscle') {
                     console.log(item);
-                           
+                    
+
+
                     item.material.color.copy(item.scaleColor);
-                    item.material.map = item.textureGrey;
+                    
+                    if( app.toggleTextures ) {
+                        item.material.map = item.textureGrey;
+                    }
+                    
 
 
                     // item.material.map = null;
@@ -836,11 +843,11 @@ let app = {
 
                             let percentage = condMuscle.percentageOfSessionsInjected;
                             let colours = [
-                                new THREE.Color(0x0037ff), // blue
-                                new THREE.Color(0x00ff2a), // green
-                                new THREE.Color(0xfff200), // yellow
+                                new THREE.Color(0x01cdcb), // blue
+                                new THREE.Color(0x32b229), // green
+                                new THREE.Color(0xfccf2b), // yellow
                                 // new THREE.Color(0xff8c00), // orange
-                                new THREE.Color(0xFF0000), // red
+                                new THREE.Color(0xe9542e), // red
                             ];
 
                             if (percentage === 0) {
@@ -998,6 +1005,7 @@ const initEventListeners = function () {
     let selectConditions = document.getElementById('navSelectConditions');
     let selectMuscles = document.getElementById('navSelectMuscles');
 
+    let chkToggleTextures = document.getElementById('chkToggleTextures');
 
 
     btnReset.onclick = (event) => {
@@ -1082,6 +1090,11 @@ const initEventListeners = function () {
             app.selectCondition(app.conditionId);
             app.updateObjects();
         }
+    }
+
+    chkToggleTextures.onchange = (event) => {
+        app.toggleTextures = !app.toggleTextures;
+        app.updateObjects();
     }
 };
 
