@@ -775,9 +775,15 @@ let app = {
             item.material.color.setHex(0xFFFFFF);
             item.material.emissive.setHex(0x000000);
             item.material.emissiveIntensity = 1.0;
-            item.material.map = item.texture;
+           
 
-            
+            if( app.toggleTextures ) {
+                item.material.map = item.textureGrey;
+            }
+            else {
+                item.material.map = item.texture;
+            }
+
             if (app.conditionId !== null && app.muscleGroupId === null) {
                 if (item.type === 'muscle') {
                     console.log(item);
@@ -786,9 +792,7 @@ let app = {
 
                     item.material.color.copy(item.scaleColor);
                     
-                    if( app.toggleTextures ) {
-                        item.material.map = item.textureGrey;
-                    }
+                   
                     
 
 
