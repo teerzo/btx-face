@@ -847,11 +847,11 @@ let app = {
 
                             let percentage = condMuscle.percentageOfSessionsInjected;
                             let colours = [
-                                new THREE.Color(0x01cdcb), // blue
-                                new THREE.Color(0x32b229), // green
-                                new THREE.Color(0xfccf2b), // yellow
-                                // new THREE.Color(0xff8c00), // orange
-                                new THREE.Color(0xe9542e), // red
+                                new THREE.Color(0x0055b2), // blue 0055b2
+                                new THREE.Color(0x36ae1c), // green 36ae1c
+                                new THREE.Color(0xfcb63a), // yellow fcb63a
+                                // new THREE.Color(0xff8c00), // orange 
+                                new THREE.Color(0xd10401), // red d10401
                             ];
 
                             if (percentage === 0) {
