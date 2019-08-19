@@ -88,17 +88,19 @@ html, body {
                 width: 50px;
 
                 background-color: #FFFFFF;
-                border-radius: 5px 0px 0px 5px;
+                // border-radius: 5px 0px 0px 5px;
 
                 text-align: center;
-                margin-top: 18px;
+                // margin-top: 18px;
                 padding: 10px;
-                -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
--moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+                vertical-align: bottom;
+                // -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+                // -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+                // box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
             }
             .chkMuscleLeft.active {
-                background-color: #ff0000;
+                // background-color: #ff0000;
+                opacity: 0.5;
             }
             .chkMuscleRight {
                 border: 1px solid #a9a9a9;
@@ -107,16 +109,17 @@ box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
 
                 background-color: #FFFFFF;
 
-                border-radius: 0px 5px 5px 0px;
+                // border-radius: 0px 5px 5px 0px;
                 text-align: center;
-                margin-top: 18px;
+                // margin-top: 18px;
                 padding: 10px;
-                -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
--moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+                // -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+                // -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
+                // box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
             }
             .chkMuscleRight.active {
-                background-color: #ff0000;
+                // background-color: #ff0000;
+                opacity: 0.5;
             }
 
             .check-textures {
@@ -405,7 +408,7 @@ box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
 
         @media only screen and (min-width: 769px) {
             .overlay-condition {
-                border: 1px solid red !important;
+                // border: 1px solid red !important;
             }
         }
         @media only screen and (max-width: 768px) {

@@ -56,6 +56,7 @@
     "side": "right",
     "fileName": "Depressor_Anguli_Oris_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -65,6 +66,7 @@
     "side": "left",
     "fileName": "Depressor_Labii_Inferioris_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -74,6 +76,7 @@
     "side": "right",
     "fileName": "Depressor_Labii_Inferioris_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -83,6 +86,7 @@
     "side": "both",
     "fileName": "Depressor_Speti_Nasi_Muscle",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -92,6 +96,7 @@
     "side": "left",
     "fileName": "Depressor_Supercilii_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -101,6 +106,7 @@
     "side": "right",
     "fileName": "Depressor_Supercilii_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -110,6 +116,7 @@
     "side": "left",
     "fileName": "Digastric_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -119,6 +126,7 @@
     "side": "right",
     "fileName": "Digastric_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -126,9 +134,9 @@
     "name": "Frontalis",
     "groupName": "Frontalis",
     "side": "left",
-    "fileName": "Frontalis_Muscle",
+    "fileName": "Frontalis_Muscle_Left",
     "texture": "muscleBodyTex",
-    "textureGrey": "muscleTexGrey",
+    "textureGrey": "muscleBodyTexGrey",
     "fileType": "obj"
   },
   {
@@ -136,8 +144,9 @@
     "name": "Frontalis",
     "groupName": "Frontalis",
     "side": "right",
-    "fileName": "",
-    "texture": "",
+    "fileName": "Frontalis_Muscle_Right",
+    "texture": "muscleBodyTex",
+    "textureGrey": "muscleBodyTexGrey",
     "fileType": "obj"
   },
   {
@@ -147,6 +156,7 @@
     "side": "left",
     "fileName": "Hyoglossus_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -156,6 +166,7 @@
     "side": "right",
     "fileName": "Hyoglossus_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -165,6 +176,7 @@
     "side": "left",
     "fileName": "Levator_Anguli_Oris_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -174,6 +186,7 @@
     "side": "right",
     "fileName": "Levator_Anguli_Oris_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -183,6 +196,7 @@
     "side": "left",
     "fileName": "Levator_Labii_Superioris_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -192,6 +206,7 @@
     "side": "left",
     "fileName": "Levator_Labii_Superioris_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -201,6 +216,7 @@
     "side": "right",
     "fileName": "Levator_Labii_Superioris_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -210,6 +226,7 @@
     "side": "right",
     "fileName": "Levator_Labii_Superioris_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -219,6 +236,7 @@
     "side": "left",
     "fileName": "Levator_Scapulae_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -228,6 +246,7 @@
     "side": "left",
     "fileName": "Levator_Scapulae_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -237,6 +256,7 @@
     "side": "left",
     "fileName": "Levator_Scapulae_Muscle_Left_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -246,6 +266,7 @@
     "side": "left",
     "fileName": "Levator_Scapulae_Muscle_Left_04",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -255,6 +276,7 @@
     "side": "right",
     "fileName": "Levator_Scapulae_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -264,6 +286,7 @@
     "side": "right",
     "fileName": "Levator_Scapulae_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -273,6 +296,7 @@
     "side": "right",
     "fileName": "Levator_Scapulae_Muscle_Right_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -282,6 +306,7 @@
     "side": "right",
     "fileName": "Levator_Scapulae_Muscle_Right_04",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -291,6 +316,7 @@
     "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": "obj"
   },
   {
@@ -300,6 +326,7 @@
     "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": "obj"
   },
   {
@@ -309,6 +336,7 @@
     "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": "obj"
   },
   {
@@ -318,6 +346,7 @@
     "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": "obj"
   },
   {
@@ -327,6 +356,7 @@
     "side": "left",
     "fileName": "Masseter_Deep_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -336,6 +366,7 @@
     "side": "right",
     "fileName": "Masseter_Deep_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -345,6 +376,7 @@
     "side": "left",
     "fileName": "Masseter_Superficial_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -354,6 +386,7 @@
     "side": "right",
     "fileName": "Masseter_Superficial_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -361,17 +394,9 @@
     "name": "Mentalis",
     "groupName": "Mentalis",
     "side": "both",
-    "fileName": "Mentalis_Muscle_Left",
+    "fileName": "Mentalis_Muscle",
     "texture": "muscleTex",
-    "fileType": "obj"
-  },
-  {
-    "id": "",
-    "name": "",
-    "groupName": "Mentalis",
-    "side": "",
-    "fileName": "Mentalis_Muscle_Right",
-    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -381,6 +406,7 @@
     "side": "both",
     "fileName": "Mylohyoid_Muscle",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -390,708 +416,776 @@
     "side": "both",
     "fileName": "Nasal_Cartilage",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 43,
-    "name": "Nasalis",
-    "groupName": "Nasalis",
-    "side": "both",
-    "fileName": "Nasalis_Left",
+    "name": "Nasalis Alar",
+    "groupName": "Nasalis Alar",
+    "side": "left",
+    "fileName": "Nasalis_Alar_Left",
     "texture": "muscleTex",
-    "fileType": "obj"
-  },
-  {
-    "id": "",
-    "name": "",
-    "groupName": "Nasalis",
-    "side": "",
-    "fileName": "Nasalis_Right",
-    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 44,
-    "name": "Obliqus Capitis Inferior",
-    "groupName": "",
-    "side": "left",
-    "fileName": "",
-    "texture": "",
-    "fileType": ""
+    "name": "Nasalis Alar",
+    "groupName": "Nasalis Alar",
+    "side": "right",
+    "fileName": "Nasalis_Alar_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 45,
     "name": "Obliqus Capitis Inferior",
     "groupName": "",
-    "side": "right",
+    "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
     "id": 46,
-    "name": "Obliqus Capitis Superior",
+    "name": "Obliqus Capitis Inferior",
     "groupName": "",
-    "side": "left",
+    "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
     "id": 47,
     "name": "Obliqus Capitis Superior",
     "groupName": "",
-    "side": "right",
+    "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
     "id": 48,
-    "name": "Orbicularis Oculi (Orbital Portion)",
-    "groupName": "Orbicularis Oculi",
-    "side": "left",
-    "fileName": "Orbicularis_Oculi_Muscle_Left",
-    "texture": "muscleTex",
-    "fileType": "obj"
+    "name": "Obliqus Capitis Superior",
+    "groupName": "",
+    "side": "right",
+    "fileName": "",
+    "texture": "",
+    "textureGrey": "",
+    "fileType": ""
   },
   {
     "id": 49,
     "name": "Orbicularis Oculi (Orbital Portion)",
     "groupName": "Orbicularis Oculi",
-    "side": "right",
-    "fileName": "Orbicularis_Oculi_Muscle_Right",
+    "side": "left",
+    "fileName": "Orbicularis_Oculi_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 50,
-    "name": "Orbicularis Oculi (Palpebral Portion)",
-    "groupName": "",
-    "side": "left",
-    "fileName": "",
-    "texture": "",
-    "fileType": ""
+    "name": "Orbicularis Oculi (Orbital Portion)",
+    "groupName": "Orbicularis Oculi",
+    "side": "right",
+    "fileName": "Orbicularis_Oculi_Muscle_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 51,
     "name": "Orbicularis Oculi (Palpebral Portion)",
     "groupName": "",
-    "side": "right",
+    "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
     "id": 52,
-    "name": "Orbicularis Oris",
-    "groupName": "Orbicularis Oris",
+    "name": "Orbicularis Oculi (Palpebral Portion)",
+    "groupName": "",
     "side": "right",
-    "fileName": "Orbicularis_Oris_Muscle",
-    "texture": "muscleTex",
-    "fileType": "obj"
+    "fileName": "",
+    "texture": "",
+    "textureGrey": "",
+    "fileType": ""
   },
   {
     "id": 53,
-    "name": "Platysma",
-    "groupName": "",
-    "side": "left",
-    "fileName": "",
-    "texture": "",
-    "fileType": ""
+    "name": "Orbicularis Oris",
+    "groupName": "Orbicularis Oris",
+    "side": "both",
+    "fileName": "Orbicularis_Oris_Muscle",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 54,
     "name": "Platysma",
     "groupName": "",
-    "side": "right",
+    "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
     "id": 55,
-    "name": "Posterior Auricular",
-    "groupName": "Posterior Auricular",
-    "side": "left",
-    "fileName": "Posterior_Auricular_Muscle_Left",
-    "texture": "muscleTex",
-    "fileType": "obj"
+    "name": "Platysma",
+    "groupName": "",
+    "side": "right",
+    "fileName": "",
+    "texture": "",
+    "textureGrey": "",
+    "fileType": ""
   },
   {
     "id": 56,
     "name": "Posterior Auricular",
     "groupName": "Posterior Auricular",
-    "side": "right",
-    "fileName": "Posterior_Auricular_Muscle_Right",
+    "side": "left",
+    "fileName": "Posterior_Auricular_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 57,
-    "name": "Procerus 01",
-    "groupName": "Procerus",
-    "side": "both",
-    "fileName": "Procerus_Muscle_01",
+    "name": "Posterior Auricular",
+    "groupName": "Posterior Auricular",
+    "side": "right",
+    "fileName": "Posterior_Auricular_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 58,
-    "name": "Nasalis",
+    "name": "Procerus",
     "groupName": "Procerus",
     "side": "both",
-    "fileName": "Procerus_Muscle_02",
+    "fileName": "Procerus_Muscle",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 59,
-    "name": "Pterygoid Medial",
-    "groupName": "",
-    "side": "left",
-    "fileName": "",
-    "texture": "",
-    "fileType": ""
+    "name": "Nasalis",
+    "groupName": "Nasalis",
+    "side": "both",
+    "fileName": "Nasalis_Muscle",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 60,
     "name": "Pterygoid Medial",
     "groupName": "",
-    "side": "right",
+    "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
     "id": 61,
-    "name": "Pterygoid Lateral",
+    "name": "Pterygoid Medial",
     "groupName": "",
-    "side": "left",
+    "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
     "id": 62,
     "name": "Pterygoid Lateral",
     "groupName": "",
-    "side": "right",
+    "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
     "id": 63,
-    "name": "Rectus Capitis Major",
+    "name": "Pterygoid Lateral",
     "groupName": "",
-    "side": "left",
+    "side": "right",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
     "id": 64,
     "name": "Rectus Capitis Major",
     "groupName": "",
-    "side": "right",
+    "side": "left",
     "fileName": "",
     "texture": "",
+    "textureGrey": "",
     "fileType": ""
   },
   {
     "id": 65,
-    "name": "Risorius",
-    "groupName": "Risorius",
-    "side": "left",
-    "fileName": "Risorius_Muscle_Left",
-    "texture": "muscleTex",
-    "fileType": "obj"
+    "name": "Rectus Capitis Major",
+    "groupName": "",
+    "side": "right",
+    "fileName": "",
+    "texture": "",
+    "textureGrey": "",
+    "fileType": ""
   },
   {
     "id": 66,
     "name": "Risorius",
     "groupName": "Risorius",
-    "side": "right",
-    "fileName": "Risorius_Muscle_Right",
+    "side": "left",
+    "fileName": "Risorius_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 67,
+    "name": "Risorius",
+    "groupName": "Risorius",
+    "side": "right",
+    "fileName": "Risorius_Muscle_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
+  },
+  {
+    "id": 68,
     "name": "Scalene Medius 01",
     "groupName": "Scalene",
     "side": "left",
     "fileName": "Scalene_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 68,
+    "id": 69,
     "name": "Scalene Medius 02",
     "groupName": "Scalene",
     "side": "left",
     "fileName": "Scalene_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 69,
+    "id": 70,
     "name": "Scalene Medius 03",
     "groupName": "Scalene",
     "side": "left",
     "fileName": "Scalene_Muscle_Left_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 70,
+    "id": 71,
     "name": "Scalene Medius 01",
     "groupName": "Scalene",
     "side": "right",
     "fileName": "Scalene_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 71,
+    "id": 72,
     "name": "Scalene Medius 02",
     "groupName": "Scalene",
     "side": "right",
     "fileName": "Scalene_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 72,
+    "id": 73,
     "name": "Scalene Medius 03",
     "groupName": "Scalene",
     "side": "right",
     "fileName": "Scalene_Muscle_Right_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 73,
+    "id": 74,
     "name": "Scalenus Anterior 01",
     "groupName": "Scalenus Anterior",
     "side": "left",
     "fileName": "Scalenus_Anterior_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 74,
+    "id": 75,
     "name": "Scalenus Anterior 02",
     "groupName": "Scalenus Anterior",
     "side": "left",
     "fileName": "Scalenus_Anterior_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 75,
+    "id": 76,
     "name": "Scalenus Anterior 03",
     "groupName": "Scalenus Anterior",
     "side": "left",
     "fileName": "Scalenus_Anterior_Muscle_Left_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 76,
+    "id": 77,
     "name": "Scalenus Anterior 01",
     "groupName": "Scalenus Anterior",
     "side": "right",
     "fileName": "Scalenus_Anterior_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 77,
+    "id": 78,
     "name": "Scalenus Anterior 02",
     "groupName": "Scalenus Anterior",
     "side": "right",
     "fileName": "Scalenus_Anterior_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 78,
+    "id": 79,
     "name": "Scalenus Anterior 03",
     "groupName": "Scalenus Anterior",
     "side": "right",
     "fileName": "Scalenus_Anterior_Muscle_Right_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 79,
+    "id": 80,
     "name": "Scalenus Posterior 01",
     "groupName": "Scalenus Posterior",
     "side": "left",
     "fileName": "Scalenus_Posterior_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 80,
+    "id": 81,
     "name": "Scalenus Posterior 02",
     "groupName": "Scalenus Posterior",
     "side": "left",
     "fileName": "Scalenus_Posterior_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 81,
+    "id": 82,
     "name": "Scalenus Posterior 03",
     "groupName": "Scalenus Posterior",
     "side": "left",
     "fileName": "Scalenus_Posterior_Muscle_Left_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 82,
+    "id": 83,
     "name": "Scalenus Posterior 01",
     "groupName": "Scalenus Posterior",
     "side": "right",
     "fileName": "Scalenus_Posterior_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 83,
+    "id": 84,
     "name": "Scalenus Posterior 02",
     "groupName": "Scalenus Posterior",
     "side": "right",
     "fileName": "Scalenus_Posterior_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 84,
+    "id": 85,
     "name": "Scalenus Posterior 03",
     "groupName": "Scalenus Posterior",
     "side": "right",
     "fileName": "Scalenus_Posterior_Muscle_Right_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 85,
+    "id": 86,
     "name": "Semispinalis Capitis 01",
     "groupName": "Semispinalis Capitis",
     "side": "left",
     "fileName": "Semispinalis_Capitis_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 86,
+    "id": 87,
     "name": "Semispinalis Capitis 02",
     "groupName": "Semispinalis Capitis",
     "side": "left",
     "fileName": "Semispinalis_Capitis_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 87,
+    "id": 88,
     "name": "Semispinalis Capitis 03",
     "groupName": "Semispinalis Capitis",
     "side": "left",
     "fileName": "Semispinalis_Capitis_Muscle_Left_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 88,
+    "id": 89,
     "name": "Semispinalis Capitis 04",
     "groupName": "Semispinalis Capitis",
     "side": "left",
     "fileName": "Semispinalis_Capitis_Muscle_Left_04",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 89,
+    "id": 90,
     "name": "Semispinalis Capitis 05",
     "groupName": "Semispinalis Capitis",
     "side": "left",
     "fileName": "Semispinalis_Capitis_Muscle_Left_05",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 90,
+    "id": 91,
     "name": "Semispinalis Capitis 01",
     "groupName": "Semispinalis Capitis",
     "side": "right",
     "fileName": "Semispinalis_Capitis_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 91,
+    "id": 92,
     "name": "Semispinalis Capitis 02",
     "groupName": "Semispinalis Capitis",
     "side": "right",
     "fileName": "Semispinalis_Capitis_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 92,
+    "id": 93,
     "name": "Semispinalis Capitis 03",
     "groupName": "Semispinalis Capitis",
     "side": "right",
     "fileName": "Semispinalis_Capitis_Muscle_Right_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 93,
+    "id": 94,
     "name": "Semispinalis Capitis 04",
     "groupName": "Semispinalis Capitis",
     "side": "right",
     "fileName": "Semispinalis_Capitis_Muscle_Right_04",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 94,
+    "id": 95,
     "name": "Semispinalis Capitis 05",
     "groupName": "Semispinalis Capitis",
     "side": "right",
     "fileName": "Semispinalis_Capitis_Muscle_Right_05",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 95,
+    "id": 96,
     "name": "Semispinalis Cervicis 01",
     "groupName": "Semispinalis Cervicis",
     "side": "left",
     "fileName": "Semispinalis_Cervicis_Muscle_Left_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 96,
+    "id": 97,
     "name": "Semispinalis Cervicis 02",
     "groupName": "Semispinalis Cervicis",
     "side": "left",
     "fileName": "Semispinalis_Cervicis_Muscle_Left_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 97,
+    "id": 98,
     "name": "Semispinalis Cervicis 03",
     "groupName": "Semispinalis Cervicis",
     "side": "left",
     "fileName": "Semispinalis_Cervicis_Muscle_Left_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 98,
+    "id": 99,
     "name": "Semispinalis Cervicis 04",
     "groupName": "Semispinalis Cervicis",
     "side": "left",
     "fileName": "Semispinalis_Cervicis_Muscle_Left_04",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 99,
+    "id": 100,
     "name": "Semispinalis Cervicis 01",
     "groupName": "Semispinalis Cervicis",
     "side": "right",
     "fileName": "Semispinalis_Cervicis_Muscle_Right_01",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 100,
+    "id": 101,
     "name": "Semispinalis Cervicis 02",
     "groupName": "Semispinalis Cervicis",
     "side": "right",
     "fileName": "Semispinalis_Cervicis_Muscle_Right_02",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 101,
+    "id": 102,
     "name": "Semispinalis Cervicis 03",
     "groupName": "Semispinalis Cervicis",
     "side": "right",
     "fileName": "Semispinalis_Cervicis_Muscle_Right_03",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
-    "id": 102,
+    "id": 103,
     "name": "Semispinalis Cervicis 04",
     "groupName": "Semispinalis Cervicis",
     "side": "right",
     "fileName": "Semispinalis_Cervicis_Muscle_Right_04",
     "texture": "muscleTex",
-    "fileType": "obj"
-  },
-  {
-    "id": 103,
-    "name": "Splenius Cervicis",
-    "groupName": "Splenius Cervicis",
-    "side": "left",
-    "fileName": "Splenius_Cervicis_Muscle_Left",
-    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 104,
     "name": "Splenius Cervicis",
     "groupName": "Splenius Cervicis",
-    "side": "right",
-    "fileName": "Splenius_Cervicis_Muscle_Right",
+    "side": "left",
+    "fileName": "Splenius_Cervicis_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 105,
-    "name": "Sternocleidomastoid",
-    "groupName": "Sternocleidomastoid",
-    "side": "left",
-    "fileName": "Sternocleidomastoid_Muscle_Left",
+    "name": "Splenius Cervicis",
+    "groupName": "Splenius Cervicis",
+    "side": "right",
+    "fileName": "Splenius_Cervicis_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 106,
     "name": "Sternocleidomastoid",
     "groupName": "Sternocleidomastoid",
-    "side": "right",
-    "fileName": "Sternocleidomastoid_Muscle_Right",
+    "side": "left",
+    "fileName": "Sternocleidomastoid_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 107,
-    "name": "Sternohyoid",
-    "groupName": "Sternohyoid",
-    "side": "left",
-    "fileName": "Sternohyoid_Muscle_Left",
+    "name": "Sternocleidomastoid",
+    "groupName": "Sternocleidomastoid",
+    "side": "right",
+    "fileName": "Sternocleidomastoid_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 108,
     "name": "Sternohyoid",
     "groupName": "Sternohyoid",
-    "side": "right",
-    "fileName": "Sternohyoid_Muscle_Right",
+    "side": "left",
+    "fileName": "Sternohyoid_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 109,
-    "name": "Sternothyroideus",
-    "groupName": "Sternothyroideus",
-    "side": "left",
-    "fileName": "Sternothyroideus_Muscle_Left",
+    "name": "Sternohyoid",
+    "groupName": "Sternohyoid",
+    "side": "right",
+    "fileName": "Sternohyoid_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 110,
     "name": "Sternothyroideus",
     "groupName": "Sternothyroideus",
-    "side": "right",
-    "fileName": "Sternothyroideus_Muscle_Right",
+    "side": "left",
+    "fileName": "Sternothyroideus_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 111,
-    "name": "Stylohyoid",
-    "groupName": "Stylohyoid",
-    "side": "left",
-    "fileName": "Stylohyoid_Muscle_Left",
+    "name": "Sternothyroideus",
+    "groupName": "Sternothyroideus",
+    "side": "right",
+    "fileName": "Sternothyroideus_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 112,
     "name": "Stylohyoid",
     "groupName": "Stylohyoid",
-    "side": "right",
-    "fileName": "Stylohyoid_Muscle_Right",
+    "side": "left",
+    "fileName": "Stylohyoid_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 113,
-    "name": "Superior Auricular",
-    "groupName": "Superior Auricular",
-    "side": "left",
-    "fileName": "Superior_Auricular_Muscle_Left",
+    "name": "Stylohyoid",
+    "groupName": "Stylohyoid",
+    "side": "right",
+    "fileName": "Stylohyoid_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 114,
     "name": "Superior Auricular",
     "groupName": "Superior Auricular",
-    "side": "right",
-    "fileName": "Superior_Auricular_Muscle_Right",
+    "side": "left",
+    "fileName": "Superior_Auricular_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 115,
-    "name": "Temporalis",
-    "groupName": "Temporal",
-    "side": "left",
-    "fileName": "Temporal_Muscle_Left",
-    "texture": "muscleBodyTex",
+    "name": "Superior Auricular",
+    "groupName": "Superior Auricular",
+    "side": "right",
+    "fileName": "Superior_Auricular_Muscle_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 116,
     "name": "Temporalis",
     "groupName": "Temporal",
-    "side": "right",
-    "fileName": "Temporal_Muscle_Right",
+    "side": "left",
+    "fileName": "Temporal_Muscle_Left",
     "texture": "muscleBodyTex",
+    "textureGrey": "muscleBodyTexGrey",
     "fileType": "obj"
   },
   {
     "id": 117,
-    "name": "Thyrohyoid",
-    "groupName": "Thyrohyoid",
-    "side": "left",
-    "fileName": "Thyrohyoid_Muscle_Left",
-    "texture": "muscleTex",
+    "name": "Temporalis",
+    "groupName": "Temporal",
+    "side": "right",
+    "fileName": "Temporal_Muscle_Right",
+    "texture": "muscleBodyTex",
+    "textureGrey": "muscleBodyTexGrey",
     "fileType": "obj"
   },
   {
     "id": 118,
     "name": "Thyrohyoid",
     "groupName": "Thyrohyoid",
-    "side": "right",
-    "fileName": "Thyrohyoid_Muscle_Right",
+    "side": "left",
+    "fileName": "Thyrohyoid_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 119,
-    "name": "Trapezius",
-    "groupName": "Trapezius",
-    "side": "left",
-    "fileName": "Trapezius_Muscle",
-    "texture": "muscleBodyTex",
+    "name": "Thyrohyoid",
+    "groupName": "Thyrohyoid",
+    "side": "right",
+    "fileName": "Thyrohyoid_Muscle_Right",
+    "texture": "muscleTex",
     "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
@@ -1099,45 +1193,70 @@
     "id": 120,
     "name": "Trapezius",
     "groupName": "Trapezius",
-    "side": "right",
-    "fileName": "",
-    "texture": "",
+    "side": "left",
+    "fileName": "Trapezius_Muscle_Left",
+    "texture": "muscleBodyTex",
+    "textureGrey": "muscleBodyTexGrey",
     "fileType": "obj"
   },
   {
     "id": 121,
-    "name": "Zygomaticus Major",
-    "groupName": "Zygomaticus Major",
+    "name": "Trapezius",
+    "groupName": "Trapezius",
     "side": "right",
-    "fileName": "Zygomaticus_Major_Muscle_Left",
-    "texture": "muscleTex",
+    "fileName": "Trapezius_Muscle_Right",
+    "texture": "",
+    "textureGrey": "",
     "fileType": "obj"
   },
   {
     "id": 122,
     "name": "Zygomaticus Major",
     "groupName": "Zygomaticus Major",
-    "side": "left",
-    "fileName": "Zygomaticus_Major_Muscle_Right",
+    "side": "right",
+    "fileName": "Zygomaticus_Major_Muscle_Left",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 123,
-    "name": "Zygomaticus Minor",
-    "groupName": "Zygomaticus Minor",
-    "side": "right",
-    "fileName": "Zygomaticus_Minor_Muscle_Left",
+    "name": "Zygomaticus Major",
+    "groupName": "Zygomaticus Major",
+    "side": "left",
+    "fileName": "Zygomaticus_Major_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 124,
     "name": "Zygomaticus Minor",
     "groupName": "Zygomaticus Minor",
+    "side": "right",
+    "fileName": "Zygomaticus_Minor_Muscle_Left",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
+  },
+  {
+    "id": 125,
+    "name": "Zygomaticus Minor",
+    "groupName": "Zygomaticus Minor",
     "side": "left",
     "fileName": "Zygomaticus_Minor_Muscle_Right",
     "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
+  },
+  {
+    "id": "",
+    "name": "galea aponeurotica",
+    "groupName": "",
+    "side": "",
+    "fileName": "",
+    "texture": "",
+    "textureGrey": "",
+    "fileType": ""
   }
 ]

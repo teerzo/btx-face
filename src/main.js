@@ -78,6 +78,17 @@ let app = {
 
     menuToggle: false,
 
+    raycast: {
+        currentObject: null,
+        enabled: false,
+        mouseDown: false,
+        mouseMove: false,
+        mouseUp: false,
+        mouseOut: false,
+    },
+    raycastPos: null,
+    raycaster: new THREE.Raycaster(),
+    raycastList: [],
 
     cameraLastPos: new THREE.Vector3(0, 0, 0),
 
@@ -119,7 +130,7 @@ let app = {
         initThree();
         initScene();
         // initObjects();
-
+        initRaycast();
 
         app.reset();
         app.loop();
@@ -134,6 +145,7 @@ let app = {
 
         resizeThree();
         app.resetObjects();
+        app.resetRaycast();
     },
     resetCamera: function () {
         if (app.renderer) {
@@ -141,7 +153,7 @@ let app = {
             let height = (window.innerWidth <= 768 ? window.innerHeight - 60 : window.innerHeight - 60);
             app.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 10000);
             app.camera.position.y = 10;
-            app.camera.position.z = 30;
+            app.camera.position.z = 50;
 
             app.controls = new OrbitControls(app.camera, app.renderer.domElement)
             app.controls.target = new THREE.Vector3(0, 11, 0);
@@ -155,13 +167,18 @@ let app = {
             let item = app.objectList[i];
             // console.log(item);
 
-            item.visible = true;
-            item.selected = false;
+            item.state.visible = true;
+            item.state.raycastSelected = false;
+            item.state.groupSelected = false;
 
             item.object.position.set(0, 0, 0);
             item.object.scale.copy(app.objectScale);
         }
         app.updateObjects();
+    },
+    resetRaycast: function() {
+        app.raycast.currentObject = null;
+        app.raycastPos.position.set(0,0,0);
     },
     loop: function () {
         let dt = 0.1;
@@ -439,6 +456,7 @@ let app = {
         console.log('selectMuscleGroup', id);
 
         app.resetObjects();
+        app.resetRaycast();
 
         let domOverlayMuscle = document.getElementById('overlayMuscle');
         domOverlayMuscle.classList.remove('hide');
@@ -478,8 +496,8 @@ let app = {
         for (let i in app.objectList) {
             let item = app.objectList[i];
 
-            item.selected = false;
-            item.transparent = false;
+            item.state.groupSelected = false;
+            item.state.transparent = false;
 
 
 
@@ -487,7 +505,7 @@ let app = {
                 if (item.type === 'muscle') {
                     if (item.id === ids[j]) {
                         console.log('item', item.id, item.name, item);
-                        item.selected = true;
+                        item.state.groupSelected = true;
 
 
                     }
@@ -499,6 +517,47 @@ let app = {
 
         app.updateObjects();
         app.updateMetaMuscleDom(muscleMeta)
+    },
+
+    selectMuscle: function (object) {
+        console.log('selectMuscle', object);
+        let domSelectCondition = document.getElementById('navSelectMuscles');
+
+        let domOverlayMuscle = document.getElementById('overlayMuscle');
+        domOverlayMuscle.classList.remove('hide');
+
+        let muscleMeta = {
+            name: object.name,
+            percentageOfSessionsInjected: 0,
+            botoxAverageDosePerMuscle: 0,
+            botoxAverageNumberOfSites: 0,
+            dysportAverageDosePerMuscle: 0,
+            dysportAverageNumberOfSites: 0,
+        };
+
+
+        for (let i in app.combinedMuscles) {
+            for (let j in app.combinedMuscles[i].muscles) {
+                let muscle = app.combinedMuscles[i].muscles[j];
+
+
+
+                if (object.id === muscle.id) {
+                    console.log(muscle);
+                    domSelectCondition.value = app.combinedMuscles[i].id;
+
+                    muscleMeta.name = app.combinedMuscles[i].name;
+                    muscleMeta.percentageOfSessionsInjected = app.combinedMuscles[i].muscles[j].percentageOfSessionsInjected;
+                    muscleMeta.botoxAverageDosePerMuscle = app.combinedMuscles[i].muscles[j].botoxAverageDosePerMuscle;
+                    muscleMeta.botoxAverageNumberOfSites = app.combinedMuscles[i].muscles[j].botoxAverageNumberOfSites;
+                    muscleMeta.dysportAverageDosePerMuscle = app.combinedMuscles[i].muscles[j].dysportAverageDosePerMuscle;
+                    muscleMeta.dysportAverageNumberOfSites = app.combinedMuscles[i].muscles[j].dysportAverageNumberOfSites;
+
+                    // debugger;
+                }
+            }
+        }
+        app.updateMetaMuscleDom(muscleMeta);
     },
 
     resetSelectCondition: function () {
@@ -560,6 +619,7 @@ let app = {
                         let obj = createObject(objProps);
                         // obj.object.scale
                         app.objectList.push(obj);
+                        app.raycastList.push(obj.mesh);
                     }
                 }
             }
@@ -578,6 +638,7 @@ let app = {
                     let obj = createObject(objProps);
                     // obj.object.scale.multiplyScalar(8.0);
                     app.objectList.push(obj);
+                    app.raycastList.push(obj.mesh);
                 }
             }
             updateScene();
@@ -765,19 +826,22 @@ let app = {
         }
     },
     updateObjects: function () {
-        console.log('updateObjects', app.conditionId, app.objectList);
+        // console.log('updateObjects', app.conditionId, app.objectList);
         for (let i in app.objectList) {
             let item = app.objectList[i];
 
             // set visiblity 
-            item.material.visible = item.visible;
+            item.material.visible = item.state.visible;
             item.material.opacity = 1;
             item.material.color.setHex(0xFFFFFF);
             item.material.emissive.setHex(0x000000);
             item.material.emissiveIntensity = 1.0;
-           
 
-            if( app.toggleTextures ) {
+            if (item.state.raycastSelected) {
+                item.material.emissive.setHex(0xFF0000);
+            }
+
+            if (app.toggleTextures) {
                 item.material.map = item.textureGrey;
             }
             else {
@@ -786,42 +850,33 @@ let app = {
 
             if (app.conditionId !== null && app.muscleGroupId === null) {
                 if (item.type === 'muscle') {
-                    console.log(item);
-                    
-
-
                     item.material.color.copy(item.scaleColor);
-                    
-                   
-                    
-
-
-                    // item.material.map = null;
-                    // item.material.emissive.copy(item.scaleColor);
-                    // item.material.emissiveIntensity = 1;
+                }
+            }
+            else if (app.conditionId !== null && app.muscleGroupId !== null && app.raycast.currentObject !== null) {
+                if (item.type === 'muscle') {
+                    item.material.color.copy(item.scaleColor);
                 }
             }
             else {
                 if (item.type === 'muscle') {
                     item.material.color.setHex(0xFFFFFF);
-                    // item.material.emissive.setHex(0x000000);
-                    // item.material.emissiveIntensity = 1.0;
                 }
             }
-
-            if (app.muscleGroupId !== null) {
+            
+            if (app.muscleGroupId !== null && app.raycast.currentObject === null ) {
                 if (item.type === 'muscle') {
-                    if (item.selected) {
+                    if (item.state.groupSelected) {
                         item.material.opacity = 1;
                         item.material.color.copy(item.scaleColor);
                     }
                     else {
                         item.material.opacity = 0.2;
-                        item.material.emissive.setHex(0x000000);
+                        // item.material.emissive.setHex(0x000000);
                     }
                 }
                 else {
-                    item.transparent = true;
+                    // item.transparent = true;
                     item.material.opacity = 0.2;
                 }
             }
@@ -839,11 +894,11 @@ let app = {
                     let muscle = app.objectList[m];
 
                     if (muscle.id === condMuscle.id && muscle.name === condMuscle.name) {
-                        console.log(condMuscle);
-                        console.log(muscle);
+                        // console.log(condMuscle);
+                        // console.log(muscle);
 
                         if (condMuscle.percentageOfSessionsInjected !== '') {
-                            console.log('set a colour', condMuscle.percentageOfSessionsInjected, condMuscle.percentageOfSessionsInjected / 33);
+                            // console.log('set a colour', condMuscle.percentageOfSessionsInjected, condMuscle.percentageOfSessionsInjected / 33);
 
                             let percentage = condMuscle.percentageOfSessionsInjected;
                             let colours = [
@@ -860,13 +915,13 @@ let app = {
                                 // muscle.scaleColor = new THREE.Color(0x000000);
                             }
                             else if (percentage <= 33) {
-                                muscle.scaleColor = new THREE.Color(colours[0]).lerp(colours[1],  percentage / 33 );
+                                muscle.scaleColor = new THREE.Color(colours[0]).lerp(colours[1], percentage / 33);
                             }
                             else if (percentage <= 66) {
-                                muscle.scaleColor = new THREE.Color(colours[1]).lerp(colours[2],  percentage / 66 );
+                                muscle.scaleColor = new THREE.Color(colours[1]).lerp(colours[2], percentage / 66);
                             }
                             else { //if (percentage <= 66) {
-                                muscle.scaleColor = new THREE.Color(colours[2]).lerp(colours[3],  percentage / 100 );
+                                muscle.scaleColor = new THREE.Color(colours[2]).lerp(colours[3], percentage / 100);
                             }
                             // else {
                             //     muscle.scaleColor = new THREE.Color(colours[3]).lerp(colours[4],  percentage / 25 );
@@ -939,12 +994,24 @@ let app = {
 
         app.leftVisible = !app.leftVisible;
 
+
+
         if (app.muscleGroupId) {
             for (let i in app.objectList) {
                 let item = app.objectList[i];
                 for (let j in app.muscleIds) {
-                    if (item.id === app.muscleIds[j] && item.side === 'left') {
-                        item.visible = app.leftVisible;
+                    if (item.id === app.muscleIds[j]) {
+                        if (item.side === 'left') {
+                            item.visible = app.leftVisible;
+                        }
+                        else if (item.side === 'both') {
+                            if (!app.rightVisible && app.leftVisible === app.rightVisible) {
+                                item.visible = false;
+                            }
+                            else {
+                                item.visible = true;
+                            }
+                        }
                     }
                 }
             }
@@ -953,8 +1020,15 @@ let app = {
             for (let i in app.objectList) {
                 let item = app.objectList[i];
                 if (item.side === 'left') {
-                    // console.log(item);
                     item.visible = app.leftVisible;
+                }
+                else if (item.side === 'both') {
+                    if (!app.rightVisible && app.leftVisible === app.rightVisible) {
+                        item.visible = false;
+                    }
+                    else {
+                        item.visible = true;
+                    }
                 }
             }
         }
@@ -968,8 +1042,18 @@ let app = {
             for (let i in app.objectList) {
                 let item = app.objectList[i];
                 for (let j in app.muscleIds) {
-                    if (item.id === app.muscleIds[j] && item.side === 'right') {
-                        item.visible = app.rightVisible;
+                    if (item.id === app.muscleIds[j]) {
+                        if (item.side === 'right') {
+                            item.visible = app.rightVisible;
+                        }
+                        else if (item.side === 'both') {
+                            if (!app.rightVisible && app.leftVisible === app.rightVisible) {
+                                item.visible = false;
+                            }
+                            else {
+                                item.visible = true;
+                            }
+                        }
                     }
                 }
             }
@@ -978,27 +1062,134 @@ let app = {
             for (let i in app.objectList) {
                 let item = app.objectList[i];
                 if (item.side === 'right') {
-                    // console.log(item);
                     item.visible = app.rightVisible;
                 }
+                else if (item.side === 'both') {
+                    if (!app.rightVisible && app.leftVisible === app.rightVisible) {
+                        item.visible = false;
+                    }
+                    else {
+                        item.visible = true;
+                    }
+                }
+            }
+
+        }
+        app.updateObjects();
+    },
+
+    // Raycast 
+    raycastFromCamera: function (mouse) {
+        console.log('raycastFromCamera', mouse);
+
+        if (app.camera) {
+            app.raycaster.setFromCamera(mouse, app.camera);
+            const intersects = app.raycaster.intersectObjects(app.raycastList);
+
+            if (intersects.length > 0) {
+                console.log('intersected object', intersects[0].object.name);
+                const intersectPos = new THREE.Vector3().copy(intersects[0].point);
+
+                app.raycastPos.position.copy(intersectPos);
+                // let firstObject  = 
+                app.setRaycastTarget(intersects[0].object);
             }
         }
         app.updateObjects();
     },
+
+    setRaycastTarget: function (mesh) {
+        console.log('setRaycastTarget', mesh);
+
+        if (app.conditionId !== null) {
+            app.resetObjects();
+
+
+
+            for (let i in app.objectList) {
+                let item = app.objectList[i];
+
+                if (item.mesh.name === mesh.name) {
+                    // debugger;
+                    item.state.raycastSelected = true;
+
+                    app.raycast.currentObject = item;
+                    app.selectMuscle(item);
+
+                }
+                else {
+                    item.state.raycastSelected = false;
+                }
+            }
+        }
+
+    },
+
+    // event handlers 
+    mouseDown: function (event) {
+        app.raycast.mouseDown = true;
+
+
+
+        let mouse = getMousePosition(event, app.renderer.domElement);
+        app.raycastFromCamera(mouse);
+
+
+
+
+        console.log(mouse);
+    },
+    mouseMove: function (event) {
+
+    },
+    mouseUp: function (event) {
+
+    },
+    mouseOut: function (event) {
+
+    }
 };
 
 
 
+const getElementPosition = function (element) {
+    var xPosition = 0;
+    var yPosition = 0;
 
+    while (element) {
+        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
+        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
+        element = element.offsetParent;
+    }
+    return { x: xPosition, y: yPosition };
+};
 
-
+const getMousePosition = function (event, element) {
+    var ele = getElementPosition(element);
+    const mouse = {
+        x: ((event.clientX - ele.x) / element.clientWidth) * 2 - 1,
+        y: -((event.clientY - ele.y) / element.clientHeight) * 2 + 1,
+    };
+    // Interact3D.mousePosition.x = ((event.clientX - ele.x) / element.clientWidth) * 2 - 1;
+    // Interact3D.mousePosition.y = -((event.clientY - ele.y) / element.clientHeight) * 2 + 1;
+    return mouse;
+};
 
 const initEventListeners = function () {
     window.addEventListener('resize', onResize);
     window.addEventListener('resize-end', onResizeEnd);
 
-    window.addEventListener('click', app.clickStart);
 
+
+
+
+
+    // this.domContainer3D.addEventListener('mousedown', function(event) { Interact3D.Raycast(Interact3D.Input.states.MOUSE_DOWN, event);}, true );
+    // this.domContainer3D.addEventListener('mousemove', function(event) { Interact3D.Raycast(Interact3D.Input.states.MOUSE_MOVE, event);}, false );
+    // this.domContainer3D.addEventListener('mouseup',  function(event) { Interact3D.Raycast(Interact3D.Input.states.MOUSE_UP, event); }, false);
+    // this.domContainer3D.addEventListener('mouseout',  function(event) { Interact3D.Raycast(Interact3D.Input.states.MOUSE_UP, event); }, false);
+
+    let container = document.getElementById('container');
 
     let btnReset = document.getElementById('btn-reset');
     let btnMenuOff = document.getElementById('btn-menu-off');
@@ -1010,6 +1201,24 @@ const initEventListeners = function () {
     let selectMuscles = document.getElementById('navSelectMuscles');
 
     let chkToggleTextures = document.getElementById('chkToggleTextures');
+
+    container.addEventListener('mousedown', (event) => {
+        event.preventDefault();
+        app.mouseDown(event);
+    });
+    // window.addEventListener('mousemove', (event) => {
+    //     event.preventDefault();
+    //     app.mouseMove(event);
+    // });
+    // window.addEventListener('mouseup', (event) => {
+    //     event.preventDefault();
+    //     app.mouseUp(event);
+    // });
+    // window.addEventListener('mouseout', (event) => {
+    //     event.preventDefault();
+    //     app.mouseOut(event);
+    // });
+
 
 
     btnReset.onclick = (event) => {
@@ -1034,11 +1243,28 @@ const initEventListeners = function () {
     btnLeftMuscle.onclick = (event) => {
         event.preventDefault();
         app.toggleLeftMuscles();
+
+        if (app.leftVisible) {
+            btnLeftMuscle.classList.remove('active');
+        }
+        else {
+            btnLeftMuscle.classList.add('active');
+        }
+
+
+
         return false;
     }
     btnRightMuscle.onclick = (event) => {
         event.preventDefault();
         app.toggleRightMuscles();
+
+        if (app.rightVisible) {
+            btnRightMuscle.classList.remove('active');
+        }
+        else {
+            btnRightMuscle.classList.add('active');
+        }
         return false;
     }
 
@@ -1075,6 +1301,7 @@ const initEventListeners = function () {
         else {
             console.log('clear overlay');
             app.resetSelectCondition();
+            app.updateObjects();
         }
     }
 
@@ -1213,7 +1440,7 @@ const initThree = function () {
 
     app.camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 10000);
     app.camera.position.y = 10;
-    app.camera.position.z = 30;
+    app.camera.position.z = 50;
 
     app.controls = new OrbitControls(app.camera, app.renderer.domElement)
     app.controls.target = new THREE.Vector3(0, 11, 0);
@@ -1346,7 +1573,12 @@ const initObjects = function () {
     // }
 }
 
-
+const initRaycast = function () {
+    const raycastObj = new THREE.BoxGeometry(1, 1, 1);
+    const raycastObjMat = new THREE.MeshPhongMaterial({ color: 0xFF0000, flatShading: true, wireframe: false, visible: true, transparent: true });
+    app.raycastPos = new THREE.Mesh(raycastObj, raycastObjMat);
+    app.scene.add(app.raycastPos);
+};
 
 const createObject = function (props) {
     // console.log('createObject', props);
@@ -1357,14 +1589,18 @@ const createObject = function (props) {
         data.id = props.id;
         data.name = props.name;
         data.type = props.type;
+        data.state = {
+            visible: true,
+            transparent: false,
+            groupSelected: false,
+            raycastSelected: false,
+        }
+
 
         if (props.side) {
             data.side = props.side;
         }
 
-
-        // visiblity / material options
-        data.visible = true;
 
 
 
@@ -1376,7 +1612,7 @@ const createObject = function (props) {
         obj.scale.copy(app.objectScale);
         let mesh = obj.children[0];
         // let material = new THREE.MeshPhongMaterial({ color: 0xFF0000, map: texture });
-        let material = new THREE.MeshPhongMaterial({ map: texture, transparent: true, visible: true });
+        let material = new THREE.MeshPhongMaterial({ map: texture, transparent: true, visible: data.state.visible });
 
         obj.name = props.name;
 
