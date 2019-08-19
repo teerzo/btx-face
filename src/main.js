@@ -81,6 +81,7 @@ let app = {
     raycast: {
         currentObject: null,
         enabled: false,
+        moveEnabled: false,
         mouseDown: false,
         mouseMove: false,
         mouseUp: false,
@@ -176,9 +177,9 @@ let app = {
         }
         app.updateObjects();
     },
-    resetRaycast: function() {
+    resetRaycast: function () {
         app.raycast.currentObject = null;
-        app.raycastPos.position.set(0,0,0);
+        app.raycastPos.position.set(0, 0, 0);
     },
     loop: function () {
         let dt = 0.1;
@@ -461,6 +462,9 @@ let app = {
         let domOverlayMuscle = document.getElementById('overlayMuscle');
         domOverlayMuscle.classList.remove('hide');
 
+        app.showSidesButtons(true);
+        // let domGroupSidesButtons = document.getElementById('groupSidesButtons');
+        // domGroupSidesButtons.classList.remove('hide');
 
         app.muscleGroupId = id;
 
@@ -526,6 +530,11 @@ let app = {
         let domOverlayMuscle = document.getElementById('overlayMuscle');
         domOverlayMuscle.classList.remove('hide');
 
+        app.showSidesButtons(false);
+
+        // let domGroupSidesButtons = document.getElementById('groupSidesButtons');
+        // domGroupSidesButtons.classList.add('hide');
+
         let muscleMeta = {
             name: object.name,
             percentageOfSessionsInjected: 0,
@@ -569,8 +578,10 @@ let app = {
         let domGroupMuscle = document.getElementById('groupMuscle');
         domGroupMuscle.classList.add('hide');
 
-        let domGroupSidesButtons = document.getElementById('groupSidesButtons');
-        domGroupSidesButtons.classList.add('hide');
+        app.showSidesButtons(false);
+
+        // let domGroupSidesButtons = document.getElementById('groupSidesButtons');
+        // domGroupSidesButtons.classList.add('hide');
 
         let domGroupMove = document.getElementById('groupMove');
         domGroupMove.classList.add('hide');
@@ -598,6 +609,10 @@ let app = {
 
         let domOverlayMuscle = document.getElementById('overlayMuscle');
         domOverlayMuscle.classList.add('hide');
+
+        
+        // let domGroupSidesButtons = document.getElementById('groupSidesButtons');
+        // domGroupSidesButtons.classList.remove('hide');
     },
 
     initModels: function () {
@@ -863,8 +878,8 @@ let app = {
                     item.material.color.setHex(0xFFFFFF);
                 }
             }
-            
-            if (app.muscleGroupId !== null && app.raycast.currentObject === null ) {
+
+            if (app.muscleGroupId !== null && app.raycast.currentObject === null) {
                 if (item.type === 'muscle') {
                     if (item.state.groupSelected) {
                         item.material.opacity = 1;
@@ -996,20 +1011,20 @@ let app = {
 
 
 
-        if (app.muscleGroupId) {
+        if (app.muscleGroupId !== null) {
             for (let i in app.objectList) {
                 let item = app.objectList[i];
                 for (let j in app.muscleIds) {
                     if (item.id === app.muscleIds[j]) {
                         if (item.side === 'left') {
-                            item.visible = app.leftVisible;
+                            item.state.visible = app.leftVisible;
                         }
                         else if (item.side === 'both') {
                             if (!app.rightVisible && app.leftVisible === app.rightVisible) {
-                                item.visible = false;
+                                item.state.visible = false;
                             }
                             else {
-                                item.visible = true;
+                                item.state.visible = true;
                             }
                         }
                     }
@@ -1020,14 +1035,14 @@ let app = {
             for (let i in app.objectList) {
                 let item = app.objectList[i];
                 if (item.side === 'left') {
-                    item.visible = app.leftVisible;
+                    item.state.visible = app.leftVisible;
                 }
                 else if (item.side === 'both') {
                     if (!app.rightVisible && app.leftVisible === app.rightVisible) {
-                        item.visible = false;
+                        item.state.visible = false;
                     }
                     else {
-                        item.visible = true;
+                        item.state.visible = true;
                     }
                 }
             }
@@ -1038,20 +1053,20 @@ let app = {
         console.log("toggleRightMuscles", app.rightVisible);
         app.rightVisible = !app.rightVisible;
 
-        if (app.muscleGroupId) {
+        if (app.muscleGroupId !== null) {
             for (let i in app.objectList) {
                 let item = app.objectList[i];
                 for (let j in app.muscleIds) {
                     if (item.id === app.muscleIds[j]) {
                         if (item.side === 'right') {
-                            item.visible = app.rightVisible;
+                            item.state.visible = app.rightVisible;
                         }
                         else if (item.side === 'both') {
                             if (!app.rightVisible && app.leftVisible === app.rightVisible) {
-                                item.visible = false;
+                                item.state.visible = false;
                             }
                             else {
-                                item.visible = true;
+                                item.state.visible = true;
                             }
                         }
                     }
@@ -1062,14 +1077,14 @@ let app = {
             for (let i in app.objectList) {
                 let item = app.objectList[i];
                 if (item.side === 'right') {
-                    item.visible = app.rightVisible;
+                    item.state.visible = app.rightVisible;
                 }
                 else if (item.side === 'both') {
                     if (!app.rightVisible && app.leftVisible === app.rightVisible) {
-                        item.visible = false;
+                        item.state.visible = false;
                     }
                     else {
-                        item.visible = true;
+                        item.state.visible = true;
                     }
                 }
             }
@@ -1083,26 +1098,34 @@ let app = {
         console.log('raycastFromCamera', mouse);
 
         if (app.camera) {
-            app.raycaster.setFromCamera(mouse, app.camera);
-            const intersects = app.raycaster.intersectObjects(app.raycastList);
+            if (!app.raycast.moveEnabled) {
+                app.raycaster.setFromCamera(mouse, app.camera);
+                const intersects = app.raycaster.intersectObjects(app.raycastList);
 
-            if (intersects.length > 0) {
-                console.log('intersected object', intersects[0].object.name);
-                const intersectPos = new THREE.Vector3().copy(intersects[0].point);
+                if (intersects.length > 0) {
+                    let target = null;
+                    for (let i = 0; i < intersects.length; i++) {
+                        if (target === null && intersects[i].object.material.visible) {
+                            target = intersects[i];
+                        }
+                    }
+                    console.log('intersected object', target.object);
+                    const intersectPos = new THREE.Vector3().copy(target.point);
 
-                app.raycastPos.position.copy(intersectPos);
-                // let firstObject  = 
-                app.setRaycastTarget(intersects[0].object);
+                    app.raycastPos.position.copy(intersectPos);
+                    // let firstObject  = 
+                    app.setRaycastTarget(target.object);
+                }
+                app.updateObjects();
             }
         }
-        app.updateObjects();
     },
 
     setRaycastTarget: function (mesh) {
         console.log('setRaycastTarget', mesh);
 
         if (app.conditionId !== null) {
-            app.resetObjects();
+            // app.resetObjects();
 
 
 
@@ -1147,7 +1170,19 @@ let app = {
     },
     mouseOut: function (event) {
 
+    },
+
+    // dom show/hide 
+    showSidesButtons: function(show) {
+        let domGroupSidesButtons = document.getElementById('groupSidesButtons');
+        if( show ) {
+            domGroupSidesButtons.classList.remove('hide');
+        }
+        else {
+            domGroupSidesButtons.classList.add('hide');
+        }
     }
+
 };
 
 
@@ -1201,6 +1236,7 @@ const initEventListeners = function () {
     let selectMuscles = document.getElementById('navSelectMuscles');
 
     let chkToggleTextures = document.getElementById('chkToggleTextures');
+    let chkMoveMuscles = document.getElementById('chkMoveMuscles');
 
     container.addEventListener('mousedown', (event) => {
         event.preventDefault();
@@ -1272,6 +1308,7 @@ const initEventListeners = function () {
         console.log('selectCondition', event.target.value);
 
         app.resetSelectMuscle();
+        app.showSidesButtons(true);
         app.resetObjects();
 
         let value = null;
@@ -1290,8 +1327,9 @@ const initEventListeners = function () {
             let domGroupMuscle = document.getElementById('groupMuscle');
             domGroupMuscle.classList.remove('hide');
 
-            let domGroupSidesButtons = document.getElementById('groupSidesButtons');
-            domGroupSidesButtons.classList.remove('hide');
+            app.showSidesButtons(true);
+            // let domGroupSidesButtons = document.getElementById('groupSidesButtons');
+            // domGroupSidesButtons.classList.remove('hide');
 
             let domGroupMove = document.getElementById('groupMove');
             domGroupMove.classList.remove('hide');
@@ -1326,6 +1364,11 @@ const initEventListeners = function () {
     chkToggleTextures.onchange = (event) => {
         app.toggleTextures = !app.toggleTextures;
         app.updateObjects();
+    }
+    chkMoveMuscles.onchange = (event) => {
+        app.raycast.moveEnabled = !app.raycast.moveEnabled;
+
+        // app.updateObjects();
     }
 };
 
