@@ -32,6 +32,7 @@ module.exports = {
       {from:'src/fonts',to:'fonts'},
       // {from:'src/images/muscles',to:'images/muscles'},
       {from:'src/data',to:'data'},
+      {from:'src/img',to:'img'},
       {from:'src/obj',to:'obj'},
       {from:'src/tex',to:'tex'},
     ]), 

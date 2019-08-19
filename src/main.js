@@ -101,6 +101,7 @@ let app = {
                                 app.loadModels().then(() => {
                                     app.initModels().then(() => {
                                         app.updateDom();
+                                        app.hideLoading();
 
                                         console.log('initModels done');
                                     });
@@ -119,7 +120,6 @@ let app = {
         initScene();
         // initObjects();
 
-        app.hideLoading();
 
         app.reset();
         app.loop();

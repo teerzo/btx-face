@@ -53,10 +53,15 @@ html, body {
                     width: 200px;
                     height: 40px;
         
-                    border-width: 1px;
-                    border-radius: 0px;
+                    
         
                     margin-right: 5px;
+
+                    border-width: 1px;
+                    border-radius: 0px;
+                    border-style: solid;
+                    border-color: rgb(169, 169, 169);
+                    border-image: initial;
                 }   
             }
             .select-group.hide {
@@ -444,6 +449,7 @@ box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
 }
 
 #loading {
+    
     .load {
         display: block !important;
         position: absolute;
@@ -459,12 +465,22 @@ box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.25);
         text-align: center;
         margin: 0 auto;
 
+        .image {
+            width: 100%;
+            height: auto;
+        }
+        p {
+            font-size: 1.5rem;
+        }
         .spinner {
-            border: 1px solid red;
+            border: 3px solid red;
             border-radius: 100px 0px 100px 100px;
 
             width: 64px;
             height: 64px;
+
+            text-align: center;
+            margin: 0 auto;
 
             animation:spin 4s linear infinite;
         }
