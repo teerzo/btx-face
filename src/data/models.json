@@ -1205,8 +1205,8 @@
     "groupName": "Trapezius",
     "side": "right",
     "fileName": "Trapezius_Muscle_Right",
-    "texture": "",
-    "textureGrey": "",
+    "texture": "muscleBodyTex",
+    "textureGrey": "muscleBodyTexGrey",
     "fileType": "obj"
   },
   {

@@ -146,7 +146,10 @@ let app = {
         app.resetSelectCondition();
         app.resetSelectMuscle();
 
-        resizeThree();
+        app.resetDomTextureToggle();
+        app.resetDomMoveMuscles();
+
+        resizeThree();  
         app.resetObjects();
         app.resetRaycast();
     },
@@ -166,6 +169,7 @@ let app = {
         }
     },
     resetObjects: function () {
+        console.log('resetObjects');
         for (let i in app.objectList) {
             let item = app.objectList[i];
             // console.log(item);
@@ -182,6 +186,17 @@ let app = {
     resetRaycast: function () {
         app.raycast.currentObject = null;
         app.raycastPos.position.set(0, 0, 0);
+    },
+    resetDomTextureToggle: function() {
+        app.toggleTextures = false;
+
+        document.getElementById("chkToggleTextures").checked = false;
+
+    },
+    resetDomMoveMuscles: function() {
+        app.raycast.moveEnabled = false;
+        app.controls.enabled = true;
+        document.getElementById("chkMoveMuscles").checked = false;
     },
     loop: function () {
         let dt = 0.1;
@@ -367,7 +382,11 @@ let app = {
                                     texture: md.texture,
                                     textureGrey: md.textureGrey,
                                 });
-                                console.log('model', model);
+                                // console.log('$$$ model', model);
+
+                                if( md.name === 'Trapezius' ) {
+                                    console.log('$$$ model', model);
+                                }
 
                                 resolve();
                             });
@@ -1107,7 +1126,7 @@ let app = {
             if (intersects.length > 0) {
                 let target = null;
                 for (let i = 0; i < intersects.length; i++) {
-                    if (target === null && intersects[i].object.material.visible) {
+                    if (target === null && !intersects[i].object.material.wireframe) {
                         target = intersects[i];
                     }
                 }
@@ -1120,9 +1139,11 @@ let app = {
 
                     if (app.raycast.moveEnabled) {
                         var offsetPos = new THREE.Vector3().copy(intersectPos);
-                        offsetPos.sub(target.object.position);
-
+                        console.log(target);
+                        offsetPos.sub(app.raycast.currentObject.object.position);
+                        
                         app.raycast.positionOffset.copy(offsetPos);
+                        console.log('offset', offsetPos);
 
                         var cameraQuat = new THREE.Quaternion().copy(app.camera.quaternion);
                         var normalX = new THREE.Vector3(1, 0, 0);
@@ -1140,8 +1161,12 @@ let app = {
                         app.raycast.plane.lookAt(lookPosition);
                     }
                 }
+                else {
+                    app.clearRaycastTarget();
+                }
                 // app.raycast.plane.lookAt( lookPosition );
             }
+            
             app.updateObjects();
         }
     },
@@ -1172,29 +1197,31 @@ let app = {
         }
 
     },
+    clearRaycastTarget: function() {
+        console.log('clearRaycastTarget');
+        for (let i in app.objectList) {
+            let item = app.objectList[i];
+            item.state.raycastSelected = false;
+        }
+        app.raycast.currentObject = null;
+    },
 
     // event handlers 
     mouseDown: function (event) {
         app.raycast.mouseDown = true;
-
-
-
         let mouse = getMousePosition(event, app.renderer.domElement);
         app.raycastFromCamera(mouse);
-
-
-
-
-        console.log(mouse);
+        // console.log(mouse);
     },
     mouseMove: function (event) {
         let mouse = getMousePosition(event, app.renderer.domElement);
         // app.raycastFromCamera(mouse);
 
         if (app.raycast.moveEnabled) {
+            // app.controls.enabled = false;
             if (app.raycast.mouseDown) {
                 if (app.raycast.currentObject !== null) {
-                    app.controls.enabled = false;
+                    // app.controls.enabled = false;
 
                     var vector = new THREE.Vector3(mouse.x, mouse.y, 0.5).unproject(app.camera);
                     var direction = new THREE.Vector3().copy(vector.sub(app.camera.position)).normalize();
@@ -1202,23 +1229,36 @@ let app = {
 
                     var intersects = raycaster.intersectObject(app.raycast.plane);
                     if (intersects.length > 0) {
+
+                        console.log(intersects);
                         var position = new THREE.Vector3().copy(intersects[0].point);
 
-
                         app.raycastPos.position.copy(position);
-                        // Interact3D.mouseCursor.object.position.copy( position);  
+
+                        console.log('offset move', app.raycast.positionOffset);
 
                         position.sub(app.raycast.positionOffset);
-                        app.raycast.currentObject.object.position.copy(position);
+                        // let testPos = new THREE.Vector3(0,-5,0);
+                        // position.sub(testPos);
 
-                        // var cameraNormal = new THREE.Vector3().copy(Interact3D.camera.position);
-                        // cameraNormal.sub(Interact3D.currentIntersected.position);
-                        // cameraNormal.length();
-                        // Interact3D.ConsoleLog( cameraNormal.length());
+                        // var offsetPos = new THREE.Vector3().copy(intersectPos);
+                        // console.log(target);
+                        // offsetPos.sub(target.object.position);
+
+                        // app.raycast.positionOffset.copy(offsetPos);
+
+                        // let testPos = new THREE.Vector3(0,0,0);
+                        // position.sub(testPos);
+
+                        console.log('object',app.raycast.currentObject);
+                        app.raycast.currentObject.object.position.copy(position);
+                        // app.raycast.currentObject.mesh.position.copy(position);
+
+              
 
                     }
 
-                }
+                } 
 
 
                 if (app.camera) {
@@ -1229,7 +1269,7 @@ let app = {
                         if (intersects.length > 0) {
                             let target = null;
                             for (let i = 0; i < intersects.length; i++) {
-                                if (target === null && intersects[i].object.material.visible) {
+                                if (target === null && !intersects[i].object.material.wireframe) {
                                     target = intersects[i];
                                 }
                             }
@@ -1240,6 +1280,7 @@ let app = {
                             // let firstObject  = 
                             app.setRaycastTarget(target.object);
                         }
+                       
                         app.updateObjects();
                     }
                 }
@@ -1248,7 +1289,10 @@ let app = {
 
     },
     mouseUp: function (event) {
-        app.controls.enabled = true;
+        window.setTimeout(function() {
+            // app.controls.enabled = true;
+        }, 1000);
+       
 
         app.raycast.mouseDown = false;
     },
@@ -1451,6 +1495,8 @@ const initEventListeners = function () {
     }
     chkMoveMuscles.onchange = (event) => {
         app.raycast.moveEnabled = !app.raycast.moveEnabled;
+
+        app.controls.enabled = !app.raycast.moveEnabled;
 
         app.raycast.plane.visible = app.raycast.moveEnabled;
         app.raycastPos.visible = app.raycast.moveEnabled;
@@ -1712,6 +1758,8 @@ const initRaycast = function () {
     app.raycast.plane = new THREE.Mesh(raycastPlane, raycastPlaneMat);
     app.raycast.plane.name = 'RaycastPlane';
     app.scene.add(app.raycast.plane);
+
+
     app.raycastList.push(app.raycast.plane);
 
 };
@@ -1746,11 +1794,21 @@ const createObject = function (props) {
 
         let obj = props.mesh.clone();
         obj.scale.copy(app.objectScale);
+
+        // add test object
+
+        const testObj = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshPhongMaterial({ color: 0x00FF00, flatShading: true, wireframe: false, visible: true, transparent: false }) );
+        // obj.children[0].children.push(testObj);
+        // obj.children.push(testObj);
+
+
         let mesh = obj.children[0];
         // let material = new THREE.MeshPhongMaterial({ color: 0xFF0000, map: texture });
         let material = new THREE.MeshPhongMaterial({ map: texture, transparent: true, visible: data.state.visible });
 
         obj.name = props.name;
+
+    
 
         mesh.material = material;
 
