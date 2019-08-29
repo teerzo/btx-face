@@ -886,6 +886,7 @@ let app = {
             }
 
             if (app.conditionId !== null && app.muscleGroupId === null) {
+                debugger;
                 if (item.type === 'muscle') {
                     item.material.color.copy(item.scaleColor);
                 }
@@ -1752,7 +1753,7 @@ const initObjects = function () {
 
 const initRaycast = function () {
     const raycastObj = new THREE.BoxGeometry(1, 1, 1);
-    const raycastObjMat = new THREE.MeshPhongMaterial({ color: 0xFF0000, flatShading: true, wireframe: false, visible: true, transparent: false });
+    const raycastObjMat = new THREE.MeshPhongMaterial({ color: 0xFF0000, flatShading: true, wireframe: false, visible: false, transparent: false });
     app.raycastPos = new THREE.Mesh(raycastObj, raycastObjMat);
     app.scene.add(app.raycastPos);
 

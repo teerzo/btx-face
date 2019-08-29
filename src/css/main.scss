@@ -100,7 +100,8 @@ html, body {
             }
             .chkMuscleLeft.active {
                 // background-color: #ff0000;
-                opacity: 0.5;
+                // opacity: 0.5;
+                background-color: #cccccc;
             }
             .chkMuscleRight {
                 border: 1px solid #a9a9a9;
@@ -119,12 +120,28 @@ html, body {
             }
             .chkMuscleRight.active {
                 // background-color: #ff0000;
-                opacity: 0.5;
+                // opacity: 0.5;
+
+                background-color: #cccccc;
             }
 
             .check-textures {
                 display: inline-block;
+                // width: 
                 height: 28px;
+    
+                vertical-align: top;
+    
+                // float: right;
+                padding: 10px 10px 0px 10px;
+    
+                border-color: #a9a9a9;
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 0px;
+
+                margin-top: 18px;
+                // margin-left: 10px;
             }
     
             .check-move {
@@ -476,7 +493,7 @@ html, body {
             font-size: 1.5rem;
         }
         .spinner {
-            border: 3px solid red;
+            border: 3px solid #333333;
             border-radius: 100px 0px 100px 100px;
 
             width: 64px;
