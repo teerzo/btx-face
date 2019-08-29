@@ -360,7 +360,7 @@
     "fileType": "obj"
   },
   {
-    "id": 38,
+    "id": 37,
     "name": "Nasalis",
     "groupName": "Nasalis",
     "side": "both",
@@ -370,7 +370,7 @@
     "fileType": "obj"
   },
   {
-    "id": 37,
+    "id": 38,
     "name": "Nasalis Alar",
     "groupName": "Nasalis Alar",
     "side": "left",
@@ -460,7 +460,7 @@
     "fileType": "obj"
   },
   {
-    "id": "",
+    "id": 47,
     "name": "Orbicularis Oculi (Palpebral Portion)",
     "groupName": "",
     "side": "right",
@@ -470,7 +470,7 @@
     "fileType": "obj"
   },
   {
-    "id": 47,
+    "id": 48,
     "name": "Orbicularis Oris",
     "groupName": "Orbicularis Oris",
     "side": "both",
@@ -480,7 +480,7 @@
     "fileType": "obj"
   },
   {
-    "id": 48,
+    "id": 49,
     "name": "Platysma",
     "groupName": "",
     "side": "left",
@@ -490,7 +490,7 @@
     "fileType": ""
   },
   {
-    "id": 49,
+    "id": 50,
     "name": "Platysma",
     "groupName": "",
     "side": "right",
@@ -500,7 +500,7 @@
     "fileType": ""
   },
   {
-    "id": 50,
+    "id": 51,
     "name": "Posterior Auricular",
     "groupName": "Posterior Auricular",
     "side": "left",
@@ -510,7 +510,7 @@
     "fileType": "obj"
   },
   {
-    "id": 51,
+    "id": 52,
     "name": "Posterior Auricular",
     "groupName": "Posterior Auricular",
     "side": "right",
@@ -520,7 +520,7 @@
     "fileType": "obj"
   },
   {
-    "id": 52,
+    "id": 53,
     "name": "Procerus",
     "groupName": "Procerus",
     "side": "both",
@@ -530,20 +530,10 @@
     "fileType": "obj"
   },
   {
-    "id": 53,
-    "name": "Pterygoid Medial",
-    "groupName": "",
-    "side": "left",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
-  },
-  {
     "id": 54,
     "name": "Pterygoid Medial",
     "groupName": "",
-    "side": "right",
+    "side": "left",
     "fileName": "",
     "texture": "",
     "textureGrey": "",
@@ -551,9 +541,9 @@
   },
   {
     "id": 55,
-    "name": "Pterygoid Lateral",
+    "name": "Pterygoid Medial",
     "groupName": "",
-    "side": "left",
+    "side": "right",
     "fileName": "",
     "texture": "",
     "textureGrey": "",
@@ -563,7 +553,7 @@
     "id": 56,
     "name": "Pterygoid Lateral",
     "groupName": "",
-    "side": "right",
+    "side": "left",
     "fileName": "",
     "texture": "",
     "textureGrey": "",
@@ -571,9 +561,9 @@
   },
   {
     "id": 57,
-    "name": "Rectus Capitis Major",
+    "name": "Pterygoid Lateral",
     "groupName": "",
-    "side": "left",
+    "side": "right",
     "fileName": "",
     "texture": "",
     "textureGrey": "",
@@ -583,7 +573,7 @@
     "id": 58,
     "name": "Rectus Capitis Major",
     "groupName": "",
-    "side": "right",
+    "side": "left",
     "fileName": "",
     "texture": "",
     "textureGrey": "",
@@ -591,6 +581,16 @@
   },
   {
     "id": 59,
+    "name": "Rectus Capitis Major",
+    "groupName": "",
+    "side": "right",
+    "fileName": "",
+    "texture": "",
+    "textureGrey": "",
+    "fileType": ""
+  },
+  {
+    "id": 60,
     "name": "Risorius",
     "groupName": "Risorius",
     "side": "left",
@@ -600,7 +600,7 @@
     "fileType": "obj"
   },
   {
-    "id": 60,
+    "id": 61,
     "name": "Risorius",
     "groupName": "Risorius",
     "side": "right",
@@ -610,7 +610,7 @@
     "fileType": "obj"
   },
   {
-    "id": 61,
+    "id": 62,
     "name": "Scalene Medius 01",
     "groupName": "Scalene",
     "side": "left",
@@ -620,7 +620,7 @@
     "fileType": "obj"
   },
   {
-    "id": 62,
+    "id": 63,
     "name": "Scalene Medius 01",
     "groupName": "Scalene",
     "side": "right",
@@ -630,7 +630,7 @@
     "fileType": "obj"
   },
   {
-    "id": 63,
+    "id": 64,
     "name": "Scalenus Anterior 01",
     "groupName": "Scalenus Anterior",
     "side": "left",
@@ -640,7 +640,7 @@
     "fileType": "obj"
   },
   {
-    "id": 64,
+    "id": 65,
     "name": "Scalenus Anterior 01",
     "groupName": "Scalenus Anterior",
     "side": "right",
@@ -650,7 +650,7 @@
     "fileType": "obj"
   },
   {
-    "id": 65,
+    "id": 66,
     "name": "Scalenus Posterior 01",
     "groupName": "Scalenus Posterior",
     "side": "left",
@@ -660,7 +660,7 @@
     "fileType": "obj"
   },
   {
-    "id": 66,
+    "id": 67,
     "name": "Scalenus Posterior 01",
     "groupName": "Scalenus Posterior",
     "side": "right",
@@ -670,7 +670,7 @@
     "fileType": "obj"
   },
   {
-    "id": 67,
+    "id": 68,
     "name": "Semispinalis Capitis 01",
     "groupName": "Semispinalis Capitis",
     "side": "left",
@@ -680,7 +680,7 @@
     "fileType": "obj"
   },
   {
-    "id": 68,
+    "id": 69,
     "name": "Semispinalis Capitis 01",
     "groupName": "Semispinalis Capitis",
     "side": "right",
@@ -690,7 +690,7 @@
     "fileType": "obj"
   },
   {
-    "id": 69,
+    "id": 70,
     "name": "Semispinalis Cervicis 01",
     "groupName": "Semispinalis Cervicis",
     "side": "left",
@@ -700,7 +700,7 @@
     "fileType": "obj"
   },
   {
-    "id": 70,
+    "id": 71,
     "name": "Semispinalis Cervicis 01",
     "groupName": "Semispinalis Cervicis",
     "side": "right",
@@ -710,7 +710,7 @@
     "fileType": "obj"
   },
   {
-    "id": 71,
+    "id": 72,
     "name": "Splenius Capitis",
     "groupName": "Splenius Capitis",
     "side": "left",
@@ -720,7 +720,7 @@
     "fileType": "obj"
   },
   {
-    "id": 72,
+    "id": 73,
     "name": "Splenius Capitis",
     "groupName": "Splenius Capitis",
     "side": "right",
@@ -730,7 +730,7 @@
     "fileType": "obj"
   },
   {
-    "id": 73,
+    "id": 74,
     "name": "Sternocleidomastoid",
     "groupName": "Sternocleidomastoid",
     "side": "left",
@@ -740,7 +740,7 @@
     "fileType": "obj"
   },
   {
-    "id": 74,
+    "id": 75,
     "name": "Sternocleidomastoid",
     "groupName": "Sternocleidomastoid",
     "side": "right",
@@ -750,7 +750,7 @@
     "fileType": "obj"
   },
   {
-    "id": 75,
+    "id": 76,
     "name": "Sternohyoid",
     "groupName": "Sternohyoid",
     "side": "left",
@@ -760,7 +760,7 @@
     "fileType": "obj"
   },
   {
-    "id": 76,
+    "id": 77,
     "name": "Sternohyoid",
     "groupName": "Sternohyoid",
     "side": "right",
@@ -770,7 +770,7 @@
     "fileType": "obj"
   },
   {
-    "id": 77,
+    "id": 78,
     "name": "Sternothyroideus",
     "groupName": "Sternothyroideus",
     "side": "left",
@@ -780,7 +780,7 @@
     "fileType": "obj"
   },
   {
-    "id": 78,
+    "id": 79,
     "name": "Sternothyroideus",
     "groupName": "Sternothyroideus",
     "side": "right",
@@ -790,7 +790,7 @@
     "fileType": "obj"
   },
   {
-    "id": 79,
+    "id": 80,
     "name": "Stylohyoid",
     "groupName": "Stylohyoid",
     "side": "left",
@@ -800,7 +800,7 @@
     "fileType": "obj"
   },
   {
-    "id": 80,
+    "id": 81,
     "name": "Stylohyoid",
     "groupName": "Stylohyoid",
     "side": "right",
@@ -810,7 +810,7 @@
     "fileType": "obj"
   },
   {
-    "id": 81,
+    "id": 82,
     "name": "Superior Auricular",
     "groupName": "Superior Auricular",
     "side": "left",
@@ -820,7 +820,7 @@
     "fileType": "obj"
   },
   {
-    "id": 82,
+    "id": 83,
     "name": "Superior Auricular",
     "groupName": "Superior Auricular",
     "side": "right",
@@ -830,7 +830,7 @@
     "fileType": "obj"
   },
   {
-    "id": 83,
+    "id": 84,
     "name": "Temporalis",
     "groupName": "Temporal",
     "side": "left",
@@ -840,7 +840,7 @@
     "fileType": "obj"
   },
   {
-    "id": 84,
+    "id": 85,
     "name": "Temporalis",
     "groupName": "Temporal",
     "side": "right",
@@ -850,7 +850,7 @@
     "fileType": "obj"
   },
   {
-    "id": 85,
+    "id": 86,
     "name": "Thyrohyoid",
     "groupName": "Thyrohyoid",
     "side": "left",
@@ -860,7 +860,7 @@
     "fileType": "obj"
   },
   {
-    "id": 86,
+    "id": 87,
     "name": "Thyrohyoid",
     "groupName": "Thyrohyoid",
     "side": "right",
@@ -870,7 +870,7 @@
     "fileType": "obj"
   },
   {
-    "id": 87,
+    "id": 88,
     "name": "Trapezius",
     "groupName": "Trapezius",
     "side": "left",
@@ -880,7 +880,7 @@
     "fileType": "obj"
   },
   {
-    "id": 88,
+    "id": 89,
     "name": "Trapezius",
     "groupName": "Trapezius",
     "side": "right",
@@ -890,7 +890,7 @@
     "fileType": "obj"
   },
   {
-    "id": 89,
+    "id": 90,
     "name": "Zygomaticus Major",
     "groupName": "Zygomaticus Major",
     "side": "left",
@@ -900,7 +900,7 @@
     "fileType": "obj"
   },
   {
-    "id": 90,
+    "id": 91,
     "name": "Zygomaticus Major",
     "groupName": "Zygomaticus Major",
     "side": "right",
@@ -910,7 +910,7 @@
     "fileType": "obj"
   },
   {
-    "id": 91,
+    "id": 92,
     "name": "Zygomaticus Minor",
     "groupName": "Zygomaticus Minor",
     "side": "left",
@@ -920,7 +920,7 @@
     "fileType": "obj"
   },
   {
-    "id": 92,
+    "id": 93,
     "name": "Zygomaticus Minor",
     "groupName": "Zygomaticus Minor",
     "side": "right",
