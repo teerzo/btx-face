@@ -583,6 +583,7 @@ let app = {
                     muscleMeta.dysportAverageDosePerMuscle = app.combinedMuscles[i].muscles[j].dysportAverageDosePerMuscle;
                     muscleMeta.dysportAverageNumberOfSites = app.combinedMuscles[i].muscles[j].dysportAverageNumberOfSites;
 
+                    
                     // debugger;
                 }
             }
@@ -1163,6 +1164,7 @@ let app = {
                 }
                 else {
                     app.clearRaycastTarget();
+                    
                 }
                 // app.raycast.plane.lookAt( lookPosition );
             }
@@ -1211,6 +1213,7 @@ let app = {
         app.raycast.mouseDown = true;
         let mouse = getMousePosition(event, app.renderer.domElement);
         app.raycastFromCamera(mouse);
+        
         // console.log(mouse);
     },
     mouseMove: function (event) {
