@@ -149,7 +149,7 @@ let app = {
         app.resetDomTextureToggle();
         app.resetDomMoveMuscles();
 
-        resizeThree();  
+        resizeThree();
         app.resetObjects();
         app.resetRaycast();
     },
@@ -187,13 +187,13 @@ let app = {
         app.raycast.currentObject = null;
         app.raycastPos.position.set(0, 0, 0);
     },
-    resetDomTextureToggle: function() {
+    resetDomTextureToggle: function () {
         app.toggleTextures = false;
 
         document.getElementById("chkToggleTextures").checked = false;
 
     },
-    resetDomMoveMuscles: function() {
+    resetDomMoveMuscles: function () {
         app.raycast.moveEnabled = false;
         app.controls.enabled = true;
         document.getElementById("chkMoveMuscles").checked = false;
@@ -384,7 +384,7 @@ let app = {
                                 });
                                 // console.log('$$$ model', model);
 
-                                if( md.name === 'Trapezius' ) {
+                                if (md.name === 'Trapezius') {
                                     console.log('$$$ model', model);
                                 }
 
@@ -583,8 +583,6 @@ let app = {
                     muscleMeta.dysportAverageDosePerMuscle = app.combinedMuscles[i].muscles[j].dysportAverageDosePerMuscle;
                     muscleMeta.dysportAverageNumberOfSites = app.combinedMuscles[i].muscles[j].dysportAverageNumberOfSites;
 
-                    
-                    // debugger;
                 }
             }
         }
@@ -878,15 +876,18 @@ let app = {
                 item.material.emissive.setHex(0xFF0000);
             }
 
-            if (app.toggleTextures) {
-                item.material.map = item.textureGrey;
-            }
-            else {
-                item.material.map = item.texture;
+            if (item.type === 'muscle') {
+                if (app.toggleTextures) {
+                    item.material.map = item.textureGrey;
+                }
+                else {
+                    item.material.map = item.texture;
+                }
             }
 
+            
+
             if (app.conditionId !== null && app.muscleGroupId === null) {
-                debugger;
                 if (item.type === 'muscle') {
                     item.material.color.copy(item.scaleColor);
                 }
@@ -922,108 +923,66 @@ let app = {
     },
     updateObjectsScale: function () {
 
-        for (let c in app.conditions.fullList) {
+        // Clear scale colours
+
+        for (let m = 0; m < app.objectList.length; m++) {
+            app.objectList[m].scaleColor = new THREE.Color(0xFFFFFF);
+        }
+
+
+        for (let c = 0; c < app.conditions.fullList.length; c++) {
             let cond = app.conditions.fullList[c];
 
-            for (let cm in cond.muscles) {
-                let condMuscle = cond.muscles[cm];
+            if (app.conditionId === cond.id) {
+                for (let cm = 0; cm < cond.muscles.length; cm++) {
+                    let condMuscle = cond.muscles[cm];
 
-                for (let m in app.objectList) {
-                    let muscle = app.objectList[m];
+                    for (let m = 0; m < app.objectList.length; m++) {
+                        let muscle = app.objectList[m];
 
-                    if (muscle.id === condMuscle.id && muscle.name === condMuscle.name) {
-                        // console.log(condMuscle);
-                        // console.log(muscle);
 
-                        if (condMuscle.percentageOfSessionsInjected !== '') {
-                            // console.log('set a colour', condMuscle.percentageOfSessionsInjected, condMuscle.percentageOfSessionsInjected / 33);
 
-                            let percentage = condMuscle.percentageOfSessionsInjected;
-                            let colours = [
-                                new THREE.Color(0x01cdcb), // blue
-                                new THREE.Color(0x32b229), // green
-                                new THREE.Color(0xfccf2b), // yellow
-                                // new THREE.Color(0xff8c00), // orange
-                                new THREE.Color(0xe9542e), // red
-                            ];
-
-                            if (percentage === 0) {
-                                // colour white 
-                                muscle.scaleColor = new THREE.Color(0xFFFFFF);
-                                // muscle.scaleColor = new THREE.Color(0x000000);
-                            }
-                            else if (percentage <= 33) {
-                                muscle.scaleColor = new THREE.Color(colours[0]).lerp(colours[1], percentage / 33);
-                            }
-                            else if (percentage <= 66) {
-                                muscle.scaleColor = new THREE.Color(colours[1]).lerp(colours[2], percentage / 66);
-                            }
-                            else { //if (percentage <= 66) {
-                                muscle.scaleColor = new THREE.Color(colours[2]).lerp(colours[3], percentage / 100);
-                            }
-                            // else {
-                            //     muscle.scaleColor = new THREE.Color(colours[3]).lerp(colours[4],  percentage / 25 );
-                            // }
-
+                        if (muscle.id === condMuscle.id && muscle.name === condMuscle.name) {
+                            console.log(muscle.id, muscle.name, condMuscle.percentageOfSessionsInjected);
                             // if( )
 
-                        }
-                        else {
-                            muscle.scaleColor = new THREE.Color(0xFFFFFF);
-                            // muscle.scaleColor = new THREE.Color(0x000000);
+                            // muscle.scaleColor = new THREE.Color(0x00FF00);
+
+                            if (condMuscle.percentageOfSessionsInjected !== '' && condMuscle.percentageOfSessionsInjected > 0 ) {
+                                // console.log(muscle.name, condMuscle.percentageOfSessionsInjected);
+                                muscle.scaleColor = new THREE.Color(0xFFFFFF);
+
+                                let percentage = condMuscle.percentageOfSessionsInjected;
+                                let colours = [
+                                    new THREE.Color(0x01cdcb), // blue
+                                    new THREE.Color(0x32b229), // green
+                                    new THREE.Color(0xfccf2b), // yellow
+                                    // new THREE.Color(0xff8c00), // orange
+                                    new THREE.Color(0xe9542e), // red
+                                ];
+
+                                if (percentage === 0) {
+                                    // colour white 
+                                    muscle.scaleColor = new THREE.Color(0xFFFFFF);
+                                    // muscle.scaleColor = new THREE.Color(0x000000);
+                                }
+                                else if (percentage <= 33) {
+                                    muscle.scaleColor = new THREE.Color(colours[0]).lerp(colours[1], percentage / 33);
+                                }
+                                else if (percentage <= 66) {
+                                    muscle.scaleColor = new THREE.Color(colours[1]).lerp(colours[2], percentage / 66);
+                                }
+                                else { //if (percentage <= 66) {
+                                    muscle.scaleColor = new THREE.Color(colours[2]).lerp(colours[3], percentage / 100);
+                                }
+                            }
+                            else {
+                                muscle.scaleColor = new THREE.Color(0xFFFFFF);
+                            }
                         }
                     }
                 }
             }
-
-
-
-        }
-        // let ids = [];
-        // for (let i in app.combinedMuscles) {
-        //     if (app.combinedMuscles[i].id === id) {
-
-        //         console.log('$$$', app.combinedMuscles[i]);
-
-
-        //         for (let j in app.combinedMuscles[i].muscles) {
-        //             ids.push(app.combinedMuscles[i].muscles[j].id);
-
-        //             // meta
-        //             if (muscleMeta.percentageOfSessionsInjected !== '') {
-
-        //                 muscleMeta.name = app.combinedMuscles[i].name;
-        //                 muscleMeta.percentageOfSessionsInjected = app.combinedMuscles[i].muscles[j].percentageOfSessionsInjected;
-        //                 muscleMeta.botoxAverageDosePerMuscle = app.combinedMuscles[i].muscles[j].botoxAverageDosePerMuscle;
-        //                 muscleMeta.botoxAverageNumberOfSites = app.combinedMuscles[i].muscles[j].botoxAverageNumberOfSites;
-        //                 muscleMeta.dysportAverageDosePerMuscle = app.combinedMuscles[i].muscles[j].dysportAverageDosePerMuscle;
-        //                 muscleMeta.dysportAverageNumberOfSites = app.combinedMuscles[i].muscles[j].dysportAverageNumberOfSites;
-        //             }
-        //         }
-        //     }
-        // }
-        // app.muscleIds = ids;
-
-        console.log('check', app.objectList);
-
-        for (let i in app.objectList) {
-            let item = app.objectList[i];
-            // item.scaleColor = new THREE.Color(0x0000FF);
-
-
-            // item.selected = false;
-            // item.transparent = false;
-
-            // for (let j in ids) {
-            //     if (item.type === 'muscle') {
-            //         if (item.id === ids[j]) {
-            //             console.log('item', item.id, item.name, item);
-            //             item.selected = true;
-
-
-            //         }
-            //     }
-            // }
         }
     },
 
@@ -1143,7 +1102,7 @@ let app = {
                         var offsetPos = new THREE.Vector3().copy(intersectPos);
                         console.log(target);
                         offsetPos.sub(app.raycast.currentObject.object.position);
-                        
+
                         app.raycast.positionOffset.copy(offsetPos);
                         console.log('offset', offsetPos);
 
@@ -1165,11 +1124,11 @@ let app = {
                 }
                 else {
                     app.clearRaycastTarget();
-                    
+
                 }
                 // app.raycast.plane.lookAt( lookPosition );
             }
-            
+
             app.updateObjects();
         }
     },
@@ -1186,7 +1145,6 @@ let app = {
                 let item = app.objectList[i];
 
                 if (item.mesh.name === mesh.name) {
-                    // debugger;
                     item.state.raycastSelected = true;
 
                     app.raycast.currentObject = item;
@@ -1200,7 +1158,7 @@ let app = {
         }
 
     },
-    clearRaycastTarget: function() {
+    clearRaycastTarget: function () {
         console.log('clearRaycastTarget');
         for (let i in app.objectList) {
             let item = app.objectList[i];
@@ -1214,7 +1172,7 @@ let app = {
         app.raycast.mouseDown = true;
         let mouse = getMousePosition(event, app.renderer.domElement);
         app.raycastFromCamera(mouse);
-        
+
         // console.log(mouse);
     },
     mouseMove: function (event) {
@@ -1254,15 +1212,15 @@ let app = {
                         // let testPos = new THREE.Vector3(0,0,0);
                         // position.sub(testPos);
 
-                        console.log('object',app.raycast.currentObject);
+                        console.log('object', app.raycast.currentObject);
                         app.raycast.currentObject.object.position.copy(position);
                         // app.raycast.currentObject.mesh.position.copy(position);
 
-              
+
 
                     }
 
-                } 
+                }
 
 
                 if (app.camera) {
@@ -1284,7 +1242,7 @@ let app = {
                             // let firstObject  = 
                             app.setRaycastTarget(target.object);
                         }
-                       
+
                         app.updateObjects();
                     }
                 }
@@ -1293,10 +1251,10 @@ let app = {
 
     },
     mouseUp: function (event) {
-        window.setTimeout(function() {
+        window.setTimeout(function () {
             // app.controls.enabled = true;
         }, 1000);
-       
+
 
         app.raycast.mouseDown = false;
     },
@@ -1569,7 +1527,7 @@ const resizeThree = function (event) {
     if (app.renderer) {
 
         let width = window.innerWidth - 20;
-        let height = (window.innerWidth <= 768 ? window.innerHeight - 60 : window.innerHeight - 60);
+        let height = (window.innerWidth <= 768 ? window.innerHeight - 80 : window.innerHeight - 80 );
 
         const cameraPos = app.camera.position;
         app.camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 10000);
@@ -1801,7 +1759,7 @@ const createObject = function (props) {
 
         // add test object
 
-        const testObj = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshPhongMaterial({ color: 0x00FF00, flatShading: true, wireframe: false, visible: true, transparent: false }) );
+        const testObj = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshPhongMaterial({ color: 0x00FF00, flatShading: true, wireframe: false, visible: true, transparent: false }));
         // obj.children[0].children.push(testObj);
         // obj.children.push(testObj);
 
@@ -1812,7 +1770,7 @@ const createObject = function (props) {
 
         obj.name = props.name;
 
-    
+
 
         mesh.material = material;
 

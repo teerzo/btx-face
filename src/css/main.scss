@@ -266,7 +266,7 @@ html, body {
         z-index: 2;
         overflow: hidden;
 
-        top: 40px;
+        top: 60px;
         right: 0px;
         left: 0px;
         bottom: 0px;
@@ -276,15 +276,20 @@ html, body {
         .overlay-scale {
             position: absolute;
             z-index: 4;
-            top: calc(100% - 80px);
-            left: calc(100px);
+            // top: calc(100% - 80px);
+            // left: calc(100px);
 
-            
+            bottom: 20px;
+            left: 0px;
+            right: 0px;
+           
+            text-align: center;
             
 
             .scale-parent {
                 display: flex;
                 width: 300px;
+                margin: 0 auto;
                 .scale-min {
                     border-width: 1px 0 1px 1px;
                     border-style: solid;
@@ -338,14 +343,13 @@ html, body {
         .overlay-muscle {
             position: absolute;
             z-index: 3;
-            top: calc(100px);
-            left: calc(100% - 400px);
+            // top: calc(100px);
+            // left: calc(100% - 400px);
 
-            width: 300px;
-            // min-width: 100px;
-            // width: 300px;
-            // height: 200px;
+            top: 30px;
+            right: 20px;
 
+            width: 320px;
             padding: 10px;
 
             background-color: #FFFFFF;
@@ -382,8 +386,11 @@ html, body {
         .overlay-condition {
             position: absolute;
             z-index: 3;
-            top: calc(100% - 200px);
-            left: calc(100% - 300px);
+            // top: calc(100% - 200px);
+            // left: calc(100% - 300px);
+
+            bottom: 20px;
+            right: 20px;
 
             width: 200px;
             // min-width: 100px;
@@ -451,7 +458,7 @@ html, body {
         z-index: 1;
         overflow: hidden;
 
-        top: 40px;
+        top: 60px;
         right: 0px;
         left: 0px;
         bottom: 0px;
