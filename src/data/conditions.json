@@ -683,7 +683,7 @@
             },
             {
                 "id": 61,
-                "name": "Scalene Medius 01",
+                "name": "Scalene Medius",
                 "groupName": "Scalene",
                 "side": "left",
                 "percentageOfSessionsInjected": "",
@@ -694,7 +694,7 @@
             },
             {
                 "id": 62,
-                "name": "Scalene Medius 01",
+                "name": "Scalene Medius",
                 "groupName": "Scalene",
                 "side": "right",
                 "percentageOfSessionsInjected": "",
@@ -705,7 +705,7 @@
             },
             {
                 "id": 63,
-                "name": "Scalenus Anterior 01",
+                "name": "Scalenus Anterior",
                 "groupName": "Scalenus Anterior",
                 "side": "left",
                 "percentageOfSessionsInjected": "",
@@ -716,7 +716,7 @@
             },
             {
                 "id": 64,
-                "name": "Scalenus Anterior 01",
+                "name": "Scalenus Anterior",
                 "groupName": "Scalenus Anterior",
                 "side": "right",
                 "percentageOfSessionsInjected": "",
@@ -727,7 +727,7 @@
             },
             {
                 "id": 65,
-                "name": "Scalenus Posterior 01",
+                "name": "Scalenus Posterior",
                 "groupName": "Scalenus Posterior",
                 "side": "left",
                 "percentageOfSessionsInjected": "",
@@ -738,7 +738,7 @@
             },
             {
                 "id": 66,
-                "name": "Scalenus Posterior 01",
+                "name": "Scalenus Posterior",
                 "groupName": "Scalenus Posterior",
                 "side": "right",
                 "percentageOfSessionsInjected": "",
@@ -749,7 +749,7 @@
             },
             {
                 "id": 67,
-                "name": "Semispinalis Capitis 01",
+                "name": "Semispinalis Capitis",
                 "groupName": "Semispinalis Capitis",
                 "side": "left",
                 "percentageOfSessionsInjected": "",
@@ -760,7 +760,7 @@
             },
             {
                 "id": 68,
-                "name": "Semispinalis Capitis 01",
+                "name": "Semispinalis Capitis",
                 "groupName": "Semispinalis Capitis",
                 "side": "right",
                 "percentageOfSessionsInjected": "",
@@ -771,7 +771,7 @@
             },
             {
                 "id": 69,
-                "name": "Semispinalis Cervicis 01",
+                "name": "Semispinalis Cervicis",
                 "groupName": "Semispinalis Cervicis",
                 "side": "left",
                 "percentageOfSessionsInjected": "",
@@ -782,7 +782,7 @@
             },
             {
                 "id": 70,
-                "name": "Semispinalis Cervicis 01",
+                "name": "Semispinalis Cervicis",
                 "groupName": "Semispinalis Cervicis",
                 "side": "right",
                 "percentageOfSessionsInjected": "",
@@ -2071,7 +2071,7 @@
             },
             {
                 "id": 62,
-                "name": "Scalene Medius 01",
+                "name": "Scalene Medius",
                 "groupName": "Scalene",
                 "side": "left",
                 "percentageOfSessionsInjected": "",
@@ -2082,7 +2082,7 @@
             },
             {
                 "id": 63,
-                "name": "Scalene Medius 01",
+                "name": "Scalene Medius",
                 "groupName": "Scalene",
                 "side": "right",
                 "percentageOfSessionsInjected": "",
@@ -2093,7 +2093,7 @@
             },
             {
                 "id": 64,
-                "name": "Scalenus Anterior 01",
+                "name": "Scalenus Anterior",
                 "groupName": "Scalenus Anterior",
                 "side": "left",
                 "percentageOfSessionsInjected": "",
@@ -2104,7 +2104,7 @@
             },
             {
                 "id": 65,
-                "name": "Scalenus Anterior 01",
+                "name": "Scalenus Anterior",
                 "groupName": "Scalenus Anterior",
                 "side": "right",
                 "percentageOfSessionsInjected": "",
@@ -2115,7 +2115,7 @@
             },
             {
                 "id": 66,
-                "name": "Scalenus Posterior 01",
+                "name": "Scalenus Posterior",
                 "groupName": "Scalenus Posterior",
                 "side": "left",
                 "percentageOfSessionsInjected": "",
@@ -2126,7 +2126,7 @@
             },
             {
                 "id": 67,
-                "name": "Scalenus Posterior 01",
+                "name": "Scalenus Posterior",
                 "groupName": "Scalenus Posterior",
                 "side": "right",
                 "percentageOfSessionsInjected": "",
@@ -2137,7 +2137,7 @@
             },
             {
                 "id": 68,
-                "name": "Semispinalis Capitis 01",
+                "name": "Semispinalis Capitis",
                 "groupName": "Semispinalis Capitis",
                 "side": "left",
                 "percentageOfSessionsInjected": "",
@@ -2148,7 +2148,7 @@
             },
             {
                 "id": 69,
-                "name": "Semispinalis Capitis 01",
+                "name": "Semispinalis Capitis",
                 "groupName": "Semispinalis Capitis",
                 "side": "right",
                 "percentageOfSessionsInjected": "",
@@ -2159,7 +2159,7 @@
             },
             {
                 "id": 70,
-                "name": "Semispinalis Cervicis 01",
+                "name": "Semispinalis Cervicis",
                 "groupName": "Semispinalis Cervicis",
                 "side": "left",
                 "percentageOfSessionsInjected": "",
@@ -2170,7 +2170,7 @@
             },
             {
                 "id": 71,
-                "name": "Semispinalis Cervicis 01",
+                "name": "Semispinalis Cervicis",
                 "groupName": "Semispinalis Cervicis",
                 "side": "right",
                 "percentageOfSessionsInjected": 16,
@@ -12431,7 +12431,7 @@
             },
             {
                 "id": 62,
-                "name": "Scalene Medius 01",
+                "name": "Scalene Medius",
                 "groupName": "Scalene",
                 "side": "left",
                 "percentageOfSessionsInjected": 0,
@@ -12442,7 +12442,7 @@
             },
             {
                 "id": 63,
-                "name": "Scalene Medius 01",
+                "name": "Scalene Medius",
                 "groupName": "Scalene",
                 "side": "right",
                 "percentageOfSessionsInjected": 0,
@@ -12453,7 +12453,7 @@
             },
             {
                 "id": 64,
-                "name": "Scalenus Anterior 01",
+                "name": "Scalenus Anterior",
                 "groupName": "Scalenus Anterior",
                 "side": "left",
                 "percentageOfSessionsInjected": 0,
@@ -12464,7 +12464,7 @@
             },
             {
                 "id": 65,
-                "name": "Scalenus Anterior 01",
+                "name": "Scalenus Anterior",
                 "groupName": "Scalenus Anterior",
                 "side": "right",
                 "percentageOfSessionsInjected": 0,
@@ -12475,7 +12475,7 @@
             },
             {
                 "id": 66,
-                "name": "Scalenus Posterior 01",
+                "name": "Scalenus Posterior",
                 "groupName": "Scalenus Posterior",
                 "side": "left",
                 "percentageOfSessionsInjected": 0,
@@ -12486,7 +12486,7 @@
             },
             {
                 "id": 67,
-                "name": "Scalenus Posterior 01",
+                "name": "Scalenus Posterior",
                 "groupName": "Scalenus Posterior",
                 "side": "right",
                 "percentageOfSessionsInjected": 0,
@@ -12497,7 +12497,7 @@
             },
             {
                 "id": 68,
-                "name": "Semispinalis Capitis 01",
+                "name": "Semispinalis Capitis",
                 "groupName": "Semispinalis Capitis",
                 "side": "left",
                 "percentageOfSessionsInjected": 0,
@@ -12508,7 +12508,7 @@
             },
             {
                 "id": 69,
-                "name": "Semispinalis Capitis 01",
+                "name": "Semispinalis Capitis",
                 "groupName": "Semispinalis Capitis",
                 "side": "right",
                 "percentageOfSessionsInjected": 0,
@@ -12519,7 +12519,7 @@
             },
             {
                 "id": 70,
-                "name": "Semispinalis Cervicis 01",
+                "name": "Semispinalis Cervicis",
                 "groupName": "Semispinalis Cervicis",
                 "side": "left",
                 "percentageOfSessionsInjected": 0,
@@ -12530,7 +12530,7 @@
             },
             {
                 "id": 71,
-                "name": "Semispinalis Cervicis 01",
+                "name": "Semispinalis Cervicis",
                 "groupName": "Semispinalis Cervicis",
                 "side": "right",
                 "percentageOfSessionsInjected": 0,
@@ -13467,7 +13467,7 @@
             },
             {
                 "id": 62,
-                "name": "Scalene Medius 01",
+                "name": "Scalene Medius",
                 "groupName": "Scalene",
                 "side": "left",
                 "percentageOfSessionsInjected": 0,
@@ -13478,7 +13478,7 @@
             },
             {
                 "id": 63,
-                "name": "Scalene Medius 01",
+                "name": "Scalene Medius",
                 "groupName": "Scalene",
                 "side": "right",
                 "percentageOfSessionsInjected": 0,
@@ -13489,7 +13489,7 @@
             },
             {
                 "id": 64,
-                "name": "Scalenus Anterior 01",
+                "name": "Scalenus Anterior",
                 "groupName": "Scalenus Anterior",
                 "side": "left",
                 "percentageOfSessionsInjected": 0,
@@ -13500,7 +13500,7 @@
             },
             {
                 "id": 65,
-                "name": "Scalenus Anterior 01",
+                "name": "Scalenus Anterior",
                 "groupName": "Scalenus Anterior",
                 "side": "right",
                 "percentageOfSessionsInjected": 0,
@@ -13511,7 +13511,7 @@
             },
             {
                 "id": 66,
-                "name": "Scalenus Posterior 01",
+                "name": "Scalenus Posterior",
                 "groupName": "Scalenus Posterior",
                 "side": "left",
                 "percentageOfSessionsInjected": 0,
@@ -13522,7 +13522,7 @@
             },
             {
                 "id": 67,
-                "name": "Scalenus Posterior 01",
+                "name": "Scalenus Posterior",
                 "groupName": "Scalenus Posterior",
                 "side": "right",
                 "percentageOfSessionsInjected": 0,
@@ -13533,7 +13533,7 @@
             },
             {
                 "id": 68,
-                "name": "Semispinalis Capitis 01",
+                "name": "Semispinalis Capitis",
                 "groupName": "Semispinalis Capitis",
                 "side": "left",
                 "percentageOfSessionsInjected": 0,
@@ -13544,7 +13544,7 @@
             },
             {
                 "id": 69,
-                "name": "Semispinalis Capitis 01",
+                "name": "Semispinalis Capitis",
                 "groupName": "Semispinalis Capitis",
                 "side": "right",
                 "percentageOfSessionsInjected": 0,
@@ -13555,7 +13555,7 @@
             },
             {
                 "id": 70,
-                "name": "Semispinalis Cervicis 01",
+                "name": "Semispinalis Cervicis",
                 "groupName": "Semispinalis Cervicis",
                 "side": "left",
                 "percentageOfSessionsInjected": 0,
@@ -13566,7 +13566,7 @@
             },
             {
                 "id": 71,
-                "name": "Semispinalis Cervicis 01",
+                "name": "Semispinalis Cervicis",
                 "groupName": "Semispinalis Cervicis",
                 "side": "right",
                 "percentageOfSessionsInjected": 0,
