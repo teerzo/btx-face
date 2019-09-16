@@ -1,7 +1,9 @@
 // npm
 // import * as THREE from 'three';
-const THREE = require('three');
+const THREE = window.THREE = require('three');
 const OBJLoader = require('three-obj-loader');
+require('three/examples/js/utils/BufferGeometryUtils.js');
+
 // const OrbitControls = require('three-orbitcontrols')
 const OrbitControls = require('./js/orbitcontrols')
 
@@ -373,20 +375,22 @@ let app = {
                     if (md.fileName !== '' && md.fileName !== null) {
                         let promise = new Promise(function (resolve, reject) {
                             app.OBJLoader.load('./obj/' + md.fileName + '.' + md.fileType, function (model) {
+
                                 app.models.list.push({
                                     id: md.id,
                                     type: 'muscle',
                                     name: md.name,
                                     side: md.side,
                                     mesh: model,
+                                    meshes: model.children,
                                     texture: md.texture,
                                     textureGrey: md.textureGrey,
                                 });
                                 // console.log('$$$ model', model);
 
-                                if (md.name === 'Trapezius') {
-                                    console.log('$$$ model', model);
-                                }
+                                // if (md.name === 'Trapezius') {
+                                //     console.log('$$$ model', model);
+                                // }
 
                                 resolve();
                             });
@@ -399,7 +403,7 @@ let app = {
                     if (app.modelsMisc.fullList[i].fileName !== '') {
                         let promise = new Promise(function (resolve, reject) {
                             app.OBJLoader.load('./obj/' + md.fileName + '.' + md.fileType, function (model) {
-                                app.modelsMisc.list.push({ id: md.id, type: 'misc', name: md.name, mesh: model, texture: md.texture });
+                                app.modelsMisc.list.push({ id: md.id, type: 'misc', name: md.name, mesh: model, meshes: model.children, texture: md.texture });
                                 console.log('model', model);
 
                                 resolve();
@@ -647,6 +651,7 @@ let app = {
                             name: app.models.list[i].name,
                             side: app.models.list[i].side,
                             mesh: app.models.list[i].mesh,
+                            meshes: app.models.list[i].meshes,
                             texture: app.models.list[i].texture,
                             textureGrey: app.models.list[i].textureGrey,
                         }
@@ -654,7 +659,10 @@ let app = {
                         let obj = createObject(objProps);
                         // obj.object.scale
                         app.objectList.push(obj);
-                        app.raycastList.push(obj.mesh);
+                        // app.raycastList.push(obj.mesh);
+                        for (let m = 0; m < obj.meshes.length; m++) {
+                            app.raycastList.push(obj.meshes[m]);
+                        }
                     }
                 }
             }
@@ -666,14 +674,17 @@ let app = {
                         type: app.modelsMisc.list[i].type,
                         name: app.modelsMisc.list[i].name,
                         mesh: app.modelsMisc.list[i].mesh,
-
+                        meshes: app.models.list[i].meshes,
                         texture: app.modelsMisc.list[i].texture,
                     }
 
                     let obj = createObject(objProps);
                     // obj.object.scale.multiplyScalar(8.0);
                     app.objectList.push(obj);
-                    app.raycastList.push(obj.mesh);
+                    // app.raycastList.push(obj.mesh);
+                    for (let m = 0; m < obj.meshes.length; m++) {
+                        app.raycastList.push(obj.meshes[m]);
+                    }
                 }
             }
             updateScene();
@@ -885,7 +896,7 @@ let app = {
                 }
             }
 
-            
+
 
             if (app.conditionId !== null && app.muscleGroupId === null) {
                 if (item.type === 'muscle') {
@@ -948,7 +959,7 @@ let app = {
 
                             // muscle.scaleColor = new THREE.Color(0x00FF00);
 
-                            if (condMuscle.percentageOfSessionsInjected !== '' && condMuscle.percentageOfSessionsInjected > 0 ) {
+                            if (condMuscle.percentageOfSessionsInjected !== '' && condMuscle.percentageOfSessionsInjected > 0) {
                                 // console.log(muscle.name, condMuscle.percentageOfSessionsInjected);
                                 muscle.scaleColor = new THREE.Color(0xFFFFFF);
 
@@ -1143,16 +1154,15 @@ let app = {
 
             for (let i in app.objectList) {
                 let item = app.objectList[i];
+                item.state.raycastSelected = false;
 
-                if (item.mesh.name === mesh.name) {
-                    item.state.raycastSelected = true;
+                for (let m = 0; m < item.meshes.length; m++) {
+                    if (item.meshes[m].name === mesh.name) {
+                        item.state.raycastSelected = true;
 
-                    app.raycast.currentObject = item;
-                    app.selectMuscle(item);
-
-                }
-                else {
-                    item.state.raycastSelected = false;
+                        app.raycast.currentObject = item;
+                        app.selectMuscle(item);
+                    }
                 }
             }
         }
@@ -1527,7 +1537,7 @@ const resizeThree = function (event) {
     if (app.renderer) {
 
         let width = window.innerWidth - 20;
-        let height = (window.innerWidth <= 768 ? window.innerHeight - 80 : window.innerHeight - 80 );
+        let height = (window.innerWidth <= 768 ? window.innerHeight - 80 : window.innerHeight - 80);
 
         const cameraPos = app.camera.position;
         app.camera = new THREE.PerspectiveCamera(55, width / height, 0.1, 10000);
@@ -1770,6 +1780,13 @@ const createObject = function (props) {
 
         obj.name = props.name;
 
+        let meshes = [];
+        for (let m = 0; m < obj.children.length; m++) {
+            let newMesh = obj.children[m];
+            newMesh.material = material;
+            meshes.push(newMesh);
+        }
+
 
 
         mesh.material = material;
@@ -1778,6 +1795,9 @@ const createObject = function (props) {
         // data.object.children.push(mesh);
 
         data.mesh = mesh;
+
+        data.meshes = meshes;
+
         data.material = material;
         data.texture = texture;
         data.textureGrey = textureGrey;

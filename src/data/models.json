@@ -194,27 +194,27 @@
     "name": "Levator Labii Superioris Alaeque Nasi",
     "groupName": "Levator Labii Superioris",
     "side": "left",
-    "fileName": "Levator_Labii_Superioris_Muscle_Left_01",
+    "fileName": "Levator_Labii_Superioris_Alaeque_Nasi_Muscle_Left",
     "texture": "muscleTex",
     "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 21,
-    "name": "Levator Labii Superioris",
+    "name": "Levator Labii Superioris Alaeque Nasi",
     "groupName": "Levator Labii Superioris",
     "side": "right",
-    "fileName": "Levator_Labii_Superioris_Muscle_Right_01",
+    "fileName": "Levator_Labii_Superioris_Alaeque_Nasi_Muscle_Right",
     "texture": "muscleTex",
     "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
     "id": 22,
-    "name": "Levator Labii Superioris Alaeque Nasi",
+    "name": "Levator Labii Superioris",
     "groupName": "Levator Labii Superioris",
     "side": "left",
-    "fileName": "Levator_Labii_Superioris_Muscle_Left_02",
+    "fileName": "Levator_Labii_Superioris_Muscle_Left",
     "texture": "muscleTex",
     "textureGrey": "muscleTexGrey",
     "fileType": "obj"
@@ -224,7 +224,7 @@
     "name": "Levator Labii Superioris",
     "groupName": "Levator Labii Superioris",
     "side": "right",
-    "fileName": "Levator_Labii_Superioris_Muscle_Right_02",
+    "fileName": "Levator_Labii_Superioris_Muscle_Right",
     "texture": "muscleTex",
     "textureGrey": "muscleTexGrey",
     "fileType": "obj"
@@ -254,9 +254,9 @@
     "name": "Longissimus Capitis",
     "groupName": "Longissimus Capitis",
     "side": "left",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
+    "fileName": "Longissimus_Capitis_Muscles_Left",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -264,9 +264,9 @@
     "name": "Longissimus Capitis",
     "groupName": "Longissimus Capitis",
     "side": "right",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
+    "fileName": "Longissimus_Capitis_Muscles_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -274,9 +274,9 @@
     "name": "Longus Colli",
     "groupName": "Longus Colli",
     "side": "left",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
+    "fileName": "Longus_Colli_Muscle_Left",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -284,9 +284,9 @@
     "name": "Longus Colli",
     "groupName": "Longus Colli",
     "side": "right",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
+    "fileName": "Longus_Colli_Muscle_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -392,42 +392,42 @@
   {
     "id": 40,
     "name": "Obliqus Capitis Inferior",
-    "groupName": "",
+    "groupName": "Obliqus Capitis Inferior",
     "side": "left",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Obliqus_Capitis_Inferior_Muscle_Left",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 41,
     "name": "Obliqus Capitis Inferior",
-    "groupName": "",
+    "groupName": "Obliqus Capitis Inferior",
     "side": "right",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Obliqus_Capitis_Inferior_Muscle_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 42,
     "name": "Obliqus Capitis Superior",
-    "groupName": "",
+    "groupName": "Obliqus Capitis Superior",
     "side": "left",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Obliqus_Capitis_Superior_Muscle_Left",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 43,
     "name": "Obliqus Capitis Superior",
-    "groupName": "",
+    "groupName": "Obliqus Capitis Superior",
     "side": "right",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Obliqus_Capitis_Superior_Muscle_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 44,
@@ -482,22 +482,22 @@
   {
     "id": 49,
     "name": "Platysma",
-    "groupName": "",
+    "groupName": "Platysma",
     "side": "left",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Platysma_Muscle_Left",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 50,
     "name": "Platysma",
-    "groupName": "",
+    "groupName": "Platysma",
     "side": "right",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Platysma_Muscle_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 51,
@@ -532,62 +532,62 @@
   {
     "id": 54,
     "name": "Pterygoid Medial",
-    "groupName": "",
+    "groupName": "Pterygoid Medial",
     "side": "left",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Pterygoid_Medial_Muscle_Left",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 55,
     "name": "Pterygoid Medial",
-    "groupName": "",
+    "groupName": "Pterygoid Medial",
     "side": "right",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Pterygoid_Medial_Muscle_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 56,
     "name": "Pterygoid Lateral",
-    "groupName": "",
+    "groupName": "Pterygoid Lateral",
     "side": "left",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Pterygoid_Lateral_Muscle_Left",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 57,
     "name": "Pterygoid Lateral",
-    "groupName": "",
+    "groupName": "Pterygoid Lateral",
     "side": "right",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Pterygoid_Lateral_Muscle_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 58,
     "name": "Rectus Capitis Major",
-    "groupName": "",
+    "groupName": "Rectus Capitis Major",
     "side": "left",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Rectus_Capitis_Major_Muscle_Left",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 59,
     "name": "Rectus Capitis Major",
-    "groupName": "",
+    "groupName": "Rectus Capitis Major",
     "side": "right",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Rectus_Capitis_Major_Muscle_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 60,
@@ -611,7 +611,7 @@
   },
   {
     "id": 62,
-    "name": "Scalene Medius 01",
+    "name": "Scalene Medius",
     "groupName": "Scalene",
     "side": "left",
     "fileName": "Scalene_Muscle_Left",
@@ -621,7 +621,7 @@
   },
   {
     "id": 63,
-    "name": "Scalene Medius 01",
+    "name": "Scalene Medius",
     "groupName": "Scalene",
     "side": "right",
     "fileName": "Scalene_Muscle_Right",
@@ -631,7 +631,7 @@
   },
   {
     "id": 64,
-    "name": "Scalenus Anterior 01",
+    "name": "Scalenus Anterior",
     "groupName": "Scalenus Anterior",
     "side": "left",
     "fileName": "Scalenus_Anterior_Muscle_Left",
@@ -641,7 +641,7 @@
   },
   {
     "id": 65,
-    "name": "Scalenus Anterior 01",
+    "name": "Scalenus Anterior",
     "groupName": "Scalenus Anterior",
     "side": "right",
     "fileName": "Scalenus_Anterior_Muscle_Right",
@@ -651,7 +651,7 @@
   },
   {
     "id": 66,
-    "name": "Scalenus Posterior 01",
+    "name": "Scalenus Posterior",
     "groupName": "Scalenus Posterior",
     "side": "left",
     "fileName": "Scalenus_Posterior_Muscle_Left",
@@ -661,7 +661,7 @@
   },
   {
     "id": 67,
-    "name": "Scalenus Posterior 01",
+    "name": "Scalenus Posterior",
     "groupName": "Scalenus Posterior",
     "side": "right",
     "fileName": "Scalenus_Posterior_Muscle_Right",
@@ -671,7 +671,7 @@
   },
   {
     "id": 68,
-    "name": "Semispinalis Capitis 01",
+    "name": "Semispinalis Capitis",
     "groupName": "Semispinalis Capitis",
     "side": "left",
     "fileName": "Semispinalis_Capitis_Muscle_Left",
@@ -681,7 +681,7 @@
   },
   {
     "id": 69,
-    "name": "Semispinalis Capitis 01",
+    "name": "Semispinalis Capitis",
     "groupName": "Semispinalis Capitis",
     "side": "right",
     "fileName": "Semispinalis_Capitis_Muscle_Right",
@@ -691,7 +691,7 @@
   },
   {
     "id": 70,
-    "name": "Semispinalis Cervicis 01",
+    "name": "Semispinalis Cervicis",
     "groupName": "Semispinalis Cervicis",
     "side": "left",
     "fileName": "Semispinalis_Cervicis_Muscle_Left",
@@ -701,7 +701,7 @@
   },
   {
     "id": 71,
-    "name": "Semispinalis Cervicis 01",
+    "name": "Semispinalis Cervicis",
     "groupName": "Semispinalis Cervicis",
     "side": "right",
     "fileName": "Semispinalis_Cervicis_Muscle_Right",

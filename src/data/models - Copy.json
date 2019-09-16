@@ -254,9 +254,9 @@
     "name": "Longissimus Capitis",
     "groupName": "Longissimus Capitis",
     "side": "left",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
+    "fileName": "Longissimus_Capitis_Muscles_Left",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -264,9 +264,9 @@
     "name": "Longissimus Capitis",
     "groupName": "Longissimus Capitis",
     "side": "right",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
+    "fileName": "Longissimus_Capitis_Muscles_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -274,9 +274,9 @@
     "name": "Longus Colli",
     "groupName": "Longus Colli",
     "side": "left",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
+    "fileName": "Longus_Colli_Muscle_Left",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -284,9 +284,9 @@
     "name": "Longus Colli",
     "groupName": "Longus Colli",
     "side": "right",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
+    "fileName": "Longus_Colli_Muscle_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
     "fileType": "obj"
   },
   {
@@ -482,22 +482,22 @@
   {
     "id": 49,
     "name": "Platysma",
-    "groupName": "",
+    "groupName": "Platysma",
     "side": "left",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Platysma_Muscle_Left",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 50,
     "name": "Platysma",
-    "groupName": "",
+    "groupName": "Platysma",
     "side": "right",
-    "fileName": "",
-    "texture": "",
-    "textureGrey": "",
-    "fileType": ""
+    "fileName": "Platysma_Muscle_Right",
+    "texture": "muscleTex",
+    "textureGrey": "muscleTexGrey",
+    "fileType": "obj"
   },
   {
     "id": 51,
